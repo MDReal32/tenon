@@ -7,7 +7,7 @@ model: claude-opus-5-5
 date: "2026-11-03"
 status: done
 branch: docs/departments/github-project-tracker
-pr:
+pr: 1
 ---
 
 # GitHub issues and the Tenon project as the task tracker
