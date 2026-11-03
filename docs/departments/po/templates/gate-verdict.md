@@ -3,7 +3,7 @@
 What the PO proxy returns from the gate. PM puts the whole verdict in the PR description, and passes the first line with any questions to the owner.
 
 ```md
-🤖 PO proxy: <Approved | Rejected | Questions for the owner> for <task link or short name> <task title>
+🤖 PO proxy: <Approved | Rejected | Questions for the owner> for #<issue number> <task title>
 
 **Checked:**
 

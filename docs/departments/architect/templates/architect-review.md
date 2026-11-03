@@ -3,7 +3,7 @@
 What the Architect reviewer returns after the owner review. PM puts the whole review in the PR description and, when changes are requested, pastes each finding into the next assignment of the role that owns it.
 
 ```md
-🤖 Architect reviewer: <Approved | Changes requested> for <task link or short name> <task title>, attempt <n>
+🤖 Architect reviewer: <Approved | Changes requested> for #<issue number> <task title>, attempt <n>
 
 **Reviewed:** <the commits, from the first hash to the last>
 

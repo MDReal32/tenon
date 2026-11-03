@@ -3,7 +3,7 @@
 What the Architect gate returns from the gate. PM puts the whole verdict in the PR description, takes the route from it, and passes the first line to the owner.
 
 ```md
-🤖 Architect gate: <Approved | Rejected | Questions for the owner> for <task link or short name> <task title>
+🤖 Architect gate: <Approved | Rejected | Questions for the owner> for #<issue number> <task title>
 
 **Checked:**
 

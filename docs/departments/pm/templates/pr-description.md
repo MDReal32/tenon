@@ -5,7 +5,7 @@ The run record. PM opens the draft PR with it after the gate and updates it afte
 ```md
 ## Task
 
-<task link or short name>: <task title>
+Closes #<issue number>: <task title>
 
 ## What changed
 
