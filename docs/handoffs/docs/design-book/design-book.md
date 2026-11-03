@@ -20,4 +20,4 @@ The book came from splitting the single design document into chapters, in [the s
 
 ## Current state
 
-The book holds the whole design as it stood in draft v0.1. Its wording is unchanged apart from the openings, the closings and the section references, which are now links. Nothing is committed, since Tenon is not a git repository yet. A docs check that walks the `prev`/`next` chain automatically will come with `libs/dev`.
+The book holds the whole design as it stood in draft v0.1. Its wording is unchanged apart from the openings, the closings and the section references, which are now links. It is committed on `master` and `develop`. A docs check that walks the `prev`/`next` chain automatically will come with `libs/dev`.
