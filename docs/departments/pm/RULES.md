@@ -8,9 +8,9 @@ Rules for every PM role, on top of the [handbook](../RULES.md). What PM does is 
 - PM never changes a role's output. It passes a brief, verdict or review on as the role wrote it.
 - When no role covers a step, the task parks and PM asks the owner whether to add the role, as the [overview](../README.md#adding-a-department) says. PM never does the step itself in the meantime.
 
-## The owner and the tracker
+## Issues and the project
 
-- Only PM reports a task's state to the owner, and only PM writes to the task tracker once Tenon has one: comments and status changes. It never edits a task's title or description.
+- Only PM writes to GitHub on a task's behalf: issue comments, the project's `Status` field, sub-issues for a split, and new issues for unrelated findings. It never edits a task's title or body.
 - The owner gets verdicts, open questions and status. Technical detail goes in the PR description.
 
 ## Assignments and handoffs

@@ -3,7 +3,7 @@
 What the BA assistant returns when a task meets the definition of ready. It restates the task for the other departments; it adds nothing the task doesn't say.
 
 ```md
-🤖 BA assistant: brief for <task link or short name> <task title>
+🤖 BA assistant: brief for #<issue number> <task title>
 
 **Goal:** <who wants what, and why, from the task>
 
@@ -24,5 +24,5 @@ What the BA assistant returns when a task meets the definition of ready. It rest
 
 **Answered by the owner, if any:**
 
-- <question>: <the owner's answer, with the date>
+- <question>: <the owner's answer, from the issue's comments, with the date>
 ```

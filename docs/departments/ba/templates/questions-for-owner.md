@@ -1,6 +1,6 @@
 # Questions for the owner
 
-What the BA assistant returns when a task isn't ready. PM passes it to the owner under its own [message](../../pm/templates/owner-message.md) line.
+What the BA assistant returns when a task isn't ready. PM posts it on the issue under its own [comment](../../pm/templates/issue-comment.md) line.
 
 ```md
 🤖 BA assistant: <n> questions before this task can start

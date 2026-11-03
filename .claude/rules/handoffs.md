@@ -4,7 +4,7 @@ These apply to every session and every department role. What the departments are
 
 ## Tasks, jobs and handoffs
 
-- A **task** is a piece of work the owner asks for. Its source of truth is wherever the owner wrote it: the task tracker once Tenon has one, until then the owner's request in the session. The repository keeps no copy of a task: notes link it by its tracker URL when it has one, and otherwise describe it in their own words only as far as the work needs.
+- A **task** is a GitHub issue in `MDReal32/tenon`, tracked in the [Tenon project](https://github.com/users/MDReal32/projects/4), and the issue is its source of truth. The repository keeps no copy or summary of it: notes link it by its issue URL.
 - A **job** is a piece of Tenon, such as the protocol handshake or the plan applier. It is not a task: a job takes any number of tasks over its life.
 - A **job** note describes one job at `docs/handoffs/<area>/<job>/<job>.md`. `<area>` is the job's `area`, the part of Tenon it belongs to (`protocol`, `core`, `hosts`, `sdks`, `extensions`, `distribution`, `dev`, `docs`, `departments`), and `<job>` is a kebab-case name such as `protocol-handshake`, unique across all areas.
 - A **handoff** is the report of one piece of work by one role or session, at `docs/handoffs/<area>/<job>/<yyyy-mm-dd>-<role>-<topic>.md`.
@@ -15,7 +15,7 @@ These apply to every session and every department role. What the departments are
 
 - Before any work on a job, read its job note, then its handoffs from oldest to newest, compacted handoffs included. Start from the job note's "Current state" and read at least every handoff it points at as still relevant.
 - Treat what the job note and handoffs settle as settled. Never ask again a question a handoff already answers, and only ask the questions they leave open.
-- Read the task itself where the owner wrote it, not from a note. When the tracker can't be reached, say so and wait instead of working from memory of the task.
+- Read the task itself on its issue, comments included, not from a note. When GitHub can't be reached, say so and wait instead of working from memory of the task.
 - When the work has no job yet, create the job folder under its area and its job note first. When it is unclear which job or area the work belongs to, ask instead of guessing.
 
 ## While working
@@ -39,8 +39,8 @@ These apply to every session and every department role. What the departments are
 ## Writing
 
 - The body is a detailed report in plain paragraphs under the template's headings, not bullet lists: what was asked, what was done and how, why this way and which alternatives lost, which checks ran, where things stand, and what comes next.
-- In the body, the first mention of a task in each section links its tracker URL when it has one. The first mention of a job, handoff, crate, library or design section in each section is a relative markdown link.
-- In frontmatter, a job is a quoted wikilink, such as `job: "[[protocol-handshake]]"`, since that is the form Obsidian reads as a link inside properties. A task is its quoted tracker URL.
+- In the body, the first mention of a task in each section links its issue URL, such as `[#12](https://github.com/MDReal32/tenon/issues/12)`. The first mention of a job, handoff, crate, library or design section in each section is a relative markdown link.
+- In frontmatter, a job is a quoted wikilink, such as `job: "[[protocol-handshake]]"`, since that is the form Obsidian reads as a link inside properties. A task is its quoted issue URL.
 - Describe what a task asks only as far as the work needs, in your own words; never copy a task's text into a note.
 - Never put a secret in any of these notes.
 - Every file name under `docs/` is unique, since Obsidian finds notes by name: no `README.md` under `docs/handoffs/`.
@@ -49,28 +49,28 @@ These apply to every session and every department role. What the departments are
 
 A note missing any of these fields, or using a value outside the allowed ones, is not finished.
 
-| Note      | Field     | Holds                                                                    |
-| --------- | --------- | ------------------------------------------------------------------------ |
-| job       | `type`    | `job`                                                                    |
-| job       | `area`    | The part of Tenon it belongs to, also its folder, such as `protocol`     |
-| job       | `status`  | `planned`, `in progress` or `done`                                       |
-| job       | `tasks`   | Its tasks, as quoted tracker URLs, empty while there is no tracker       |
-| job       | `updated` | The date its "Current state" was last brought up to date                 |
-| handoff   | `type`    | `handoff`                                                                |
-| handoff   | `job`     | The job it worked on, as a quoted wikilink                               |
-| handoff   | `tasks`   | The tasks it served, as quoted tracker URLs, empty for work without one  |
-| handoff   | `role`    | The department role, such as `architect-gate`, or `session` outside it   |
-| handoff   | `model`   | The exact model ID that did the work                                     |
-| handoff   | `date`    | The date the work started                                                |
-| handoff   | `status`  | `done`, `partial` or `blocked`                                           |
-| handoff   | `branch`  | The branch the work was committed on, empty while there is no repository |
-| handoff   | `pr`      | The pull request number, empty until one is opened                       |
-| compacted | `type`    | `compacted-handoff`                                                      |
-| compacted | `job`     | The job whose handoffs it folds, as a quoted wikilink                    |
-| compacted | `tasks`   | Every task the folded handoffs served, as quoted tracker URLs            |
-| compacted | `from`    | The `date` of the oldest handoff it folds                                |
-| compacted | `to`      | The `date` of the newest handoff it folds                                |
-| compacted | `folds`   | The folded handoffs' file names, quoted, oldest first                    |
-| compacted | `prs`     | The pull request numbers of the folded handoffs                          |
-| compacted | `model`   | The exact model ID that compacted them                                   |
-| compacted | `date`    | The date the handoffs were compacted                                     |
+| Note      | Field     | Holds                                                                      |
+| --------- | --------- | -------------------------------------------------------------------------- |
+| job       | `type`    | `job`                                                                      |
+| job       | `area`    | The part of Tenon it belongs to, also its folder, such as `protocol`       |
+| job       | `status`  | `planned`, `in progress` or `done`                                         |
+| job       | `tasks`   | Its tasks, as quoted issue URLs                                            |
+| job       | `updated` | The date its "Current state" was last brought up to date                   |
+| handoff   | `type`    | `handoff`                                                                  |
+| handoff   | `job`     | The job it worked on, as a quoted wikilink                                 |
+| handoff   | `tasks`   | The tasks it served, as quoted issue URLs, empty for work without an issue |
+| handoff   | `role`    | The department role, such as `architect-gate`, or `session` outside it     |
+| handoff   | `model`   | The exact model ID that did the work                                       |
+| handoff   | `date`    | The date the work started                                                  |
+| handoff   | `status`  | `done`, `partial` or `blocked`                                             |
+| handoff   | `branch`  | The branch the work was committed on, empty while there is no repository   |
+| handoff   | `pr`      | The pull request number, empty until one is opened                         |
+| compacted | `type`    | `compacted-handoff`                                                        |
+| compacted | `job`     | The job whose handoffs it folds, as a quoted wikilink                      |
+| compacted | `tasks`   | Every task the folded handoffs served, as quoted issue URLs                |
+| compacted | `from`    | The `date` of the oldest handoff it folds                                  |
+| compacted | `to`      | The `date` of the newest handoff it folds                                  |
+| compacted | `folds`   | The folded handoffs' file names, quoted, oldest first                      |
+| compacted | `prs`     | The pull request numbers of the folded handoffs                            |
+| compacted | `model`   | The exact model ID that compacted them                                     |
+| compacted | `date`    | The date the handoffs were compacted                                       |

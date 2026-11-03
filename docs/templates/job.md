@@ -16,7 +16,7 @@ Describe how the job works today, end to end, in paragraphs: what a user or exte
 
 ## How it got here
 
-Tell the job's story across its tasks: what each task added and why, linking each task's tracker URL where it has one and the handoffs that did the work, for example `the handshake came in [the engine handoff](2026-11-03-programming-engine-handshake.md)`.
+Tell the job's story across its tasks: what each task added and why, linking each task's issue and the handoffs that did the work, for example `the handshake came in [the engine handoff](2026-11-03-programming-engine-handshake.md)`.
 
 ## Current state
 

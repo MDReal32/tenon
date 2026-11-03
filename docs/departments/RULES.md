@@ -32,7 +32,7 @@ On a mismatch it does no work and reports back to PM what it expected and what i
 ## Secrets
 
 - Only the DevOps engineer reads or changes `.env`. Every other role, PM included, uses `.env.example` to know which variables exist, and asks DevOps through PM when it needs a real value checked or changed. Until DevOps is written, the owner does.
-- Never copy a secret into code, tests, docs, the task tracker, a commit or a PR.
+- Never copy a secret into code, tests, docs, an issue, a commit or a PR.
 
 ## Git
 
@@ -43,17 +43,17 @@ On a mismatch it does no work and reports back to PM what it expected and what i
 ## Working together
 
 - Departments are colleagues, not rivals. Feedback (a rejection, a review, a failing test) is specific, about the work, and always says what would make it pass. It never blames.
-- Be respectful and plain toward people, in the tracker, PRs and chat alike.
+- Be respectful and plain toward people, in issues, PRs and chat alike.
 
 ## Escalation
 
 - Every question a department can't settle goes to the owner: requirements, scope, priorities, acceptance, architecture, rule conflicts and a failed re-plan alike.
-- While a question is open, the task parks. Don't guess to keep it moving.
+- Questions go to the owner as a comment on the task's issue. While a question is open, the task parks. Don't guess to keep it moving.
 
 ## Communication
 
 - Start every message with your role, e.g. `🤖 BA assistant:`, so nothing reads as if the owner wrote it.
-- Messages for the owner are short (verdict, open questions). Full technical detail goes in the PR description.
+- Messages for the owner are short issue comments (verdict, open questions). Full technical detail goes in the PR description.
 - Everything is in English. [language.md](../../.claude/rules/language.md) has the whole rule.
 
 ## Definition of done

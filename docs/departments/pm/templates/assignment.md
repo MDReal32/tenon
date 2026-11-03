@@ -5,7 +5,7 @@ What PM sends a role to start its step. The role's whole input is this message, 
 ```md
 🤖 PM coordinator: assignment for `<dept>-<role>`
 
-**Task:** <task link or short name> <task title>
+**Task:** #<issue number> <task title>
 **Step:** <step name from the route>, attempt <n>
 **Job:** `docs/handoffs/<area>/<job>/<job>.md`
 **Branch:** `<task branch>`, or "none yet" before the gate
@@ -14,7 +14,7 @@ What PM sends a role to start its step. The role's whole input is this message, 
 
 **Task text:**
 
-<the task as the owner wrote it>
+<the issue's body, and the owner's answers from its comments, as written>
 
 **Inputs:**
 

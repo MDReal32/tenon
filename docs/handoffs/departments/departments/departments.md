@@ -22,4 +22,4 @@ The first four departments, the workspace rules and the hook came in [the sessio
 
 ## Current state
 
-PM, BA, PO and Architect are written, with their agent files, templates and knowledge files; the hook and its tests are in place. Tenon is not a git repository yet, so nothing is committed. Next come the departments the first code will need, Programming and QA, and `libs/dev`, which the owner plans to build with the same shape and rules as the sibling project's.
+PM, BA, PO and Architect are written, with their agent files, templates and knowledge files; the hook and its tests are in place. The work is committed on `master` and `develop` in [`MDReal32/tenon`](https://github.com/MDReal32/tenon), and tasks now live as issues in the [Tenon project](https://github.com/users/MDReal32/projects/4), as [the tracker handoff](2026-11-03-session-github-project-tracker.md) set up. Next come the departments the first code will need, Programming and QA, and `libs/dev`, which the owner plans to build with the same shape and rules as the sibling project's.

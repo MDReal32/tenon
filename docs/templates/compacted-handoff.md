@@ -12,7 +12,7 @@ date: "{{date:YYYY-MM-DD}}"
 
 # What these ten handoffs did, in a few words
 
-Open with a paragraph on the stretch of the job these handoffs cover, from the oldest to the newest, and what it set out to do, written so someone who never saw the work can follow it. Link the tasks they served, by their tracker URLs where they have one, and the handoff or compacted handoff that came before them, for example `after [the first ten handoffs](2026-10-31--2026-11-14-compacted-protocol-handshake.md)`.
+Open with a paragraph on the stretch of the job these handoffs cover, from the oldest to the newest, and what it set out to do, written so someone who never saw the work can follow it. Link the tasks they served, by their issue URLs, and the handoff or compacted handoff that came before them, for example `after [the first ten handoffs](2026-10-31--2026-11-14-compacted-protocol-handshake.md)`.
 
 ## What was built
 

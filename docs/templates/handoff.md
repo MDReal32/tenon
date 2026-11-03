@@ -12,7 +12,7 @@ pr:
 
 # What this job did, in a few words
 
-Open with a paragraph on what this job was asked to do and why, written so someone who has never seen the work can follow it. Link the task it serves, by its tracker URL where it has one, and the handoff it continues from where the sentence mentions them, for example `continuing [the gate's verdict](2026-10-31-architect-gate-handshake.md)`.
+Open with a paragraph on what this job was asked to do and why, written so someone who has never seen the work can follow it. Link the task it serves, by its issue URL, and the handoff it continues from where the sentence mentions them, for example `continuing [the gate's verdict](2026-10-31-architect-gate-handshake.md)`.
 
 ## What I did and how
 
