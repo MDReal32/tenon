@@ -54,7 +54,7 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 
 ## After the merge
 
-- When the owner merges the PR, check that the issue closed and is `Done` in the project. Close it and move it yourself when the merge didn't, as [PM's knowledge](../../pm-knowledge.md) explains.
+- When the owner merges the PR, check that the issue closed and is `Done` in the project. When it didn't, say so on the PR instead of closing it yourself, since a missing `Closes #<n>` is a finding for the retro.
 
 ## Retro
 
