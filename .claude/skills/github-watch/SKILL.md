@@ -17,6 +17,10 @@ node .claude/skills/github-watch/main.mjs
 
 It keeps its cursor (the newest event seen and the board's statuses) in `~/.cache/tenon/github-watch.json`, outside the repository. The first run with no cursor starts from now, so nothing from before is reported.
 
+## When GitHub can't be reached
+
+A failed poll, such as a dropped connection, is logged to stderr and retried at the next poll; the watcher keeps running. After 30 failed polls in a row, about half an hour, it prints that GitHub could not be reached and exits with code 1. Then check `gh auth status` and the network, and start it again.
+
 ## When it wakes the session
 
 1. Read the report. Each line names the issue or PR, who did what, and a link.
