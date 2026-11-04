@@ -17,7 +17,7 @@ The [front page](../../../tenon.md) introduces Tenon and the layout, then six ch
 
 ## How it got here
 
-The book came from splitting the single design document into chapters, in [the session that split it](2026-11-03-session-split-architecture.md). The owner then reviewed it page by page for [#3](https://github.com/MDReal32/tenon/issues/3), keeping most of it and changing the transport order, the interpreters, plugin distribution, `exec`, conditions and the layout, in [the owner's review](2026-11-04-session-owner-review.md).
+The book came from splitting the single design document into chapters, in [the session that split it](2026-11-03-session-split-architecture.md). The owner then reviewed it page by page for [#3](https://github.com/MDReal32/tenon/issues/3), keeping most of it and changing the transport order, the interpreters, plugin distribution, `exec`, conditions and the layout, in [the owner's review](2026-11-04-session-owner-review.md). The owner's product definition then went onto the front page, in [the product definition handoff](2026-11-04-session-product-definition.md).
 
 ## Current state
 

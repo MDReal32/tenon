@@ -13,7 +13,19 @@ covers:
 
 Status: design draft v0.1. Items marked **[open]** are intentionally not locked down.
 
-This book is Tenon's design. It walks from the ideas everything is checked against down to how the project gets built, and every page ends by leading into the next one, so you can read it front to back or jump in anywhere.
+This book is Tenon's design. It opens with what Tenon is as a product, then walks from the ideas everything is checked against down to how the project gets built. Every page ends by leading into the next one, so you can read it front to back or jump in anywhere.
+
+## What Tenon is
+
+Tenon is a next-generation, language-agnostic project generator. It builds a project piece by piece instead of copying one fixed template: you pick Rust, then X, then Y, and Tenon scaffolds a project out of exactly those pieces.
+
+Its first user is its author, for his own projects. It is built as a generic tool from the start, so anyone else can use it the same way.
+
+Starting a project today means cloning a template repository and deleting what you don't need. Tenon builds the project from a couple of questions instead, and clones nothing.
+
+Answering plain questions one after another is boring and old school, so in later releases AI joins in, in two places. Tenon's own AI support opens in the terminal and helps you answer its questions. And the generated project gets AI support of its own: Tenon writes Markdown files that brief the AI tools working on that project.
+
+The first version works when you run Tenon, answer a couple of questions, and see the project appear in front of you, scaffolded in its directory.
 
 ## How the book is laid out
 
