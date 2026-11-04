@@ -22,13 +22,12 @@ trait ExtensionHost {          // illustrative
 }
 ```
 
-| Adapter                  | Use                           | Notes                                                                                                                                 |
-| ------------------------ | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `process`                | Any language                  | stdio JSON-RPC. Needs interpreter on the machine (or a bundled binary). Lowest barrier.                                               |
-| `wasm`                   | Portable, sandboxed, compiled | Component Model. Works on every OS with zero interpreter. Strong capability isolation.                                                |
-| `js-embedded` **[open]** | Zero-install JS/TS            | Recommended realization: **QuickJS compiled to WASM**, i.e. JS is “just a WASM guest”. Avoids embedding a second engine path in core. |
+| Adapter   | Use                               | Notes                                                                                                                                                                                                                           |
+| --------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `wasm`    | Portable, sandboxed, compiled     | Component Model. Works on every OS with zero interpreter. Strong capability isolation. The first runtime Tenon ships.                                                                                                           |
+| `process` | Any language, on the user's tools | stdio JSON-RPC. Runs on the interpreter already on the user's `PATH` (Node, Python, …), with a clear, actionable error when it is missing; Tenon doesn't download interpreters. JS and TS plugins run here, on the user's Node. |
 
-First-party plan: ship `process` first (fastest to prove the protocol, and TS SDK works with node/bun/deno), then `wasm`. JS embedded comes through `wasm` so core never grows a JS-specific code path.
+First-party plan: ship `wasm` first, then `process`. Tenon mostly uses the tools already on the user's system: TypeScript plugins run on the user's Node through `process`, and there is no embedded JS engine.
 
 **Conformance suite**: a language-agnostic test harness (`tenon-conformance`) that drives any extension through scripted protocol scenarios. Adding language N+1 = write an SDK + pass the suite.
 

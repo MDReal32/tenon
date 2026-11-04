@@ -8,7 +8,7 @@ covers:
   - sdks
   - extensions
   - dist
-  - xtask
+  - libs/dev
 ---
 
 # Repository layout
@@ -24,7 +24,7 @@ tenon/
 │  ├─ tenon-core/            # solver, state, plan, applier (no I/O frontends)
 │  ├─ tenon-host-process/
 │  ├─ tenon-host-wasm/
-│  ├─ tenon-registry/        # resolve/install/lockfile
+│  ├─ tenon-registry/        # resolve/install from package managers, lockfile
 │  ├─ tenon-cli/             # frontends: TUI, plain, json
 │  └─ tenon-conformance/
 ├─ sdks/
@@ -36,7 +36,10 @@ tenon/
 ├─ dist/
 │  ├─ npm/  pypi/  homebrew/  winget/  ...           # launchers only
 ├─ docs/
-└─ xtask/                    # release & codegen automation
+└─ libs/
+   └─ dev/                   # Nx generators and executors (scaffolds, docs check)
 ```
+
+Every task runs through Nx, the Rust crates' build, test, release and codegen included, so there is no separate `xtask/` runner.
 
 Next, [the roadmap](01-roadmap.md) gives the order it all gets built in.

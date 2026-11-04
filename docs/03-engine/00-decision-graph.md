@@ -28,13 +28,15 @@ A tree makes “who owns the child?” a single-parent question. Extensions need
               "sets": { "lang.primary": "zig" } } }
 
 // extension B: brand new decision, only appears when relevant
-{ "decision": "zig.allocator", "requires": "lang.primary == 'zig'",
+{ "decision": "zig.allocator", "requires": { "lang": { "primary": "zig" } },
   "kind": "single", "produces": ["zig.allocator"] }
 
 // extension C: inserts between — via fact dependency, not by rewiring
 { "decision": "sec.supply-chain", "requires": ["lang.primary", "pm.selected"],
   "after": ["base.package-manager"], "kind": "confirm" }
 ```
+
+Conditions are structured data, never strings the engine parses. Each SDK builds them natively with its own matchers, such as `when: { lang: { primary: "rust" }, x: not(y), d: notIn([]) }` in TypeScript, and they reach the engine as structured data over the protocol, which the engine evaluates.
 
 ## Extension points on existing decisions
 Cross-extension edits are **additive operations on a decision**, resolved by the engine:

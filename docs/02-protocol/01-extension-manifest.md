@@ -18,8 +18,8 @@ protocol = "tep/1"
 description = "Zig support"
 
 [runtime]                       # omit entirely for declarative-only extensions
-kind = "process"                # "process" | "wasm" | future kinds
-command = ["python", "-m", "acme_zig"]   # or  module = "zig.wasm"
+kind = "wasm"                   # "wasm" | "process" | future kinds
+module = "zig.wasm"             # or  command = ["python", "-m", "acme_zig"] for "process"
 
 [requires]                      # other extensions, semver ranges
 "tenon.base" = "^1"
@@ -35,6 +35,6 @@ templates  = ["templates/"]
 presets    = ["presets/*.toml"]
 ```
 
-Key properties: capabilities are enforced by the **host** (sandboxing for WASM; mediated operations for process extensions — an extension doesn't write files itself, it *emits operations* and the engine writes them). Users see and approve capability requests on install.
+Key properties: capabilities are enforced by the **host** (sandboxing for WASM; mediated operations for process extensions — an extension doesn't write files itself, it *emits operations* and the engine writes them). The capability model is an **alpha** design and will be reworked: how capabilities are shown to the user, and how strictly each runtime enforces them, are not final.
 
 The next chapter turns to the engine, starting with [the decision graph](../03-engine/00-decision-graph.md).

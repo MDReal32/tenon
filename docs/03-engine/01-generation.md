@@ -18,7 +18,7 @@ answers ─► generators (parallel, pure) ─► operations ─► merge/confli
 
 **Primitive kernel (the only operations the engine itself understands):**
 - `write`, `mkdir`, `delete` — VFS mutations
-- `exec` — post-generation command (capability-gated, ordered, shown in plan, user-approved, recorded in `tenon.lock`)
+- `exec` — post-generation command (capability-gated, ordered, shown in the output and in `--dry-run`, recorded in `tenon.lock` once the lockfile exists). It runs without a prompt: running `tenon generate` is the user's consent
 - `message` — note to show the user
 
 **Operation kinds (extension-provided, lower to primitives):**
@@ -32,5 +32,7 @@ A kind is declared in the manifest and implemented by a pure handler: `(operatio
 Benefits: `--dry-run` for free, diff preview, deterministic output, conflict detection between extensions with attribution (“`a.x` and `b.y` both write `Makefile`”), snapshot testing for extension authors.
 
 Templates: engine ships **one** minimal, sandboxed templating engine (no code execution) so declarative extensions stay portable. Logic-heavy generators use code and emit `write` ops.
+
+Tenon aims to need as few merges as possible: an extension that owns a file writes it whole, and merges are for the files several extensions genuinely share. In later versions, AI-powered generation may join the generators described here.
 
 Next, [lifecycle hooks](02-lifecycle-hooks.md) cover the phases around the decision loop and generation.
