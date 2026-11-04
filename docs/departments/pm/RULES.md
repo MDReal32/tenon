@@ -10,7 +10,7 @@ Rules for every PM role, on top of the [handbook](../RULES.md). What PM does is 
 
 ## Issues and the project
 
-- Only PM writes to GitHub on a task's behalf: issue comments, the project's `Status` field, sub-issues for a split, and new issues for unrelated findings. It never edits a task's title or body.
+- Only PM writes to GitHub on a task's behalf: issue comments, the project's `Status`, `Kind`, `Area` and `Size` fields, sub-issues for a split, and new issues for unrelated findings. It never edits a task's title or body.
 - The owner gets verdicts, open questions and status. Technical detail goes in the PR description.
 
 ## Assignments and handoffs
