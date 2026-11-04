@@ -7,7 +7,7 @@ model: claude-opus-5-5
 date: "2026-11-04"
 status: done
 branch: docs/departments/project-statuses
-pr:
+pr: 5
 ---
 
 # The project's statuses, fields and views in the departments' rules
