@@ -23,7 +23,7 @@ Its first user is its author, for his own projects. It is built as a generic too
 
 Starting a project today means cloning a template repository and deleting what you don't need. Tenon builds the project from a couple of questions instead, and clones nothing.
 
-Answering plain questions one after another is boring and old school, so in later releases AI joins in, in two places. If the user wants it, the generated project gets AI support of its own: Markdown files that brief the AI tools working on that project. And Tenon's own AI, in the terminal, is there mostly to make the project specific to its user. A developer tells it what they are building ("my project is Tenon, it does this and this"), and Tenon's AI helps answer the questions and makes extra edits to those Markdown files while they are still in the plan, before anything is written.
+Answering plain questions one after another is boring and old school, so in later releases AI joins in, in two places. If the user wants it, the generated project gets AI support of its own: Markdown files that brief the AI tools working on that project. And Tenon's own AI, in the terminal, is there mostly to make the project specific to its user. A developer tells it what they are building ("my project is Tenon, it does this and this"), and Tenon's AI helps answer the questions and makes extra edits across the whole project while it is still in the plan, code and those Markdown files alike, before anything is written.
 
 The first version works when you run Tenon, answer a couple of questions, and see the project appear in front of you, scaffolded in its directory.
 
