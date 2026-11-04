@@ -7,7 +7,7 @@ model: claude-opus-5-5
 date: "2026-11-04"
 status: done
 branch: docs/design-book/product-definition
-pr:
+pr: 6
 ---
 
 # The product definition on the front page
