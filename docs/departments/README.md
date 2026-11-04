@@ -19,7 +19,20 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 ## Tasks
 
 - A task is a GitHub issue in [`MDReal32/tenon`](https://github.com/MDReal32/tenon/issues), written by the owner and added to the [Tenon project](https://github.com/users/MDReal32/projects/4). The issue is the source of truth for what to build: the repository keeps no copy of it, and notes link it by its URL.
-- The project's `Status` field says where a task stands: `Todo` until a run picks it up, `In Progress` while a run works on it or waits on the owner, and `Done` once its issue closes. A parked task stays `In Progress`, and its latest issue comment says what it waits on.
+- The project's `Status` field says where a task stands. PM moves it as a run goes; only the owner moves a task out of `Backlog` or into `Canceled`.
+
+| Status           | Means                                                           |
+| ---------------- | --------------------------------------------------------------- |
+| Backlog          | Planned but not prioritized, such as the next milestone's epics |
+| Todo             | Ready to run, in the order the owner set                        |
+| In Progress      | A run is working on it                                          |
+| Waiting on owner | Parked: a question on the issue waits on the owner              |
+| Blocked          | Waiting on another task or on something outside the project     |
+| In Review        | Its PR is open for the owner's review                           |
+| Done             | Its issue closed when the PR merged                             |
+| Canceled         | The owner decided it won't be done                              |
+
+- Every item also carries `Kind` (Task, Epic, Bug, Decision), `Area` (the same areas as the handoffs) and, once the Architect gate sizes it, `Size` (S, M, L, XL). Milestones are GitHub milestones.
 - The issue's comments are where PM and the owner talk about the task: verdicts, questions, answers and the PR. The owner answers a question by replying there.
 - What Tenon is meant to be is [the design book](../tenon.md). It is the product vision and the design at once, so the PO proxy and the Architect both judge against it.
 
@@ -93,7 +106,7 @@ Agent tool lists are not enough for `.env` and git, because Claude Code can't li
 ## Running
 
 - Local only, one task at a time.
-- Order: tasks that were waiting and got an answer, and the owner's PR review comments, come first; then the order of the `Todo` column in the project, top first.
+- Order: `Waiting on owner` tasks the owner has answered, and the owner's PR review comments, come first; then the `Todo` column, top first.
 - The owner can stop a run at any time. The run finishes its current step, parks with a note, and nothing new starts until the owner resumes it.
 - Departments run the checks locally until CI exists.
 

@@ -3,7 +3,7 @@ type: job
 area: departments
 status: in progress
 tasks: []
-updated: "2026-11-03"
+updated: "2026-11-04"
 ---
 
 # Departments
@@ -22,4 +22,4 @@ The first four departments, the workspace rules and the hook came in [the sessio
 
 ## Current state
 
-PM, BA, PO and Architect are written, with their agent files, templates and knowledge files; the hook and its tests are in place. The work is committed on `master` and `develop` in [`MDReal32/tenon`](https://github.com/MDReal32/tenon), and tasks now live as issues in the [Tenon project](https://github.com/users/MDReal32/projects/4), as [the tracker handoff](2026-11-03-session-github-project-tracker.md) set up. Next come the departments the first code will need, Programming and QA, and `libs/dev`, which the owner plans to build with the same shape and rules as the sibling project's.
+PM, BA, PO and Architect are written, with their agent files, templates and knowledge files; the hook and its tests are in place. The work is committed on `master` and `develop` in [`MDReal32/tenon`](https://github.com/MDReal32/tenon), and tasks now live as issues in the [Tenon project](https://github.com/users/MDReal32/projects/4), as [the tracker handoff](2026-11-03-session-github-project-tracker.md) set up. Next come the departments the first code will need, Programming and QA, and `libs/dev`, which the owner plans to build with the same shape and rules as the sibling project's. Since [the statuses handoff](2026-11-04-session-project-statuses.md), the project has eight statuses and `Kind`, `Area` and `Size` fields, and PM's rules move a task through them.
