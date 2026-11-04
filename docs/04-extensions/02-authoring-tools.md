@@ -16,7 +16,7 @@ tenon create extension          # interactive scaffold (itself driven by the eng
 tenon ext dev                   # live-reload, runs extension against a sandboxed temp project
 tenon ext validate              # manifest + protocol + decision-graph lint (cycles, dead options, missing deps)
 tenon ext test                  # snapshot tests of generated plans; conformance suite
-tenon ext pack / publish
+tenon ext pack / publish         # to the plugin language's own package manager
 tenon explain / tenon plan --dry-run --json
 ```
 

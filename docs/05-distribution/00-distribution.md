@@ -4,7 +4,7 @@ prev: "[[03-base]]"
 next: "[[00-repository-layout]]"
 covers:
   - dist
-  - xtask
+  - libs/dev
 ---
 
 # Distribution

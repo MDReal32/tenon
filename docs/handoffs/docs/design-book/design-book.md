@@ -2,8 +2,9 @@
 type: job
 area: docs
 status: in progress
-tasks: []
-updated: "2026-11-03"
+tasks:
+  - "https://github.com/MDReal32/tenon/issues/3"
+updated: "2026-11-04"
 ---
 
 # Design book
@@ -16,8 +17,8 @@ The [front page](../../../tenon.md) introduces Tenon and the layout, then six ch
 
 ## How it got here
 
-The book came from splitting the single design document into chapters, in [the session that split it](2026-11-03-session-split-architecture.md).
+The book came from splitting the single design document into chapters, in [the session that split it](2026-11-03-session-split-architecture.md). The owner then reviewed it page by page for [#3](https://github.com/MDReal32/tenon/issues/3), keeping most of it and changing the transport order, the interpreters, plugin distribution, `exec`, conditions and the layout, in [the owner's review](2026-11-04-session-owner-review.md).
 
 ## Current state
 
-The book holds the whole design as it stood in draft v0.1. Its wording is unchanged apart from the openings, the closings and the section references, which are now links. It is committed on `master` and `develop`. A docs check that walks the `prev`/`next` chain automatically will come with `libs/dev`.
+The book describes the project the owner intends, after [the owner's review](2026-11-04-session-owner-review.md). Only the roadmap page is behind: it still starts M0 with the process adapter and brings QuickJS in M5, and the plan for [#2](https://github.com/MDReal32/tenon/issues/2) rewrites it. A docs check that walks the `prev`/`next` chain automatically will come with `libs/dev`.

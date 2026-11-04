@@ -20,7 +20,7 @@ With the axes set, this page shows the layers the engine is built in, from the f
 ├──────────────────────────────────────────────────────────────┤
 │ tenon-protocol  versioned schema (the contract) + codecs       │
 ├──────────────────────────────────────────────────────────────┤
-│ Host adapters   process (stdio) · wasm (component) · [future]  │
+│ Host adapters   wasm (component) · process (stdio) · [future]  │
 ├──────────────────────────────────────────────────────────────┤
 │ Extensions      tenon-base · community extensions              │
 │                 (any language, any adapter)                    │
