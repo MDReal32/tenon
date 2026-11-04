@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-04"
 status: done
 branch: docs/design-book/3-owner-review
-pr:
+pr: 4
 ---
 
 # The owner's review of the design book
