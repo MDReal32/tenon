@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-04"
 status: done
 branch: docs/claude-rules/board
-pr:
+pr: 8
 ---
 
 # Keep the project board always up to date
