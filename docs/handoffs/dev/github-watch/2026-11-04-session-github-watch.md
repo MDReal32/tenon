@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-04"
 status: done
 branch: feat/claude-skills/9-github-watch
-pr:
+pr: 10
 ---
 
 # Watch GitHub and wake the session
