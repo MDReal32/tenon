@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-05"
 status: done
 branch: docs/departments/11-programming
-pr:
+pr: 50
 ---
 
 # Write the Programming department
