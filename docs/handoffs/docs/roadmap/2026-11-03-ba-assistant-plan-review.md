@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-03"
 status: done
 branch: docs/roadmap/2-plan
-pr:
+pr: 49
 ---
 
 # BA review of the whole-project planning task

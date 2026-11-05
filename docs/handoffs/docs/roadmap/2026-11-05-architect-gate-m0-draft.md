@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-05"
 status: done
 branch: docs/roadmap/2-plan
-pr:
+pr: 49
 ---
 
 # Architect gate's draft of M0, M1 and the later milestones

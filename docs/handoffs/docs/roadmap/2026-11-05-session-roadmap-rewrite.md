@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-05"
 status: done
 branch: docs/roadmap/2-plan
-pr:
+pr: 49
 ---
 
 # Open the plan's issues and rewrite the roadmap page
