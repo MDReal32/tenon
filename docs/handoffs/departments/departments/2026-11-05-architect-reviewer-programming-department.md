@@ -21,11 +21,15 @@ I read the handbook, Architect's rules and the reviewer's rules first. Then I re
 
 On attempt 2 I first checked each of the three earlier clashes against the new line 15 of `docs/departments/programming/RULES.md`, which now makes the work record an exception: the role's own handoff under `docs/handoffs/` and a lesson in `programming-knowledge.md`. I also re-read the whole 'What it may change' section around it. Then I checked the new `roles/sdk/RULES.md:20` against line 18 of the same file, against Programming's rules on other roles' parts, and against Architect's four axes.
 
+On attempt 3 I checked that the work-record exception, now the first bullet of 'What it may change' at line 13, lifts both the own-part rule and the `docs/` rule. I then compared its list of work-record files with everything handoffs.md asks a role to write when its work ends.
+
 ## Why this way
 
 The verdict is "clashes found", for one reason. The phrase "Never change … `docs/`" at `programming/RULES.md:15` also covers `docs/handoffs/` and `docs/departments/programming/programming-knowledge.md`. That forbids a Programming role from writing and committing its own handoff, which handoffs.md (lines 23 and 25), PM's rules (line 19) and the handbook's definition of done (line 61) require of a role that can write files. It also forbids adding a lesson, which the handbook asks for at line 65. The fix I suggested is a carve-out on that line, not rerouting Programming's handoffs through PM. Rerouting would clash with PM's own rule that roles which can write files write their own handoffs. I raised two other points as notes for the owner, not clashes, because one rests on a description in an unwritten department and the other is a matter of intent: dev and DevOps both being described with CI and `libs/dev`, and the SDK sample extension being loaded by a host adapter.
 
 Attempt 2 still finds one clash, which attempt 1 should have caught. Line 13 of Programming's rules allows only files in the role's own part that the plan touches, and every role's rules repeat that any other file is outside its part. The work-record exception sits on line 15 only, so line 13 still forbids the handoff and the lesson. The fix is to make the exception cover the whole section, not to add the files to some role's part, because they belong to the work record, not to the code. The new sdk rule fits: the sample extension stays in the SDK's part, the SDK's tests no longer depend on the host adapter, and loading the sample is the host adapter's own test in the engine's part, reached through PM.
+
+Attempt 3 settles the line-13 clash. It finds one more, which was there since attempt 1 and which I missed on both earlier reads. handoffs.md line 27 also asks the role ending the work to bring the job note up to date. Line 13's work record leaves the job note out, and PM's rules update the job note only for read-only roles. Widening the work record is the smaller fix, because moving the job note to PM would also change PM's ruleset.
 
 ## Checks
 
@@ -35,8 +39,8 @@ Attempt 2 compared the new lines 13–15 and the sdk line 20 with the same rules
 
 ## Where it stands
 
-Attempt 2 was returned to PM with one clash left: `docs/departments/programming/RULES.md:13` still forbids a Programming role's handoff and knowledge lesson, which the line-15 exception does not lift. The three line-15 clashes are settled, and the sdk change adds none. The DevOps roster wording goes to the owner in the PR description and to #14. Nothing is committed by this role.
+Attempt 3 was returned to PM with one clash: `docs/departments/programming/RULES.md:13` leaves the job note out of the work record, against handoffs.md line 27. Every earlier clash is settled. Nothing is committed by this role.
 
 ## Next
 
-The author makes the work-record exception cover line 13 too, either with 'apart from the work record below' on line 13 or with the exception as its own bullet for the whole section. PM then starts the Architect reviewer for attempt 3, which checks only that line 13 no longer forbids the handoff and the lesson, and that the new wording adds no clash. With no clashes, PM opens the PR that closes #11.
+The author adds the job note's 'Current state', `tasks` and `updated` to line 13's work record. PM then starts attempt 4, which checks only that bullet. With no clashes, PM opens the PR that closes #11.
