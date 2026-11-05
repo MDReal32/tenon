@@ -2,7 +2,7 @@
 
 How Tenon work moves from a task to a merged pull request, done by AI agents organized like a company's departments.
 
-**Status:** the PM, BA, PO and Architect departments are written: the ones that take a task in, check it is ready, and approve and review it against Tenon's design. Cyber security, DevOps, Programming, QA, Docs and HR are not written yet, and join as Tenon grows, as [adding a department](#adding-a-department) says. Nothing on this page runs yet. The rules every agent follows are in the handbook, [`RULES.md`](RULES.md).
+**Status:** the PM, BA, PO, Architect and Programming departments are written: the ones that take a task in, check it is ready, approve it against Tenon's design, build it and review it. Cyber security, DevOps, QA, Docs and HR are not written yet, and join as Tenon grows, as [adding a department](#adding-a-department) says. A route that needs one of them parks at that step until it exists. The rules every agent follows are in the handbook, [`RULES.md`](RULES.md).
 
 ## The idea
 
@@ -38,18 +38,18 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 
 ## Roster
 
-| Department     | Roles                       | Model  | Status      | Does                                                                                                                                                                   |
-| -------------- | --------------------------- | ------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PM             | coordinator                 | Opus   | written     | The orchestrator: takes the task in, picks the route, hands work between departments, parks and resumes tasks, runs git and opens the PR. Runs as the main session     |
-| BA             | assistant                   | Opus   | written     | Reads the owner's task, finds gaps, asks the owner, writes the brief. Never invents requirements                                                                       |
-| PO             | proxy                       | Opus   | written     | Stands in for the owner at the gate: does this task fit Tenon's design and roadmap? Questions the task and the design don't answer go to the owner, and the task waits |
-| Architect      | gate, reviewer              | Opus   | written     | gate: the technical half of the gate (the four axes, boundaries, protocol impact, PR-sized scope, task size). reviewer: reviews every change; never its own plan       |
-| Cyber security | reviewer                    | Opus   | not written | Reviews changes touching extension capabilities, sandboxing, `exec`, signing and trust                                                                                 |
-| DevOps         | engineer                    | Opus   | not written | Release pipeline, launchers, CI, `libs/dev` tooling and build config. The only role that may read or change `.env`                                                     |
-| Programming    | engine, sdk, extension, dev | Sonnet | not written | Implement with tests. engine: the Rust crates. sdk: the language SDKs. extension: Base and first-party extensions. dev: `libs/dev` generators and executors            |
-| QA             | conformance, e2e            | Sonnet | not written | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                          |
-| Docs           | writer                      | Sonnet | not written | The design book, protocol docs and package READMEs, in the same PR as the code                                                                                         |
-| HR             | policy                      | Opus   | not written | Keeps the handbook and every ruleset; turns the owner's notes and retros into rule-change PRs; drafts new roles                                                        |
+| Department     | Roles                       | Model  | Status      | Does                                                                                                                                                                             |
+| -------------- | --------------------------- | ------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PM             | coordinator                 | Opus   | written     | The orchestrator: takes the task in, picks the route, hands work between departments, parks and resumes tasks, runs git and opens the PR. Runs as the main session               |
+| BA             | assistant                   | Opus   | written     | Reads the owner's task, finds gaps, asks the owner, writes the brief. Never invents requirements                                                                                 |
+| PO             | proxy                       | Opus   | written     | Stands in for the owner at the gate: does this task fit Tenon's design and roadmap? Questions the task and the design don't answer go to the owner, and the task waits           |
+| Architect      | gate, reviewer              | Opus   | written     | gate: the technical half of the gate (the four axes, boundaries, protocol impact, PR-sized scope, task size). reviewer: reviews every change; never its own plan                 |
+| Cyber security | reviewer                    | Opus   | not written | Reviews changes touching extension capabilities, sandboxing, `exec`, signing and trust                                                                                           |
+| DevOps         | engineer                    | Opus   | not written | Release pipeline, launchers, CI, `libs/dev` tooling and build config. The only role that may read or change `.env`                                                               |
+| Programming    | engine, sdk, extension, dev | Sonnet | written     | Implement with tests. engine: the protocol and the Rust crates. sdk: the language SDKs. extension: Base and first-party extensions. dev: `libs/dev`, the workspace config and CI |
+| QA             | conformance, e2e            | Sonnet | not written | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                                    |
+| Docs           | writer                      | Sonnet | not written | The design book, protocol docs and package READMEs, in the same PR as the code                                                                                                   |
+| HR             | policy                      | Opus   | not written | Keeps the handbook and every ruleset; turns the owner's notes and retros into rule-change PRs; drafts new roles                                                                  |
 
 Opus does the judgment roles, Sonnet the execution roles.
 
