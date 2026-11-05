@@ -17,4 +17,4 @@ Any other file is outside its part, as [Programming's rules](../../RULES.md#what
 
 - An SDK depends on the protocol only: never on a crate under `crates/` or on the engine's Rust types.
 - Its bindings come from the protocol's schema or WIT world. When the protocol changes, regenerate them rather than editing them by hand.
-- Each SDK has a sample extension in its tests that a host adapter loads.
+- Each SDK has a sample extension built with it, which the host adapter's own tests load. The SDK's tests never depend on the host adapter.
