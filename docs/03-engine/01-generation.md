@@ -18,7 +18,7 @@ answers ─► generators (parallel, pure) ─► operations ─► merge/confli
 
 **Primitive kernel (the only operations the engine itself understands):**
 - `write`, `mkdir`, `delete` — VFS mutations
-- `exec` — post-generation command (capability-gated, ordered, shown in the output and in `--dry-run`, recorded in `tenon.lock` once the lockfile exists). It runs without a prompt: running `tenon generate` is the user's consent
+- `exec` — post-generation command (capability-gated, ordered, shown in the output and in `--dry-run`, recorded in `tenon.lock` once the lockfile exists). It runs without a prompt: running `tenon new` is the user's consent
 - `message` — note to show the user
 
 **Operation kinds (extension-provided, lower to primitives):**
