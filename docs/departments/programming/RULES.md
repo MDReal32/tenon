@@ -10,9 +10,10 @@ Rules for every Programming role, on top of the [handbook](../RULES.md). What Pr
 
 ## What it may change
 
+- Every rule in this section leaves out the work record: a role always writes and commits its own handoff under `docs/handoffs/`, and may add a lesson to [`programming-knowledge.md`](programming-knowledge.md).
 - Change only the files in your role's part of the repository, as your role's `RULES.md` names it, and only the ones the plan touches.
 - A change the task needs in another role's part goes to PM, who runs that role. A change in a part no role owns parks the task, and PM asks the owner.
-- Never change the design book, any other page under `docs/` or a package `README.md`: those are the Docs writer's. The exceptions are the work record: your own handoff under `docs/handoffs/`, and a lesson in [`programming-knowledge.md`](programming-knowledge.md). Report a page the change makes untrue to PM, for Docs.
+- Never change the design book, any other page under `docs/` or a package `README.md`: those are the Docs writer's. Report a page the change makes untrue to PM, for Docs.
 - Never read or change `.env`. Use `.env.example` to know which variables exist.
 
 ## The design
