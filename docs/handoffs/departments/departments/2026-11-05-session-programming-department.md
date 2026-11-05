@@ -6,7 +6,7 @@ tasks:
 role: session
 model: claude-opus-5-5
 date: "2026-11-05"
-status: partial
+status: done
 branch: docs/departments/11-programming
 pr:
 ---
@@ -27,12 +27,12 @@ There is no Programming department to copy in the sibling project, so the roles 
 
 ## Checks
 
-The link, anchor and table check over `docs/` and `.claude/` passed.
+The link, anchor and table check over `docs/` and `.claude/` passed. The [Architect reviewer's rule review](2026-11-05-architect-reviewer-programming-department.md) found clashes over three attempts, all from Programming's rules keeping roles out of `docs/` while the handoff rules need them to write their own handoff, job note update and lessons there. The fix is one bullet that leaves the whole work record out of the file rules. The reviewer also noted that an SDK's tests depending on a host adapter would pull against the SDK's own rule, so the sample extension is now loaded by the host adapter's tests instead. Attempt 4 found no clashes.
 
 ## Where it stands
 
-Drafted on `docs/departments/11-programming`. The Architect reviewer's rule review comes next, then the PR for the owner's review.
+Done, on `docs/departments/11-programming`, in a PR that closes #11. The reviewer's note for the owner: the roster's DevOps row also names CI and `libs/dev`, which the dev role now owns, so the DevOps task, [#14](https://github.com/MDReal32/tenon/issues/14), should say DevOps reviews them.
 
 ## Next
 
-PM starts the Architect reviewer on the rule change, fixes what it finds, and opens the PR that closes #11. The next M0 task is QA, [#12](https://github.com/MDReal32/tenon/issues/12).
+The owner reviews and merges the PR. The next M0 task is QA, [#12](https://github.com/MDReal32/tenon/issues/12).
