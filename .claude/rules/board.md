@@ -6,7 +6,8 @@ These apply to every session, a direct session outside the departments included.
 
 - Every piece of work is on the board before it starts. Work with an issue uses that issue. When the owner asks for work in a session and it has no issue, open one from the request, add it to the project and set its `Kind` and `Area`, before the first commit.
 - A PR always says `Closes #<n>` for the issue it serves, so the board links them and the merge moves the issue to `Done`.
-- An open PR without an issue, from before this rule, is added to the board itself, in `In Review`.
+- Every PR goes on the board itself the moment it is opened, in `In Review`, with every field filled: `Kind` and `Area` as its issue has them, and `Size` from the size of its change.
+- An issue goes on the board with `Status`, `Kind` and `Area` set, and `Size` once the Architect gate sizes it.
 
 ## Status moves with the work
 
