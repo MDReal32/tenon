@@ -21,6 +21,8 @@ I created the GitHub milestones M0 to M4, each with a one-line goal. From the ap
 
 Then I rewrote the [roadmap page](../../../06-project/01-roadmap.md): M0 to M4 as settled milestones, M5 to M9 as a changeable outline. I changed `tenon generate` to `tenon new` in [decision 7](../../../06-project/02-decisions.md) and on [the generation page](../../../03-engine/01-generation.md), updated the milestone range in PO's knowledge file, and brought the [roadmap job note](roadmap.md) up to date.
 
+The owner then asked for every PR to go on the board with its required fields filled. I added PR #49 in `In Review` with `Kind` `Task`, `Area` `docs` and `Size` `S`, and wrote it into the [board rule](../../../../.claude/rules/board.md): every PR goes on the board when it is opened, with every field filled, and every issue with `Status`, `Kind` and `Area` set.
+
 ## Why this way
 
 The issues sit in `Backlog` because the board rule lets only the owner move an item out of it, and the owner's answer on the route was that PM opens the issues and the owner edits and approves them. M2 to M4 have milestones but no issues, since the three-tier answer gives issues only to the current milestone and the next. The roadmap page keeps the M5+ outline as a list because each item is a separate milestone; M0 to M4 get a section each, since they are fixed.
