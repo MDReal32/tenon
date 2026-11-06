@@ -12,4 +12,6 @@ Helps the owner get a task ready to build. It reads the task the owner wrote, ch
 
 Bugs skip this step: QA reproduces a bug first instead.
 
+When a task turns out too big for one reviewable PR, PM sends it back to the assistant to split. It returns smaller tasks along meaningful seams, each with the original acceptance criteria it covers, each quoted whole, and PM opens them as sub-issues.
+
 The assistant reads but never edits, and only PM passes on what it returns.
