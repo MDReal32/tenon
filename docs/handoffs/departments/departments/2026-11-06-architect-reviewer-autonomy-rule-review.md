@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-06"
 status: done
 branch: docs/claude-rules/51-autonomy
-pr:
+pr: 52
 ---
 
 # Clash check of the autonomy rules
