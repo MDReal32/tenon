@@ -6,12 +6,12 @@ How it fits with the other departments is in the [overview](../README.md). Its r
 
 ## Roles
 
-| Role                                   | Model  | Owns                                                                                           |
-| -------------------------------------- | ------ | ---------------------------------------------------------------------------------------------- |
-| [engine](roles/engine/README.md)       | Sonnet | `protocol/` and the Rust crates under `crates/`: the protocol, core, host adapters and the CLI |
-| [sdk](roles/sdk/README.md)             | Sonnet | The language SDKs under `sdks/`                                                                |
-| [extension](roles/extension/README.md) | Sonnet | Base and the first-party extensions under `extensions/`                                        |
-| [dev](roles/dev/README.md)             | Sonnet | `libs/dev` with its generators and executors, the workspace's root config and the CI workflows |
+| Role                                   | Model  | Owns                                                                                                           |
+| -------------------------------------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| [engine](roles/engine/README.md)       | Sonnet | `protocol/` and the Rust crates under `crates/`: the protocol, core, host adapters and the CLI                 |
+| [sdk](roles/sdk/README.md)             | Sonnet | The language SDKs under `sdks/`                                                                                |
+| [extension](roles/extension/README.md) | Sonnet | Base and the first-party extensions under `extensions/`                                                        |
+| [dev](roles/dev/README.md)             | Sonnet | `libs/dev` with its generators and executors, the workspace's root config and the CI workflows but the release |
 
 A task that touches more than one part runs one role per part, in the order the gate's route gives.
 

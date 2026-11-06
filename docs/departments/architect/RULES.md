@@ -24,7 +24,7 @@ Rules for every Architect role, on top of the [handbook](../RULES.md). What Arch
 ## Technical only
 
 - Judge technical fit only. Whether the task fits Tenon is the PO proxy's, and whether it is ready is the BA assistant's.
-- Security and infrastructure will have their own reviewers. Until they are written, flag what you notice for them in your output, and PM passes it to the owner.
+- Flag what you notice for DevOps or Cyber security in your output, and PM passes it to DevOps, or to the owner until Cyber security is written.
 
 ## Findings
 
