@@ -2,7 +2,7 @@
 
 How Tenon work moves from a task to a merged pull request, done by AI agents organized like a company's departments.
 
-**Status:** the PM, BA, PO, Architect and Programming departments are written: the ones that take a task in, check it is ready, approve it against Tenon's design, build it and review it. Cyber security, DevOps, QA, Docs and HR are not written yet, and join as Tenon grows, as [adding a department](#adding-a-department) says. A route that needs one of them parks at that step until it exists. The rules every agent follows are in the handbook, [`RULES.md`](RULES.md).
+**Status:** the PM, BA, PO, Architect, Programming and QA departments are written: the ones that take a task in, check it is ready, approve it against Tenon's design, build it, review it and test it. Cyber security, DevOps, Docs and HR are not written yet, and join as Tenon grows, as [adding a department](#adding-a-department) says. A route that needs one of them parks at that step until it exists. The rules every agent follows are in the handbook, [`RULES.md`](RULES.md).
 
 ## The idea
 
@@ -47,7 +47,7 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 | Cyber security | reviewer                    | Opus   | not written | Reviews changes touching extension capabilities, sandboxing, `exec`, signing and trust                                                                                           |
 | DevOps         | engineer                    | Opus   | not written | Release pipeline, launchers, CI, `libs/dev` tooling and build config. The only role that may read or change `.env`                                                               |
 | Programming    | engine, sdk, extension, dev | Sonnet | written     | Implement with tests. engine: the protocol and the Rust crates. sdk: the language SDKs. extension: Base and first-party extensions. dev: `libs/dev`, the workspace config and CI |
-| QA             | conformance, e2e            | Sonnet | not written | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                                    |
+| QA             | conformance, e2e            | Sonnet | written     | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                                    |
 | Docs           | writer                      | Sonnet | not written | The design book, protocol docs and package READMEs, in the same PR as the code                                                                                                   |
 | HR             | policy                      | Opus   | not written | Keeps the handbook and every ruleset; turns the owner's notes and retros into rule-change PRs; drafts new roles                                                                  |
 
@@ -68,7 +68,7 @@ Task, written by the owner
   -> PM                commit, push, PR
 ```
 
-- The route depends on the task. Small tasks skip departments: a typo goes straight from Programming to QA. The gate may make a route longer, never shorter.
+- The route depends on the task. Small tasks skip departments: a typo goes straight from Programming to QA, or skips QA when nothing QA checks changed. The gate may make a route longer, never shorter.
 - Bugs skip the BA analysis: QA reproduces the bug and writes a failing test first, then the owning Programming role fixes it.
 - The BA assistant and the specialist get at most two rounds of back-and-forth. Whatever is still open goes to the owner, and the task parks until the owner answers.
 - If the reviews or QA reject the work twice, the task goes back to the gate to re-plan once. If that fails too, it parks as blocked.
