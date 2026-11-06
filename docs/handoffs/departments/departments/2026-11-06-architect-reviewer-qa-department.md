@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-06"
 status: done
 branch: docs/departments/12-qa
-pr:
+pr: 53
 ---
 
 # Rule review of the QA department
