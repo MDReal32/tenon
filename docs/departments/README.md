@@ -2,7 +2,7 @@
 
 How Tenon work moves from a task to a merged pull request, done by AI agents organized like a company's departments.
 
-**Status:** the PM, BA, PO, Architect, Programming and QA departments are written: the ones that take a task in, check it is ready, approve it against Tenon's design, build it, review it and test it. Cyber security, DevOps, Docs and HR are not written yet, and join as Tenon grows, as [adding a department](#adding-a-department) says. A route that needs one of them parks at that step until it exists. The rules every agent follows are in the handbook, [`RULES.md`](RULES.md).
+**Status:** the PM, BA, PO, Architect, Programming, QA and Docs departments are written: the ones that take a task in, check it is ready, approve it against Tenon's design, build it, document it, review it and test it. Cyber security, DevOps and HR are not written yet, and join as Tenon grows, as [adding a department](#adding-a-department) says. A route that needs one of them parks at that step until it exists. The rules every agent follows are in the handbook, [`RULES.md`](RULES.md).
 
 ## The idea
 
@@ -48,7 +48,7 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 | DevOps         | engineer                    | Opus   | not written | Release pipeline, launchers, CI, `libs/dev` tooling and build config. The only role that may read or change `.env`                                                               |
 | Programming    | engine, sdk, extension, dev | Sonnet | written     | Implement with tests. engine: the protocol and the Rust crates. sdk: the language SDKs. extension: Base and first-party extensions. dev: `libs/dev`, the workspace config and CI |
 | QA             | conformance, e2e            | Sonnet | written     | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                                    |
-| Docs           | writer                      | Sonnet | not written | The design book, protocol docs and package READMEs, in the same PR as the code                                                                                                   |
+| Docs           | writer                      | Sonnet | written     | The design book, protocol docs and package READMEs, in the same PR as the code                                                                                                   |
 | HR             | policy                      | Opus   | not written | Keeps the handbook and every ruleset; turns the owner's notes and retros into rule-change PRs; drafts new roles                                                                  |
 
 Opus does the judgment roles, Sonnet the execution roles.
