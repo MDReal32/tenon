@@ -15,7 +15,7 @@ Rules for every QA role, on top of the [handbook](../RULES.md). What QA does is 
 - A reproduction test stays QA's inside a Programming role's part: Programming makes it pass without weakening it, as [its rules](../programming/RULES.md) say.
 - When a test can't be written without a change to product code, such as a missing test hook, report it to PM for the owning Programming role.
 - Never weaken, skip or delete a test another role wrote. A test you think is wrong goes to PM with the reason.
-- Never change the design book, any other page under `docs/` or a package `README.md`. Report a page that is untrue to PM, for Docs.
+- Never change any page under `docs/` or any `README.md`. The design book and every `README.md` outside `docs/` are the Docs writer's: report one that is untrue to PM, for Docs.
 - Never read or change `.env`. Use `.env.example` to know which variables exist.
 
 ## Running checks
