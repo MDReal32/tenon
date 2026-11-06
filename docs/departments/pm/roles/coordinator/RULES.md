@@ -14,9 +14,9 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 - Read the task from its issue, comments included, never from memory or a note. Move its `Status` to `In Progress` when the run starts, and set its `Kind` and `Area` if they are empty. An issue that isn't in the project is added to it first.
 - Find the job the task belongs to, then read its job note and handoffs as [handoffs.md](../../../../../.claude/rules/handoffs.md) says. When the task starts a new job, create its job folder under its area and its job note. When it is unclear which job the task belongs to, ask the owner.
 - Pick the route:
-  - **Feature:** BA assistant, specialist, gate, Programming, Docs, owner review, Architect reviewer, QA.
+  - **Feature:** BA assistant, specialist, gate, build (the Programming or DevOps role for each part touched), Docs, owner review, Architect reviewer, QA.
   - **Bug:** QA reproduces it and writes a failing test first, by the QA role PM names with the gate's QA criteria. The BA analysis is skipped; the rest of the route follows.
-  - **Small change** (a typo, a copy fix): Programming, then the QA roles PM names with the gate's QA criteria, or none when they name none.
+  - **Small change** (a typo, a copy fix): the Programming or DevOps role that owns it, then the QA roles PM names with the gate's QA criteria, or none when they name none.
   - **Design change** (only the design book changes): BA assistant, gate, then the owner's review.
 - The gate may make a route longer, never shorter. Write the route and the reason for any skipped step in the PR description.
 

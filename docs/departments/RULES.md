@@ -31,7 +31,7 @@ On a mismatch it does no work and reports back to PM what it expected and what i
 
 ## Secrets
 
-- Only the DevOps engineer reads or changes `.env`. Every other role, PM included, uses `.env.example` to know which variables exist, and asks DevOps through PM when it needs a real value checked or changed. Until DevOps is written, the owner does.
+- Only the DevOps engineer reads or changes `.env`. Every other role, PM included, uses `.env.example` to know which variables exist, and asks DevOps through PM when it needs a real value checked or changed.
 - Never copy a secret into code, tests, docs, an issue, a commit or a PR.
 
 ## Git
