@@ -61,6 +61,8 @@ Its verdict was Approved on the root config. It accepted the two deviations: Bio
 
 The Architect reviewer asked for changes. Finding 1: `nx.json` set `"cache": true` on `build` and added a `test` entry with `"cache": true`, which the plan doesn't name. I removed both. Finding 2: `biome.json` lacked the plan's `files.ignoreUnknown: true`, which defaults to `false` in Biome 2.6.7, so I added it; `yarn nx lint --skipNxCache` exits 0 on Node 26 and Biome checks 193 files. Finding 4: the owner review lived in a second handoff for the same task and pull request, so I folded it into the section above and deleted that file.
 
+The reviewer's second attempt found that my record commit also carried `.idea/nx-angular-config.xml`, a file the owner's IDE created when `nx.json` appeared and not part of the task. I stopped tracking it with `git rm --cached`, which leaves the local file in place, and I stage by path from now on.
+
 ## Where it stands
 
 Done. The root files are built and committed on the task branch (PR 66). The DevOps git files and the Docs writer are done, the Programming dev owner review approved (see the owner review above), and the DevOps review's analytics fix is in. Analysis attempt 2 had been returned to PM before. BA and the owner settled the open questions: Nx 24.0.6, Node `^26` in `engines` only, `!.claude/settings.json` in Biome's ignores, no `@napi-rs/cli`, no `enableScripts`. The plugin infers no `build`, `test` or `lint` targets, which the crate tasks must handle.
