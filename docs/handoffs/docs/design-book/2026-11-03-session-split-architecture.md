@@ -12,7 +12,7 @@ pr:
 
 # Split the design document into a book
 
-The owner asked for `docs/ARCHITECTURE.md`, Tenon's single design document, to be split into related docs. This starts the [design book job](design-book.md), and it builds on [the departments setup](../../departments/departments/2026-11-03-session-basic-departments.md), whose rules and roles pointed at the old file.
+The owner asked for `docs/ARCHITECTURE.md`, Tenon's single design document, to be split into related docs. This starts the [design book job](design-book.md), and it builds on [the departments setup](../../departments/departments/2026-11-03--2026-11-06-compacted-departments-foundation.md), whose rules and roles pointed at the old file.
 
 ## What I did and how
 

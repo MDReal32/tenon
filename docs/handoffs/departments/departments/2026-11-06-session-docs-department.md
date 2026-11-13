@@ -13,7 +13,7 @@ pr: 54
 
 # Write the Docs department
 
-[#13](https://github.com/MDReal32/tenon/issues/13) asks for the Docs department with its one role, the writer, in the shape [#11](https://github.com/MDReal32/tenon/issues/11) gave Programming: a triplet and a Sonnet agent file for the role, the department's templates and knowledge file, and the roster row set to written. It continues [the QA handoff](2026-11-06-session-qa-department.md), and its branch is stacked on QA's, since both change the overview's status line and roster. The route has the owner write it, which a direct session does while HR isn't written, then the Architect reviewer's rule review.
+[#13](https://github.com/MDReal32/tenon/issues/13) asks for the Docs department with its one role, the writer, in the shape [#11](https://github.com/MDReal32/tenon/issues/11) gave Programming: a triplet and a Sonnet agent file for the role, the department's templates and knowledge file, and the roster row set to written. It continues [the QA handoff](2026-11-03--2026-11-06-compacted-departments-foundation.md), and its branch is stacked on QA's, since both change the overview's status line and roster. The route has the owner write it, which a direct session does while HR isn't written, then the Architect reviewer's rule review.
 
 ## What I did and how
 
