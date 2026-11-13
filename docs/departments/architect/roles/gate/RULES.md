@@ -23,7 +23,7 @@ Approve only when every check passes:
 - Size every approved task S, M, L or XL, with a sentence saying why.
 - Name the Programming role for each part the plan touches.
 - Name the QA roles: conformance when the change touches the protocol, an SDK, a host adapter or an extension, and e2e when it changes what a user sees or what `tenon` generates.
-- Name Cyber security when the change touches extension capabilities, sandboxing, `exec`, signing or trust, and DevOps when it touches CI, the release pipeline, launchers, Nx or build config, or environment variables. Until Cyber security is written, the route parks at its step, as the [overview](../../../README.md#flow) says.
+- Name Cyber security when the change touches extension capabilities, sandboxing, `exec`, signing, trust or the access hook in `.claude/hooks/department-access`, and DevOps when it touches CI, the release pipeline, launchers, Nx or build config, or environment variables.
 - The route may only grow from what PM proposed, never shrink.
 
 ## Work

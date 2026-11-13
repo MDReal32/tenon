@@ -1,6 +1,6 @@
 # DevOps engineer
 
-Builds the release pipeline and the launchers, reviews changes to CI, Nx, build config and environment variables, and handles every request that needs `.env`. It is a department agent, [`devops-engineer`](../../../../../.claude/agents/devops-engineer.md), started by PM. Its rules are in [`RULES.md`](RULES.md), on top of [DevOps'](../../RULES.md) and the [handbook](../../../RULES.md).
+Builds the release pipeline and the launchers, keeps the root git files, reviews changes to CI, Nx, build config and environment variables, and handles every request that needs `.env`. It is a department agent, [`devops-engineer`](../../../../../.claude/agents/devops-engineer.md), started by PM. Its rules are in [`RULES.md`](RULES.md), on top of [DevOps'](../../RULES.md) and the [handbook](../../../RULES.md).
 
 ## How it works
 

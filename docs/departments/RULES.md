@@ -13,7 +13,7 @@ The company rules. They bind every department and every role, and every agent re
 Before any work, every agent checks that:
 
 - it runs on the model its role's rules name, and
-- it has exactly the tools its agent file lists.
+- it has exactly the tools its agent file lists. The one exception: a role whose agent file lists `Bash` may find `Grep` and `Glob` missing, since search then runs through `Bash` with `grep` and `find`. That is not a mismatch.
 
 On a mismatch it does no work and reports back to PM what it expected and what it found.
 
@@ -63,4 +63,4 @@ A role's step is done when its output follows the role's template, its own rules
 ## Knowledge and rule changes
 
 - `<dept>/<dept>-knowledge.md` holds facts and lessons, not rules. Add a lesson through your PR when you learn something the next run should know.
-- Rules change only through HR, each change as its own PR, and through the owner until HR is written. A run follows the rules as they are when it starts; a resumed task follows the latest rules, and the owning department rechecks any finished work a changed rule affects.
+- Rules change only through HR, each change as its own PR, which the owner reviews and merges. A run follows the rules as they are when it starts; a resumed task follows the latest rules, and the owning department rechecks any finished work a changed rule affects.

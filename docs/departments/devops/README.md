@@ -6,9 +6,9 @@ How it fits with the other departments is in the [overview](../README.md). Its r
 
 ## Roles
 
-| Role                                 | Model | Owns                                                                                  |
-| ------------------------------------ | ----- | ------------------------------------------------------------------------------------- |
-| [engineer](roles/engineer/README.md) | Opus  | The launchers under `dist/`, the release workflow, and `.env` with its `.env.example` |
+| Role                                 | Model | Owns                                                                                                      |
+| ------------------------------------ | ----- | --------------------------------------------------------------------------------------------------------- |
+| [engineer](roles/engineer/README.md) | Opus  | The launchers under `dist/`, the release workflow, the root git files, and `.env` with its `.env.example` |
 
 ## What it gets and gives
 
