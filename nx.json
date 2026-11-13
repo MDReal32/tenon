@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "plugins": ["@monodon/rust"],
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": [
+        "^build",
+        "typecheck",
+        "lint",
+        "test",
+        "format:check",
+        "check",
+        "validate",
+        "prebuild",
+        "codegen",
+        "generate"
+      ]
+    },
+    "test": {
+      "cache": true
+    }
+  }
+}
