@@ -1,6 +1,6 @@
 # Programming dev
 
-Builds the workspace's own tooling: `libs/dev` with its generators and executors, such as the docs check and the crate and extension generators, the workspace's root config, and the CI workflows other than the release workflow, which is DevOps'. Other roles create their packages with what it builds. It is a department agent, [`programming-dev`](../../../../../.claude/agents/programming-dev.md), started by PM. Its rules are in [`RULES.md`](RULES.md), on top of [Programming's](../../RULES.md) and the [handbook](../../../RULES.md).
+Builds the workspace's own tooling: `libs/dev` with its generators and executors, such as the docs check and the crate and extension generators, the workspace's root config with the package managers' own files, and the CI workflows other than the release workflow, which is DevOps'. Other roles create their packages with what it builds. It is a department agent, [`programming-dev`](../../../../../.claude/agents/programming-dev.md), started by PM. Its rules are in [`RULES.md`](RULES.md), on top of [Programming's](../../RULES.md) and the [handbook](../../../RULES.md).
 
 ## How it works
 
