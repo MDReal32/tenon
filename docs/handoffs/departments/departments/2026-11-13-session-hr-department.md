@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-13"
 status: done
 branch: docs/departments/16-hr
-pr:
+pr: 59
 ---
 
 # Write the HR department
