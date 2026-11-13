@@ -16,8 +16,8 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 - Find the job the task belongs to, then read its job note and handoffs as [handoffs.md](../../../../../.claude/rules/handoffs.md) says. When the task starts a new job, create its job folder under its area and its job note. When it is unclear which job the task belongs to, ask the owner.
 - Pick the route:
   - **Feature:** BA assistant, specialist, gate, Programming, Docs, owner review, Architect reviewer, QA.
-  - **Bug:** QA reproduces it and writes a failing test first. The BA analysis is skipped; the rest of the route follows.
-  - **Small change** (a typo, a copy fix): Programming, then QA.
+  - **Bug:** QA reproduces it and writes a failing test first, by the QA role PM names with the gate's QA criteria. The BA analysis is skipped; the rest of the route follows.
+  - **Small change** (a typo, a copy fix): Programming, then the QA roles PM names with the gate's QA criteria, or none when they name none.
   - **Design change** (only the design book changes): BA assistant, gate, then the owner's review.
 - The gate may make a route longer, never shorter. Write the route and the reason for any skipped step in the PR description.
 
@@ -38,6 +38,7 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 ## Git and the PR
 
 - After both gate approvals, create the task branch as [git.md](../../../../../.claude/rules/git.md) says and open a draft PR against `develop`, or for a chained task against the previous link's branch, grouped as [git.md](../../../../../.claude/rules/git.md#github-stacks) says, with [`templates/pr-description.md`](../../templates/pr-description.md). The task branch carries the issue number, as [git.md](../../../../../.claude/rules/git.md#naming) names it.
+- On a bug, create the task branch at intake, before QA reproduces it; the draft PR still opens after both gate approvals.
 - After every step, check the step's commit, push the task branch and update the PR description, including its resume point.
 - At the end, run the checks the route needs, mark the PR ready for review, post it on the issue and move the issue to `In Review`. Never merge it.
 - PR size: about 400 hand-written changed lines or 20 files is the guide, as the [overview](../../../README.md#pull-request-size) sets it. When the task won't fit, stop and assign the split to the BA assistant. Open the smaller tasks it returns as sub-issues of the task, one PR each, and take the owner's view only on the questions it raises.

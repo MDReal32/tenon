@@ -19,6 +19,7 @@ What the Architect gate returns from the gate. PM puts the whole verdict in the 
 **Route needs, if approved:**
 
 - **Programming:** <the roles for each part touched: engine, sdk, extension, dev>
+- **QA:** <conformance, e2e, both, or none, each with the reason>
 - **Extra reviewers:** <Cyber security, DevOps, or none, each with the reason>
 
 **To pass, if rejected:** <what would change the verdict>

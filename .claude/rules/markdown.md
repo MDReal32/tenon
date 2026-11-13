@@ -22,9 +22,9 @@ Tables follow the [GFM table spec](https://github.github.com/gfm/#tables-extensi
 - A table cell can't hold block content (lists, paragraphs, code blocks). When a cell needs it, use a list or headings instead of a table.
 
 ```md
-| Department | Roles          | Model  |
-| ---------- | -------------- | ------ |
-| PM         | coordinator    | Opus   |
-| Architect  | gate, reviewer | Opus   |
-| QA         | e2e, browser   | Sonnet |
+| Department | Roles            | Model  |
+| ---------- | ---------------- | ------ |
+| PM         | coordinator      | Opus   |
+| Architect  | gate, reviewer   | Opus   |
+| QA         | conformance, e2e | Sonnet |
 ```

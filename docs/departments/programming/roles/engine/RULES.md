@@ -10,7 +10,7 @@ Rules for the engine role, on top of [Programming's](../../RULES.md) and the [ha
 ## Its part
 
 - `protocol/`: the JSON Schema, the WIT world and the examples.
-- `crates/`: every Rust crate, and each crate's `Cargo.toml`.
+- `crates/`: every Rust crate, and each crate's `Cargo.toml`, except the bug reproductions QA owns there.
 
 Any other file is outside its part, as [Programming's rules](../../RULES.md#what-it-may-change) say.
 
