@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-13"
 status: done
 branch: docs/departments/62-startup-check-search
-pr:
+pr: 64
 ---
 
 # HR owner review of the start-up check's Grep and Glob exception

@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-13"
 status: done
 branch: docs/departments/62-startup-check-search
-pr:
+pr: 64
 ---
 
 # Excuse missing Grep and Glob in the start-up check when a role has Bash
