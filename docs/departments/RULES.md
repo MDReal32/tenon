@@ -13,7 +13,7 @@ The company rules. They bind every department and every role, and every agent re
 Before any work, every agent checks that:
 
 - it runs on the model its role's rules name, and
-- it has exactly the tools its agent file lists.
+- it has exactly the tools its agent file lists. The one exception: a role whose agent file lists `Bash` may find `Grep` and `Glob` missing, since search then runs through `Bash` with `grep` and `find`. That is not a mismatch.
 
 On a mismatch it does no work and reports back to PM what it expected and what it found.
 
