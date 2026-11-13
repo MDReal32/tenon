@@ -6,7 +6,7 @@ tasks:
 role: programming-dev
 model: claude-sonnet-5-5
 date: "2026-11-13"
-status: partial
+status: done
 branch: chore/dev/17-nx-workspace
 pr: 66
 ---
@@ -49,10 +49,12 @@ PM then asked about `@nx/js` 24.0.6, which my first build commit had added witho
 
 After DevOps committed the `.gitignore` entries, PM found that the explicit `!**/node_modules`, `!**/target`, `!**/dist`, `!**/.nx` and `!**/.yarn` ignores in `biome.json` would hide the launchers' root `dist/` sources and any source folder named `target`. I removed them, since `vcs.useIgnoreFile` now reads `.gitignore`; only the hook, `.claude/settings.json` and `docs/.obsidian` stay explicit. `yarn nx lint --skipNxCache` exits 0 and Biome checks 190 files, the same 190 the old config gives on today's tree (the one file more than the 189 before is DevOps' new `.gitattributes`), so the ignores changed nothing.
 
+The DevOps review then found that `nx.json` set no `analytics` value, so in Nx 24.0.6 a person's first interactive `yarn nx` outside CI would ask "Share usage data with the Nx team?" and write the answer into the tracked file. I checked the installed `nx/dist/src/utils/analytics-prompt.js`, which skips the prompt when `nxJson.analytics` is a boolean, and added `"analytics": false`, matching `enableTelemetry: false` in `.yarnrc.yml`. On Node 26, `yarn nx show projects` and `yarn nx lint --skipNxCache` pass and `git status --short` shows only `.idea/vcs.xml`.
+
 ## Where it stands
 
-Partial: the root files are built and committed on the task branch (PR 66); reviews, DevOps' `.gitignore` step and the Docs writer are still to come. Analysis attempt 2 had been returned to PM before. BA and the owner settled the open questions: Nx 24.0.6, Node `^26` in `engines` only, `!.claude/settings.json` in Biome's ignores, no `@napi-rs/cli`, no `enableScripts`. The one new finding is that the plugin infers no `build`, `test` or `lint` targets, for the gate to note for the crate tasks.
+Done. The root files are built and committed on the task branch (PR 66). The DevOps git files and the Docs writer are done, the Programming dev owner review approved ([the review](2026-11-13-programming-dev-workspace-review.md)), and the DevOps review's analytics fix is in. Analysis attempt 2 had been returned to PM before. BA and the owner settled the open questions: Nx 24.0.6, Node `^26` in `engines` only, `!.claude/settings.json` in Biome's ignores, no `@napi-rs/cli`, no `enableScripts`. The plugin infers no `build`, `test` or `lint` targets, which the crate tasks must handle.
 
 ## Next
 
-DevOps adds `.gitignore` entries for `node_modules/`, `.nx/` and `.yarn/install-state.gz` (the files untracked after the build, besides the root files), then criterion 9 is checked. Reviews follow, with DevOps named as reviewer for the Nx and build config.
+The Architect reviewer reviews the change next.
