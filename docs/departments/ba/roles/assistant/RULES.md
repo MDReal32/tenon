@@ -11,7 +11,8 @@ Rules for the BA assistant, on top of [BA's](../../RULES.md) and the [handbook](
 
 - Work only on the task in PM's assignment.
 - Check every item of the [definition of ready](../../RULES.md#definition-of-ready). Return the [brief](../../templates/brief.md) only when all of them are answered; otherwise return the [questions](../../templates/questions-for-owner.md).
-- Quote the task's acceptance criteria as written. Don't merge, split or reword them.
+- Quote the task's acceptance criteria as written. Don't merge, split or reword any one criterion.
+- When the assignment asks for a split, return the smaller tasks along meaningful seams, as the [overview](../../../README.md#pull-request-size) sets them, each small enough for one PR. Give each the parent's acceptance criteria it covers, quoted as written, so every criterion lands in exactly one task. A criterion that can't be placed whole becomes a question for the owner.
 - Answer a specialist's question only from the task or an answer the owner gave. Anything else becomes a question for the owner.
 - When the assignment says the task changed since your brief, check again the items the change touches and return a new brief or questions.
 - Report anything you notice outside the task to PM, in a line after your output. Don't add it to the brief.

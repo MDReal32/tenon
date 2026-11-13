@@ -7,6 +7,7 @@ tasks:
   - "https://github.com/MDReal32/tenon/issues/12"
   - "https://github.com/MDReal32/tenon/issues/13"
   - "https://github.com/MDReal32/tenon/issues/14"
+  - "https://github.com/MDReal32/tenon/issues/51"
 updated: "2026-11-06"
 ---
 
@@ -26,4 +27,4 @@ The first four departments, the workspace rules and the hook came in [the sessio
 
 ## Current state
 
-PM, BA, PO, Architect, Programming, QA, Docs and DevOps are written, with their agent files, templates and knowledge files; the hook and its tests are in place. Tasks live as issues in the [Tenon project](https://github.com/users/MDReal32/projects/4), with eight statuses and `Kind`, `Area` and `Size` fields. Programming came in [#11](https://github.com/MDReal32/tenon/issues/11), through [the Programming handoff](2026-11-05-session-programming-department.md). QA came in [#12](https://github.com/MDReal32/tenon/issues/12), through [the QA handoff](2026-11-06-session-qa-department.md). Docs came in [#13](https://github.com/MDReal32/tenon/issues/13), through [the Docs handoff](2026-11-06-session-docs-department.md). DevOps came in [#14](https://github.com/MDReal32/tenon/issues/14), through [the DevOps handoff](2026-11-06-session-devops-department.md). The rest of the roster follows as M0's next tasks: Cyber security, then HR last.
+PM, BA, PO, Architect, Programming, QA, Docs and DevOps are written, with their agent files, templates and knowledge files; the hook and its tests are in place. Tasks live as issues in the [Tenon project](https://github.com/users/MDReal32/projects/4), with eight statuses and `Kind`, `Area` and `Size` fields. Programming came in [#11](https://github.com/MDReal32/tenon/issues/11), through [the Programming handoff](2026-11-05-session-programming-department.md). QA came in [#12](https://github.com/MDReal32/tenon/issues/12), through [the QA handoff](2026-11-06-session-qa-department.md). Since [#51](https://github.com/MDReal32/tenon/issues/51), through [the autonomy handoff](2026-11-06-session-autonomy-rules.md), a run keeps going through the roadmap on its own, with at most 3 PRs open for review, and BA splits a task too big for one PR. Docs came in [#13](https://github.com/MDReal32/tenon/issues/13), through [the Docs handoff](2026-11-06-session-docs-department.md). DevOps came in [#14](https://github.com/MDReal32/tenon/issues/14), through [the DevOps handoff](2026-11-06-session-devops-department.md). The rest of the roster follows as M0's next tasks: Cyber security, then HR last.

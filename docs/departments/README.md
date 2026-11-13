@@ -18,19 +18,19 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 
 ## Tasks
 
-- A task is a GitHub issue in [`MDReal32/tenon`](https://github.com/MDReal32/tenon/issues), written by the owner and added to the [Tenon project](https://github.com/users/MDReal32/projects/4). The issue is the source of truth for what to build: the repository keeps no copy of it, and notes link it by its URL.
-- The project's `Status` field says where a task stands. PM moves it as a run goes; only the owner moves a task out of `Backlog` or into `Canceled`.
+- A task is a GitHub issue in [`MDReal32/tenon`](https://github.com/MDReal32/tenon/issues), written by the owner, or opened by PM from a split or a finding, and added to the [Tenon project](https://github.com/users/MDReal32/projects/4). The issue is the source of truth for what to build: the repository keeps no copy of it, and notes link it by its URL.
+- The project's `Status` field says where a task stands. PM moves it as a run goes, and takes the next task out of `Backlog` in roadmap order, as [the autonomy rules](../../.claude/rules/autonomy.md) say; only the owner moves a task into `Canceled`.
 
-| Status           | Means                                                           |
-| ---------------- | --------------------------------------------------------------- |
-| Backlog          | Planned but not prioritized, such as the next milestone's epics |
-| Todo             | Ready to run, in the order the owner set                        |
-| In Progress      | A run is working on it                                          |
-| Waiting on owner | Parked: a question on the issue waits on the owner              |
-| Blocked          | Waiting on another task or on something outside the project     |
-| In Review        | Its PR is open for the owner's review                           |
-| Done             | Its issue closed when the PR merged                             |
-| Canceled         | The owner decided it won't be done                              |
+| Status           | Means                                                       |
+| ---------------- | ----------------------------------------------------------- |
+| Backlog          | Planned, taken in roadmap order once `Todo` is empty        |
+| Todo             | Ready to run, in the order the owner set                    |
+| In Progress      | A run is working on it                                      |
+| Waiting on owner | Parked: a question on the issue waits on the owner          |
+| Blocked          | Waiting on another task or on something outside the project |
+| In Review        | Its PR is open for the owner's review                       |
+| Done             | Its issue closed when the PR merged                         |
+| Canceled         | The owner decided it won't be done                          |
 
 - Every item also carries `Kind` (Task, Epic, Bug, Decision), `Area` (the same areas as the handoffs) and, once the Architect gate sizes it, `Size` (S, M, L, XL). Milestones are GitHub milestones.
 - The issue's comments are where PM and the owner talk about the task: verdicts, questions, answers and the PR. The owner answers a question by replying there.
@@ -106,14 +106,14 @@ Agent tool lists are not enough for `.env` and git, because Claude Code can't li
 ## Running
 
 - Local only, one task at a time.
-- Order: `Waiting on owner` tasks the owner has answered, and the owner's PR review comments, come first; then the `Todo` column, top first.
+- Order: `Waiting on owner` tasks the owner has answered, and the owner's PR review comments, come first; then the `Todo` column, top first; then the sub-issues of a split task, in the order BA gave them; then the open milestone with the lowest number, its `Backlog` tasks by issue number. A run keeps going without asking and stops only where [the autonomy rules](../../.claude/rules/autonomy.md) say, with at most 3 of the roadmap's PRs open for review at once.
 - The owner can stop a run at any time. The run finishes its current step, parks with a note, and nothing new starts until the owner resumes it.
 - Departments run the checks locally until CI exists.
 
 ## Pull request size
 
 - The goal is reviewability. About 400 hand-written changed lines or 20 files is a guide, not a cutoff; a coherent PR may go over it with the reason stated in its description.
-- When a task won't fit one reviewable PR, work stops and PM proposes a split on the issue, as sub-issues. Splits follow meaningful seams (a crate, a protocol message, a layer, an extension), never "the first 20 files".
+- When a task won't fit one reviewable PR, work on it stops and BA splits it into smaller tasks, as sub-issues, each with its own PR. Splits follow meaningful seams (a crate, a protocol message, a layer, an extension), never "the first 20 files".
 - Generated files (lockfiles, code generated from the protocol schema) are marked `linguist-generated` so they don't count. The schema itself stays visible.
 - Mechanical changes (renames, formatting, dependency bumps) get their own PR, produced by a command quoted in its description.
 
