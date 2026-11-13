@@ -8,11 +8,6 @@
   "files": {
     "includes": [
       "**",
-      "!**/node_modules",
-      "!**/target",
-      "!**/dist",
-      "!**/.nx",
-      "!**/.yarn",
       "!.claude/hooks/department-access",
       "!.claude/settings.json",
       "!docs/.obsidian"
