@@ -25,19 +25,21 @@ Findings from the scratch workspace. A Cargo workspace with `members = []` is ac
 
 ## Why this way
 
-The root project beats a `project.json` with `nx:run-commands`, because the rule forbids a `project.json` that only repeats a script. It beats a global `biome check` outside Nx,, since the repository layout says every task runs through Nx. No official `@nx/biome` plugin exists (404 on the registry).
+The root project beats a `project.json` with `nx:run-commands`, because the rule forbids a `project.json` that only repeats a script. It beats a global `biome check` outside Nx, since the repository layout says every task runs through Nx. No official `@nx/biome` plugin exists (404 on the registry).
 
 For the finite checks, `build.dependsOn` lists `^build` plus the names the rule lists. Nx ignores a dependency whose target the project doesn't have, so naming `typecheck`, `lint`, `test`, `format:check`, `check`, `validate`, `prebuild`, `codegen` and `generate` there is not an empty target and is not invented. The rule says "every applicable one the project provides", so the set is the rule's list.
 
-The owner's Node answer is "each lts versions". The newest LTS is 26, not the 24 on this machine. The plan pins `engines.node` to `>=26` only if the gate accepts 26. The alternative, 24, is the maintenance line.
+The owner's Node answer is "each lts versions", and BA settled it as the 26 LTS line (Lithium), pinned only in `engines.node` as `^26`, with no `.nvmrc` or `.node-version`. The 24 on this machine is the older LTS line.
+
+For the Nx major the owner wrote "i wanted latest nx. if possible. otherwise 23 is okay too". Nx 24.0.6 is possible: with `@monodon/rust` 3.0.0 a library crate added to the Cargo workspace is listed by `yarn nx show projects`, and with `build`, `test` and `lint` targets declared in its `project.json` (executors `@monodon/rust:build`, `:test`, `:lint`), `yarn nx build` and `yarn nx test` exit 0. A `build` run first ran `test` and `lint` through the `targetDefaults` `dependsOn`, so the default does not break it. The plugin source (`src/graph.js`) shows what it infers: the project and its dependencies, plus only a `nx-release-publish` target, with a TODO for other defaults. It infers no `build`, `test` or `lint`, so those must come from a crate's `project.json` or a `targetDefaults` entry keyed by executor. That holds for every Nx version, so it is not a reason to prefer 23. An attempt to repeat the proof on Nx 23.3.2 did not take effect (Yarn kept 24.0.6), and since 24 works it was dropped. The throwaway workspace and crate were deleted.
 
 ## Checks
 
-Registry and tool queries above, plus the scratch-workspace runs (`yarn install`, `yarn nx show projects`, `yarn nx lint`, `cargo metadata`, `biome check`). The full repository `.claude/settings.json` fails `biome check` at the default line width because its `args` array is longer than 80 characters. That is the one existing file beyond the hook and Obsidian files that trips the check. Nothing else was run: no build exists to check.
+Registry and tool queries above, plus the scratch-workspace runs (`yarn install`, `yarn nx show projects`, `yarn nx lint`, `cargo metadata`, `biome check`). The full repository `.claude/settings.json` fails `biome check` at the default line width because its `args` array is longer than 80 characters. That is the one existing file beyond the hook and Obsidian files that trips the check. The attempt 2 proof is described under "Why this way"; it ran on Node 24.4.1, not 26. The build step needs Node 26 installed to run the final checks, and Node 25 and later no longer bundle Corepack as far as I recall (not verified here), so Corepack may need installing separately.
 
 ## Where it stands
 
-Partial: the analysis is returned to PM and this handoff is committed. Two things are open for the gate or the owner: the Node line (26 against 24) and what to do with `.claude/settings.json` (ignore all of `.claude`, or set a wider `lineWidth`, untested).
+Partial: attempt 2 of the analysis is returned to PM and this handoff is committed. BA and the owner settled the open questions: Nx 24.0.6, Node `^26` in `engines` only, `!.claude/settings.json` in Biome's ignores, no `@napi-rs/cli`, no `enableScripts`. The one new finding is that the plugin infers no `build`, `test` or `lint` targets, for the gate to note for the crate tasks.
 
 ## Next
 
