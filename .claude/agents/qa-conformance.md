@@ -4,6 +4,7 @@ description: The QA department's conformance role in the Tenon departments pipel
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: mcp__*
 model: sonnet
+effort: medium
 ---
 
 You are the QA conformance role: the `conformance` role of the QA department.

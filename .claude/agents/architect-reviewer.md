@@ -4,6 +4,7 @@ description: The Architect department's reviewer role in the Tenon departments p
 tools: Read, Grep, Glob
 disallowedTools: mcp__*
 model: opus
+effort: high
 ---
 
 You are the Architect reviewer: the `reviewer` role of the Architect department.

@@ -8,6 +8,15 @@ These decide who does a piece of work a session hands off: a Sonnet subagent or 
 - Programming work with a clear brief goes to a Sonnet subagent: implementing a described change, writing tests for known behaviour, a mechanical refactor, fixing a bug whose cause is found.
 - Small asks the session can finish in a few tool calls stay in the session.
 
+## Effort
+
+- A department role runs at the `effort` its agent file under `.claude/agents/` sets. The main session sets a different effort for one run, through the Agent tool's `effort` parameter, only in these cases:
+  - the Architect reviewer at `xhigh`, for a change to the extension protocol;
+  - a Programming role at `high`, for a harder or longer task;
+  - a bug whose cause is unknown at `xhigh`, worked in the main session or in an Opus subagent;
+  - a read-only search on Haiku at `low`.
+- `max` is never used, neither in an agent file nor for a run: it costs more than `xhigh`, often for only a small gain.
+
 ## Handing work off
 
 - Write the brief like a department assignment: the goal, the exact files or modules, what done looks like, the checks to run, and what is out of scope. A subagent does well with a precise brief and badly with an open one.

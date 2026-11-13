@@ -38,20 +38,20 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 
 ## Roster
 
-| Department     | Roles                       | Model  | Status  | Does                                                                                                                                                                             |
-| -------------- | --------------------------- | ------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PM             | coordinator                 | Opus   | written | The orchestrator: takes the task in, picks the route, hands work between departments, parks and resumes tasks, runs git and opens the PR. Runs as the main session               |
-| BA             | assistant                   | Opus   | written | Reads the owner's task, finds gaps, asks the owner, writes the brief. Never invents requirements                                                                                 |
-| PO             | proxy                       | Opus   | written | Stands in for the owner at the gate: does this task fit Tenon's design and roadmap? Questions the task and the design don't answer go to the owner, and the task waits           |
-| Architect      | gate, reviewer              | Opus   | written | gate: the technical half of the gate (the four axes, boundaries, protocol impact, PR-sized scope, task size). reviewer: reviews every change; never its own plan                 |
-| Cyber security | reviewer                    | Opus   | written | Reviews changes touching extension capabilities, sandboxing, `exec`, signing, trust and the access hook                                                                          |
-| DevOps         | engineer                    | Opus   | written | Release pipeline and launchers, the root git files, and the review of CI, Nx, build config and environment variable changes. The only role that may read or change `.env`        |
-| Programming    | engine, sdk, extension, dev | Sonnet | written | Implement with tests. engine: the protocol and the Rust crates. sdk: the language SDKs. extension: Base and first-party extensions. dev: `libs/dev`, the workspace config and CI |
-| QA             | conformance, e2e            | Sonnet | written | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                                    |
-| Docs           | writer                      | Sonnet | written | The design book, protocol docs and package READMEs, in the same PR as the code                                                                                                   |
-| HR             | policy                      | Opus   | written | Keeps the handbook and every ruleset; turns the owner's notes and retros into rule-change PRs; drafts new roles                                                                  |
+| Department     | Roles                       | Model  | Effort    | Status  | Does                                                                                                                                                                             |
+| -------------- | --------------------------- | ------ | --------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PM             | coordinator                 | Opus   | session's | written | The orchestrator: takes the task in, picks the route, hands work between departments, parks and resumes tasks, runs git and opens the PR. Runs as the main session               |
+| BA             | assistant                   | Opus   | `medium`  | written | Reads the owner's task, finds gaps, asks the owner, writes the brief. Never invents requirements                                                                                 |
+| PO             | proxy                       | Opus   | `medium`  | written | Stands in for the owner at the gate: does this task fit Tenon's design and roadmap? Questions the task and the design don't answer go to the owner, and the task waits           |
+| Architect      | gate, reviewer              | Opus   | `high`    | written | gate: the technical half of the gate (the four axes, boundaries, protocol impact, PR-sized scope, task size). reviewer: reviews every change; never its own plan                 |
+| Cyber security | reviewer                    | Opus   | `xhigh`   | written | Reviews changes touching extension capabilities, sandboxing, `exec`, signing, trust and the access hook                                                                          |
+| DevOps         | engineer                    | Opus   | `high`    | written | Release pipeline and launchers, the root git files, and the review of CI, Nx, build config and environment variable changes. The only role that may read or change `.env`        |
+| Programming    | engine, sdk, extension, dev | Sonnet | `medium`  | written | Implement with tests. engine: the protocol and the Rust crates. sdk: the language SDKs. extension: Base and first-party extensions. dev: `libs/dev`, the workspace config and CI |
+| QA             | conformance, e2e            | Sonnet | `medium`  | written | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                                    |
+| Docs           | writer                      | Sonnet | `medium`  | written | The design book, protocol docs and package READMEs, in the same PR as the code                                                                                                   |
+| HR             | policy                      | Opus   | `high`    | written | Keeps the handbook and every ruleset; turns the owner's notes and retros into rule-change PRs; drafts new roles                                                                  |
 
-Opus does the judgment roles, Sonnet the execution roles.
+Opus does the judgment roles, Sonnet the execution roles. Each role's agent file also sets its reasoning `effort`: `xhigh` for the Cyber security reviewer, `high` for the Architect roles, the DevOps engineer and HR policy, and `medium` for the BA assistant, the PO proxy and every Sonnet role. The coordinator has no agent file, so it runs at the session's effort. The cases in which PM sets a different effort for one run, and the rule that `max` is never used, are in [delegation.md](../../.claude/rules/delegation.md#effort).
 
 ## Flow
 
@@ -130,7 +130,7 @@ A new department or role is added as its own rule-change PR, in this order:
 
 1. **Folder.** Create `docs/departments/<dept>/` with its `README.md`, `RULES.md` and `CLAUDE.md`, a `<dept>-knowledge.md`, and a `templates/` folder holding the exact format of everything the department returns. Copy the shape of an existing department of the same kind: Architect for a read-only reviewer, PM for a role that writes.
 2. **Roles.** For each role, create `docs/departments/<dept>/roles/<role>/` with its own triplet. The role's `RULES.md` names its model and its exact tools, and only narrows the department's rules.
-3. **Agent file.** Create `.claude/agents/<dept>-<role>.md` with the same front matter as the existing ones (`name`, `description`, `tools`, `disallowedTools: mcp__*`, `model`) and the same body: the three `RULES.md` files to read in order. Leave out the `Agent` tool.
+3. **Agent file.** Create `.claude/agents/<dept>-<role>.md` with the same front matter as the existing ones (`name`, `description`, `tools`, `disallowedTools: mcp__*`, `model`, `effort`) and the same body: the three `RULES.md` files to read in order. Leave out the `Agent` tool.
 4. **Access.** When the role needs a privilege no other role has, such as `.env`, change [`.claude/hooks/department-access`](../../.claude/hooks/department-access) and its tests in the same PR.
 5. **This page.** Set the role's row in the [roster](#roster) to written, and adjust the [flow](#flow) when the department adds or moves a step.
 6. **Links.** Where other departments' rules say "until X is written", narrow or remove that clause, since the department now exists.

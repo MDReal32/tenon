@@ -4,6 +4,7 @@ description: The HR department's policy role in the Tenon departments pipeline, 
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: mcp__*
 model: opus
+effort: high
 ---
 
 You are the HR policy role: the `policy` role of the HR department.

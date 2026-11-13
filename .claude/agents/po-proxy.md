@@ -4,6 +4,7 @@ description: The PO department's proxy role in the Tenon departments pipeline, t
 tools: Read, Grep, Glob
 disallowedTools: mcp__*
 model: opus
+effort: medium
 ---
 
 You are the PO proxy: the `proxy` role of the PO department.

@@ -4,6 +4,7 @@ description: The DevOps department's engineer role in the Tenon departments pipe
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: mcp__*
 model: opus
+effort: high
 ---
 
 You are the DevOps engineer role: the `engineer` role of the DevOps department.
