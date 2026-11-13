@@ -9,15 +9,15 @@ updated: "2026-11-13"
 
 # Nx workspace
 
-The Nx workspace is the ground every other part of Tenon is built on: one Nx graph over Yarn for the TypeScript side and Cargo for the Rust crates, with `@monodon/rust` inferring the Cargo targets and Biome checking the code. It serves Tenon's own developers and the department roles, which run every build, lint and test through Nx, as [the repository layout](../../../06-project/00-repository-layout.md) says, with no separate `xtask/` runner.
+The Nx workspace is the ground every other part of Tenon is built on: one Nx graph over Yarn for the TypeScript side and Cargo for the Rust crates, with `@monodon/rust` giving Nx the Cargo projects and Biome checking the code. It serves Tenon's own developers and the department roles, which run every build, lint and test through Nx, as [the repository layout](../../../06-project/00-repository-layout.md) says, with no separate `xtask/` runner.
 
 ## How it works
 
-The repository root is the workspace and its first Nx project, `@tenon/source`, a private Yarn 4 package run through Corepack on the Node 26 LTS line. Its `lint` script runs Biome over the whole repository, and Nx infers the `lint` target from it. `nx.json` registers `@monodon/rust`, which reads the empty Cargo workspace in `Cargo.toml` and will give Nx each crate as a project, though not its `build`, `test` or `lint` targets, which each crate declares. `targetDefaults` makes every `build` depend on `^build` and on the finite checks a project provides, and Nx analytics are off. `rust-toolchain.toml` pins the `stable` channel. DevOps keeps the `.gitignore` entries for the generated folders and the `.gitattributes` that marks the lockfiles `linguist-generated`. [The repository layout](../../../06-project/00-repository-layout.md) describes it for readers.
+The repository root is the workspace and its first Nx project, `@tenon/source`, a private Yarn 4 package run through Corepack on the Node 26 LTS line. Its `lint` script runs Biome over the whole repository, and Nx infers the `lint` target from it. `nx.json` registers `@monodon/rust`, which reads the empty Cargo workspace in `Cargo.toml` and will give Nx each crate as a project with its dependencies, though it infers no `build`, `test` or `lint` targets for it; the task that adds the first crate settles where those targets come from. `targetDefaults` makes every `build` depend on `^build` and on the finite checks a project provides, and Nx analytics are off. `rust-toolchain.toml` pins the `stable` channel. DevOps keeps the `.gitignore` entries for the generated folders and the `.gitattributes` that marks the lockfiles `linguist-generated`. [The repository layout](../../../06-project/00-repository-layout.md) describes it for readers.
 
 ## How it got here
 
-The job starts with #17, the first code task of M0, run through the departments.
+The job starts with [#17](https://github.com/MDReal32/tenon/issues/17), the first code task of M0, run through the departments.
 
 ## Current state
 
