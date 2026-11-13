@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-13"
 status: done
 branch: docs/departments/15-cyber-security
-pr:
+pr: 57
 ---
 
 # Rule review of the Cyber security department
