@@ -5,7 +5,8 @@ import { findAccessViolation } from "./find-access-violation.mjs";
 
 const MAIN_SESSION = undefined;
 const DEVOPS = "devops-engineer";
-const PROGRAMMER = "programming-backend";
+const PROGRAMMER = "programming-engine";
+const NEAR_DEVOPS = ["devops", "devops-reviewer", "Devops-engineer", "devops-engineer-2"];
 
 const call = (toolName, toolInput, agentType) => {
   return findAccessViolation({ tool_name: toolName, tool_input: toolInput, agent_type: agentType });
@@ -36,6 +37,12 @@ describe(".env access", () => {
 
     it(`allows ${toolName} ${JSON.stringify(toolInput)} to the DevOps engineer`, () => {
       assert.equal(call(toolName, toolInput, DEVOPS), null);
+    });
+
+    it(`denies ${toolName} ${JSON.stringify(toolInput)} to agents named like the DevOps engineer`, () => {
+      for (const agentType of NEAR_DEVOPS) {
+        assert.match(call(toolName, toolInput, agentType), /DevOps-only/);
+      }
     });
   }
 

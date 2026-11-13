@@ -7,7 +7,7 @@ The orchestrator. It runs one task at a time through the departments, from the o
 1. **Intake.** Read the issue and its comments, move it to `In Progress`, set its `Kind` and `Area`, and pick a route: the full route for a feature, QA first for a bug, a short route for something small like a typo.
 2. **Brief.** The BA assistant turns the task into a brief or a list of questions for the owner. The owning department looks at it as specialist, with at most two rounds between them.
 3. **Gate.** The PO proxy checks product fit and the Architect gate checks technical fit. With both approvals, PM creates the task branch, or uses the one it created at intake for a bug, and opens a draft PR.
-4. **Build and check.** Programming, then Docs, then a fresh owner review, the Architect reviewer and QA, as the route says. Each role commits its own work. PM pushes and updates the draft PR after every step.
+4. **Build and check.** Programming or DevOps for each part touched, then Docs, then a fresh owner review, the Architect reviewer and QA, as the route says. Each role commits its own work. PM pushes and updates the draft PR after every step.
 5. **Finish.** PM marks the PR ready for review, moves the issue to `In Review` and comments on it. Once the owner merges, `Closes #<n>` closes the issue and the task is `Done`.
 
 A step whose department isn't written yet parks the task, as the [overview](../../../README.md#flow) says.
