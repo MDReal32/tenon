@@ -38,18 +38,18 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 
 ## Roster
 
-| Department     | Roles                       | Model  | Status      | Does                                                                                                                                                                             |
-| -------------- | --------------------------- | ------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PM             | coordinator                 | Opus   | written     | The orchestrator: takes the task in, picks the route, hands work between departments, parks and resumes tasks, runs git and opens the PR. Runs as the main session               |
-| BA             | assistant                   | Opus   | written     | Reads the owner's task, finds gaps, asks the owner, writes the brief. Never invents requirements                                                                                 |
-| PO             | proxy                       | Opus   | written     | Stands in for the owner at the gate: does this task fit Tenon's design and roadmap? Questions the task and the design don't answer go to the owner, and the task waits           |
-| Architect      | gate, reviewer              | Opus   | written     | gate: the technical half of the gate (the four axes, boundaries, protocol impact, PR-sized scope, task size). reviewer: reviews every change; never its own plan                 |
-| Cyber security | reviewer                    | Opus   | written     | Reviews changes touching extension capabilities, sandboxing, `exec`, signing, trust and the access hook                                                                          |
-| DevOps         | engineer                    | Opus   | written     | Release pipeline and launchers, and the review of CI, Nx, build config and environment variable changes. The only role that may read or change `.env`                            |
-| Programming    | engine, sdk, extension, dev | Sonnet | written     | Implement with tests. engine: the protocol and the Rust crates. sdk: the language SDKs. extension: Base and first-party extensions. dev: `libs/dev`, the workspace config and CI |
-| QA             | conformance, e2e            | Sonnet | written     | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                                    |
-| Docs           | writer                      | Sonnet | written     | The design book, protocol docs and package READMEs, in the same PR as the code                                                                                                   |
-| HR             | policy                      | Opus   | written     | Keeps the handbook and every ruleset; turns the owner's notes and retros into rule-change PRs; drafts new roles                                                                  |
+| Department     | Roles                       | Model  | Status  | Does                                                                                                                                                                             |
+| -------------- | --------------------------- | ------ | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PM             | coordinator                 | Opus   | written | The orchestrator: takes the task in, picks the route, hands work between departments, parks and resumes tasks, runs git and opens the PR. Runs as the main session               |
+| BA             | assistant                   | Opus   | written | Reads the owner's task, finds gaps, asks the owner, writes the brief. Never invents requirements                                                                                 |
+| PO             | proxy                       | Opus   | written | Stands in for the owner at the gate: does this task fit Tenon's design and roadmap? Questions the task and the design don't answer go to the owner, and the task waits           |
+| Architect      | gate, reviewer              | Opus   | written | gate: the technical half of the gate (the four axes, boundaries, protocol impact, PR-sized scope, task size). reviewer: reviews every change; never its own plan                 |
+| Cyber security | reviewer                    | Opus   | written | Reviews changes touching extension capabilities, sandboxing, `exec`, signing, trust and the access hook                                                                          |
+| DevOps         | engineer                    | Opus   | written | Release pipeline and launchers, the root git files, and the review of CI, Nx, build config and environment variable changes. The only role that may read or change `.env`        |
+| Programming    | engine, sdk, extension, dev | Sonnet | written | Implement with tests. engine: the protocol and the Rust crates. sdk: the language SDKs. extension: Base and first-party extensions. dev: `libs/dev`, the workspace config and CI |
+| QA             | conformance, e2e            | Sonnet | written | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                                    |
+| Docs           | writer                      | Sonnet | written | The design book, protocol docs and package READMEs, in the same PR as the code                                                                                                   |
+| HR             | policy                      | Opus   | written | Keeps the handbook and every ruleset; turns the owner's notes and retros into rule-change PRs; drafts new roles                                                                  |
 
 Opus does the judgment roles, Sonnet the execution roles.
 

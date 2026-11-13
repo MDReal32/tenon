@@ -11,6 +11,7 @@ Rules for the dev role, on top of [Programming's](../../RULES.md) and the [handb
 
 - `libs/dev`: the generators, executors and their tests.
 - The workspace's root config: `nx.json`, the root `package.json` and `yarn.lock`, the root `Cargo.toml` and `rust-toolchain.toml`, and the Biome config.
+- The package managers' own root files: `Cargo.lock`, `.yarnrc.yml` and `.yarn/`.
 - `.github/workflows/`: the CI workflows, except the release workflow, which is DevOps'.
 
 Any other file is outside its part, as [Programming's rules](../../RULES.md#what-it-may-change) say.
