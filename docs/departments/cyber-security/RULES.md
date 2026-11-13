@@ -28,7 +28,7 @@ Every review checks these, whatever the change:
 ## Security only
 
 - Judge security only. Whether the change fits the design technically is the Architect's, whether it fits Tenon is the PO proxy's, and secrets in CI, the release and `.env` are DevOps'.
-- Review a change only when the Architect gate named Cyber security for it. Flag what you notice for another department in your output, and PM passes it on.
+- Review a change only when the Architect gate named Cyber security for it, or when PM hands you a rule-change PR that changes the access hook. Flag what you notice for another department in your output, and PM passes it on.
 
 ## Findings
 
