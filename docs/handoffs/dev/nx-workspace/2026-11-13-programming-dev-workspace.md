@@ -8,7 +8,7 @@ model: claude-sonnet-5-5
 date: "2026-11-13"
 status: partial
 branch: chore/dev/17-nx-workspace
-pr:
+pr: 66
 ---
 
 # Programming dev analysis of the Nx workspace task
@@ -37,10 +37,18 @@ For the Nx major the owner wrote "i wanted latest nx. if possible. otherwise 23 
 
 Registry and tool queries above, plus the scratch-workspace runs (`yarn install`, `yarn nx show projects`, `yarn nx lint`, `cargo metadata`, `biome check`). The full repository `.claude/settings.json` fails `biome check` at the default line width because its `args` array is longer than 80 characters. That is the one existing file beyond the hook and Obsidian files that trips the check. The attempt 2 proof is described under "Why this way"; it ran on Node 24.4.1, not 26. The build step needs Node 26 installed to run the final checks, and Node 25 and later no longer bundle Corepack as far as I recall (not verified here), so Corepack may need installing separately.
 
+## Build
+
+PM then started the build of the approved plan, as attempt 1 of the build step. I wrote `package.json` (private root package `@tenon/source`, `packageManager` `yarn@4.18.1`, `engines.node` `^26`, `workspaces: ["."]`, a `lint` script running `biome check .`, and the four pinned dev dependencies), `.yarnrc.yml` (`nodeLinker: node-modules`, telemetry off), `nx.json` (the `@monodon/rust` plugin and `targetDefaults` with `build.dependsOn` holding `^build` plus the finite checks, and no cache on the root `lint`), `Cargo.toml` (empty workspace, resolver 3), `rust-toolchain.toml` (`stable`), `biome.json` and the generated `yarn.lock`. I added no crate, package or `project.json`.
+
+Biome 2.6.7 also formats and lints Markdown by default, which made `biome check .` fail on about a hundred pages and agent files that the Docs writer and markdownlint own. I turned the Markdown formatter and linter off in `biome.json` instead of ignoring the files, so the rest of the check still sees them. Biome ignores come from `vcs.useIgnoreFile` and also from explicit `node_modules`, `target`, `dist`, `.nx` and `.yarn` entries, because `.gitignore` doesn't list them yet, plus the hook, `.claude/settings.json` and `docs/.obsidian`. The license field is left out, since no license is decided.
+
+All checks ran on Node 26.13.1 with Corepack 0.36.0 (`corepack enable`, then `yarn` is 4.18.1). From a state with no `node_modules/` and no `.nx/`, `yarn install` exits 0 with only the peer warnings that `@tenon/source` does not provide `@napi-rs/cli` (requested by `@monodon/rust`), and the nx build-script notice. `yarn nx show projects` prints `@tenon/source`; `yarn nx report` lists `@monodon/rust` 3.0.0 on nx 24.0.6; `cargo metadata --no-deps` exits 0 and writes no `Cargo.lock`; `yarn nx lint` exits 0, exits 1 with a temporary `tmp-violation.js` (removed), and exits 0 again; there is no `xtask/`.
+
 ## Where it stands
 
-Partial: attempt 2 of the analysis is returned to PM and this handoff is committed. BA and the owner settled the open questions: Nx 24.0.6, Node `^26` in `engines` only, `!.claude/settings.json` in Biome's ignores, no `@napi-rs/cli`, no `enableScripts`. The one new finding is that the plugin infers no `build`, `test` or `lint` targets, for the gate to note for the crate tasks.
+Partial: the root files are built and committed on the task branch (PR 66); reviews, DevOps' `.gitignore` step and the Docs writer are still to come. Analysis attempt 2 had been returned to PM before. BA and the owner settled the open questions: Nx 24.0.6, Node `^26` in `engines` only, `!.claude/settings.json` in Biome's ignores, no `@napi-rs/cli`, no `enableScripts`. The one new finding is that the plugin infers no `build`, `test` or `lint` targets, for the gate to note for the crate tasks.
 
 ## Next
 
-After both gate approvals, build as the analysis says, run `yarn install`, `yarn nx show projects` and `yarn nx lint` in the real repository, commit, and write the programming report. DevOps then adds the `.gitignore` and `.gitattributes` entries the analysis lists.
+DevOps adds `.gitignore` entries for `node_modules/`, `.nx/` and `.yarn/install-state.gz` (the files untracked after the build, besides the root files), then criterion 9 is checked. Reviews follow, with DevOps named as reviewer for the Nx and build config.
