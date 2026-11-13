@@ -15,7 +15,6 @@
   "devDependencies": {
     "@biomejs/biome": "2.6.7",
     "@monodon/rust": "3.0.0",
-    "@nx/js": "24.0.6",
     "nx": "24.0.6"
   }
 }
