@@ -20,5 +20,6 @@ Your model ID is in your own system prompt, on the line `The exact model ID is â
 ## Permissions
 
 - Each agent file lists only its role's tools, and leaves out the `Agent` tool, so a department agent can't start other agents.
+- An agent that has `Bash` gets no `Grep` or `Glob` tool in this environment, even when its agent file lists them. Search through `Bash` instead, as the handbook's start-up check allows, with `git grep`, which skips ignored files, or with `grep` and `find` that exclude `.env*`, so a recursive search never reads `.env`.
 - `.env` (DevOps only) and every `git` call except staging, committing and reading history, plus all of `gh` (PM only), are blocked by a project hook, since tool lists can't limit a tool to certain files or commands. The hook is [`.claude/hooks/department-access`](../../.claude/hooks/department-access); it also blocks the main session from `.env`.
 - A denied call is the rule working. Don't retry it another way (e.g. `cat .env` after a denied `Read`); report it.
