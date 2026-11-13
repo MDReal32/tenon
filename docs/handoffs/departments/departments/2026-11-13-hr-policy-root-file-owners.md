@@ -6,7 +6,7 @@ tasks:
 role: hr-policy
 model: claude-opus-5-5
 date: "2026-11-13"
-status: partial
+status: done
 branch: docs/departments/61-root-file-owners
 pr: 65
 ---
@@ -37,7 +37,7 @@ The owner review changed no file but this handoff. It read the diff of `7dd84e2`
 
 ## Where it stands
 
-Partial. The rule change and this handoff are committed on `docs/departments/61-root-file-owners`, with draft PR #65 open against `develop`. HR's owner review approved the change with no findings. The Architect rule review, attempt 2, is still to come in. Open for the owner, through PM: whether `.gitattributes` belongs with DevOps, as argued above; the "maybe" in the owner's answer, which this change reads as a decision since #61 was opened from it; and, from the Architect's notes, that engine and sdk tasks adding a dependency will now touch `Cargo.lock` or `yarn.lock` in the dev role's part, and that `.idea/` is tracked but in no role's part.
+Done. The rule change and this handoff are committed on `docs/departments/61-root-file-owners`, with draft PR #65 open against `develop`. HR's owner review approved the change with no findings. The [Architect rule review](2026-11-13-architect-reviewer-root-file-owners.md), attempt 2, found attempt 1's process clash settled and no new clashes. Open for the owner, through PM: whether `.gitattributes` belongs with DevOps, as argued above; the "maybe" in the owner's answer, which this change reads as a decision since #61 was opened from it; and, from the Architect's notes, that engine and sdk tasks adding a dependency will now touch `Cargo.lock` or `yarn.lock` in the dev role's part, and that `.idea/` is tracked but in no role's part.
 
 ## Next
 

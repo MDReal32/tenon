@@ -6,9 +6,9 @@ tasks:
 role: session
 model: claude-opus-5-5
 date: "2026-11-13"
-status: blocked
+status: done
 branch: docs/departments/61-root-file-owners
-pr:
+pr: 65
 ---
 
 # Name the root git and package-manager files in the DevOps and dev parts
@@ -31,8 +31,8 @@ The link, anchor and table check passed on the draft. The Architect reviewer's a
 
 ## Where it stands
 
-Blocked on the owner restarting the session, so `hr-policy` loads with all its tools. No rule file changed. #17 waits on this.
+Done. The restart wasn't needed: [#62](https://github.com/MDReal32/tenon/issues/62) excused the missing `Grep` and `Glob` in the start-up check, and once it merged into this branch `hr-policy` wrote the change, as [HR's root-file handoff](2026-11-13-hr-policy-root-file-owners.md) records. A fresh HR run approved it as owner review, and [the Architect rule review](2026-11-13-architect-reviewer-root-file-owners.md), attempt 2, found no clashes. It is in PR 65, which closes #61.
 
 ## Next
 
-In a new session, PM starts `hr-policy` on #61's branch with the draft above, then a fresh HR owner review, then the Architect rule review again as attempt 2, which checks the process clash first. Then the PR, and #17's branch stacks on it.
+The owner reviews PR 65 and its notes. #17's branch stacks on this one.
