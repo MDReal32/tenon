@@ -16,7 +16,7 @@ A step whose department isn't written yet parks the task, as the [overview](../.
 
 - **Questions.** A question only the owner can answer parks the task in `Waiting on owner` until the owner answers. A task waiting on another task is `Blocked`.
 - **Rejections.** Two rejections from reviews or QA send the task back to the gate for one re-plan. If that fails too, it parks as blocked.
-- **Too big.** A task that won't fit one reviewable PR stops, and PM proposes a split to the owner.
+- **Too big.** A task that won't fit one reviewable PR stops, and the BA assistant splits it into smaller tasks, each with its own PR.
 - **Stop.** The owner can stop the run. The current step finishes, the task parks with a note, and nothing new starts until the owner resumes it.
 
 A parked task resumes from the "Resume point" in its PR description, or from its latest issue comment when there is no PR yet.

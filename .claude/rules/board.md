@@ -17,7 +17,7 @@ These apply to every session, a direct session outside the departments included.
   - `Blocked` when it waits on another task or on something outside the project.
   - `In Review` when its PR is opened.
   - `Done` comes from the merge; check it did.
-- Only the owner moves an item out of `Backlog` or into `Canceled`.
+- Only the owner moves an item into `Canceled`. A session moves a task out of `Backlog` only as the next task [autonomy.md](autonomy.md) picks.
 - Set `Size` when the Architect gate sizes the task.
 
 ## Before ending a turn

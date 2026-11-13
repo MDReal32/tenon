@@ -39,7 +39,7 @@ Before any code changes — before implementing, not after — make sure the wor
 
 ## After a PR is merged
 
-When the user says a PR is merged (even just "merged"), clean up straight away and do not ask first. Asking is the annoyance, not the deletion.
+When the user says a PR is merged (even just "merged"), or the start-of-turn check in [autonomy.md](autonomy.md) finds one merged, clean up straight away and do not ask first. Asking is the annoyance, not the deletion.
 
 1. Verify it: `gh pr view <number> --json state,mergedAt` must say `MERGED`.
 2. Switch to the base and bring it up to date, fast-forward only: `git checkout develop`, `git fetch origin`, `git merge --ff-only origin/develop`. The base is checked out here, so the `git fetch origin develop:develop` form from [Branching](#branching-before-any-implementation) does not apply.
@@ -47,7 +47,7 @@ When the user says a PR is merged (even just "merged"), clean up straight away a
 4. Delete it on origin with `git push origin --delete <branch>` only if `git ls-remote --heads origin <branch>` still shows it. GitHub often removes it on merge.
 5. `git fetch --prune origin`, then report it in one line.
 
-- This covers only a branch created for a PR in this work that is verified merged into `develop`. It does not cover an unmerged branch, a branch someone else made, `develop`/`master`, or a force-push or history rewrite: those still need the explicit confirmation in [Safety](#safety).
+- This covers only a branch a session created for a task's PR that is verified merged into `develop`. It does not cover an unmerged branch, a branch someone else made, `develop`/`master`, or a force-push or history rewrite: those still need the explicit confirmation in [Safety](#safety).
 - In a chain (below), clean up each link once its own PR has merged.
 
 ## Chained (Stacked) Branches

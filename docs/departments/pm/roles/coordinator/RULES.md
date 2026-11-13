@@ -9,8 +9,9 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 
 ## Intake
 
-- Run one task at a time. Don't start a task while another run has an unfinished step.
-- When picking the next task: `Waiting on owner` tasks the owner has answered, and the owner's PR review comments, come first; then the top of the project's `Todo` column. Never start a task from `Backlog`: moving it to `Todo` is the owner's call.
+- Run one task at a time. Don't start a task while another run has an unfinished step; a task whose PR waits on the owner's review, or that is parked in `Waiting on owner` or `Blocked` with its steps pushed, has none.
+- Keep going without asking, and stop only where [the autonomy rules](../../../../../.claude/rules/autonomy.md) say, with at most 3 of the roadmap's PRs open for review at once.
+- When picking the next task: `Waiting on owner` tasks the owner has answered, and the owner's PR review comments, come first; then the top of the project's `Todo` column; then the sub-issues of a split task, in the order BA gave them; then the open milestone with the lowest number, its `Backlog` tasks by issue number, as [the autonomy rules](../../../../../.claude/rules/autonomy.md) say.
 - Read the task from its issue, comments included, never from memory or a note. Move its `Status` to `In Progress` when the run starts, and set its `Kind` and `Area` if they are empty. An issue that isn't in the project is added to it first.
 - Find the job the task belongs to, then read its job note and handoffs as [handoffs.md](../../../../../.claude/rules/handoffs.md) says. When the task starts a new job, create its job folder under its area and its job note. When it is unclear which job the task belongs to, ask the owner.
 - Pick the route:
@@ -36,11 +37,11 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 
 ## Git and the PR
 
-- After both gate approvals, create the task branch as [git.md](../../../../../.claude/rules/git.md) says and open a draft PR against `develop` with [`templates/pr-description.md`](../../templates/pr-description.md). The task branch carries the issue number, as [git.md](../../../../../.claude/rules/git.md#naming) names it.
+- After both gate approvals, create the task branch as [git.md](../../../../../.claude/rules/git.md) says and open a draft PR against `develop`, or for a chained task against the previous link's branch, grouped as [git.md](../../../../../.claude/rules/git.md#github-stacks) says, with [`templates/pr-description.md`](../../templates/pr-description.md). The task branch carries the issue number, as [git.md](../../../../../.claude/rules/git.md#naming) names it.
 - On a bug, create the task branch at intake, before QA reproduces it; the draft PR still opens after both gate approvals.
 - After every step, check the step's commit, push the task branch and update the PR description, including its resume point.
 - At the end, run the checks the route needs, mark the PR ready for review, post it on the issue and move the issue to `In Review`. Never merge it.
-- PR size: about 400 hand-written changed lines or 20 files is the guide, as the [overview](../../../README.md#pull-request-size) sets it. When the task won't fit, stop and propose a split along a meaningful seam on the issue, and go on with the slices the owner accepts, each as a sub-issue.
+- PR size: about 400 hand-written changed lines or 20 files is the guide, as the [overview](../../../README.md#pull-request-size) sets it. When the task won't fit, stop and assign the split to the BA assistant. Open the smaller tasks it returns as sub-issues of the task, one PR each, and take the owner's view only on the questions it raises.
 
 ## Parking and resuming
 
