@@ -2,7 +2,7 @@
 
 How Tenon work moves from a task to a merged pull request, done by AI agents organized like a company's departments.
 
-**Status:** the PM, BA, PO, Architect, Programming, QA, Docs and DevOps departments are written: the ones that take a task in, check it is ready, approve it against Tenon's design, build it, document it, review it, test it and ship it. Cyber security and HR are not written yet, and join as Tenon grows, as [adding a department](#adding-a-department) says. A route that needs one of them parks at that step until it exists. The rules every agent follows are in the handbook, [`RULES.md`](RULES.md).
+**Status:** the PM, BA, PO, Architect, Programming, QA, Docs, DevOps and Cyber security departments are written: the ones that take a task in, check it is ready, approve it against Tenon's design, build it, document it, review it and its security, test it and ship it. HR is not written yet, and joins as Tenon grows, as [adding a department](#adding-a-department) says. A route that needs it parks at that step until it exists. The rules every agent follows are in the handbook, [`RULES.md`](RULES.md).
 
 ## The idea
 
@@ -44,7 +44,7 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 | BA             | assistant                   | Opus   | written     | Reads the owner's task, finds gaps, asks the owner, writes the brief. Never invents requirements                                                                                 |
 | PO             | proxy                       | Opus   | written     | Stands in for the owner at the gate: does this task fit Tenon's design and roadmap? Questions the task and the design don't answer go to the owner, and the task waits           |
 | Architect      | gate, reviewer              | Opus   | written     | gate: the technical half of the gate (the four axes, boundaries, protocol impact, PR-sized scope, task size). reviewer: reviews every change; never its own plan                 |
-| Cyber security | reviewer                    | Opus   | not written | Reviews changes touching extension capabilities, sandboxing, `exec`, signing and trust                                                                                           |
+| Cyber security | reviewer                    | Opus   | written     | Reviews changes touching extension capabilities, sandboxing, `exec`, signing, trust and the access hook                                                                          |
 | DevOps         | engineer                    | Opus   | written     | Release pipeline and launchers, and the review of CI, Nx, build config and environment variable changes. The only role that may read or change `.env`                            |
 | Programming    | engine, sdk, extension, dev | Sonnet | written     | Implement with tests. engine: the protocol and the Rust crates. sdk: the language SDKs. extension: Base and first-party extensions. dev: `libs/dev`, the workspace config and CI |
 | QA             | conformance, e2e            | Sonnet | written     | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                                    |
