@@ -1,6 +1,6 @@
 # Cyber security review
 
-What a Cyber security role returns when it reviews a change the Architect gate named it for. PM puts the whole review in the PR description and, when changes are requested, pastes each finding into the next assignment of the role that owns it.
+What a Cyber security role returns when it reviews a change the Architect gate named it for, or a rule change to the access hook. PM puts the whole review in the PR description and, when changes are requested, pastes each finding into the next assignment of the role that owns it.
 
 ```md
 🤖 Cyber security <role>: <Approved | Changes requested> for #<issue number> <task title>, attempt <n>

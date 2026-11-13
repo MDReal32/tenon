@@ -6,13 +6,13 @@ How it fits with the other departments is in the [overview](../README.md). Its r
 
 ## Roles
 
-| Role                                 | Model | Does                                                                                                                               |
-| ------------------------------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [reviewer](roles/reviewer/README.md) | Opus  | Reviews a change the Architect gate named Cyber security for: capabilities, sandboxing, `exec`, signing, trust and the access hook |
+| Role                                 | Model | Does                                                                                                                                                 |
+| ------------------------------------ | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [reviewer](roles/reviewer/README.md) | Opus  | Reviews a change the Architect gate named it for, or a rule change to the access hook: capabilities, sandboxing, `exec`, signing, trust and the hook |
 
 ## What it gets and gives
 
-- **Review, in:** a change the Architect gate named Cyber security for, at the owner review: the task, the brief, the gate verdicts, the diff and its commits, from PM's assignment.
+- **Review, in:** a change the Architect gate named Cyber security for, at the owner review, or a rule-change PR that changes the access hook: the task, the brief and gate verdicts when there are any, the diff and its commits, from PM's assignment.
 - **Review, out:** a [Cyber security review](templates/cyber-security-review.md): approved, or changes requested with each finding and what would make it pass, each sent by PM to the role that owns it. Questions the design leaves open go to the owner and park the task.
 
 The department owns no part of the repository and builds nothing, so it has no specialist or build step. What it notices outside a review goes to PM as a note.

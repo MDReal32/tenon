@@ -2,7 +2,7 @@
 
 How Tenon work moves from a task to a merged pull request, done by AI agents organized like a company's departments.
 
-**Status:** the PM, BA, PO, Architect, Programming, QA, Docs, DevOps and Cyber security departments are written: the ones that take a task in, check it is ready, approve it against Tenon's design, build it, document it, review it and its security, test it and ship it. HR is not written yet, and joins as Tenon grows, as [adding a department](#adding-a-department) says. A route that needs it parks at that step until it exists. The rules every agent follows are in the handbook, [`RULES.md`](RULES.md).
+**Status:** every department on the roster is written: PM, BA, PO, Architect, Programming, QA, Docs, DevOps, Cyber security and HR, the ones that take a task in, check it is ready, approve it against Tenon's design, build it, document it, review it and its security, test it, ship it and keep the rules. More join as Tenon grows, as [adding a department](#adding-a-department) says. The rules every agent follows are in the handbook, [`RULES.md`](RULES.md).
 
 ## The idea
 
@@ -49,7 +49,7 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 | Programming    | engine, sdk, extension, dev | Sonnet | written     | Implement with tests. engine: the protocol and the Rust crates. sdk: the language SDKs. extension: Base and first-party extensions. dev: `libs/dev`, the workspace config and CI |
 | QA             | conformance, e2e            | Sonnet | written     | conformance: runs extensions through the protocol conformance suite. e2e: drives the CLI end to end. Never edits product code                                                    |
 | Docs           | writer                      | Sonnet | written     | The design book, protocol docs and package READMEs, in the same PR as the code                                                                                                   |
-| HR             | policy                      | Opus   | not written | Keeps the handbook and every ruleset; turns the owner's notes and retros into rule-change PRs; drafts new roles                                                                  |
+| HR             | policy                      | Opus   | written     | Keeps the handbook and every ruleset; turns the owner's notes and retros into rule-change PRs; drafts new roles                                                                  |
 
 Opus does the judgment roles, Sonnet the execution roles.
 
@@ -120,9 +120,9 @@ Agent tool lists are not enough for `.env` and git, because Claude Code can't li
 ## How the rules change
 
 - The HR department owns every ruleset. A rule change is always its own small PR, separate from feature work, and applies from the next run after it merges.
-- A rule-change PR gets two reviews before the owner sees it, both started by PM: a fresh HR run as owner review, and the Architect reviewer, which checks that it clashes with no workspace rule under `.claude/rules/` and no other ruleset, and that each level only narrows the one above. Until HR is written, the Architect reviewer's check and the owner's review are the only two.
-- When a merged PR turns out to have a mistake the departments missed, PM traces which step should have caught it, and that department proposes a rule or checklist change. The retro improves the process; it never blames a department.
-- Work no role covers parks the task while HR drafts the new role as its own PR. Until HR is written, the owner decides whether to add the role.
+- A rule-change PR gets two reviews before the owner sees it, both started by PM: a fresh HR run as owner review, and the Architect reviewer, which checks that it clashes with no workspace rule under `.claude/rules/` and no other ruleset, and that each level only narrows the one above. A rule-change PR that changes the access hook also gets the Cyber security review.
+- When a merged PR turns out to have a mistake the departments missed, PM traces which step should have caught it, that department proposes a rule or checklist change, and HR writes it as a rule-change PR. The retro improves the process; it never blames a department.
+- Work no role covers parks the task, and PM asks the owner whether to add a role for it. When the owner says yes, HR drafts the new role as its own PR.
 
 ## Adding a department
 

@@ -19,6 +19,7 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
   - **Bug:** QA reproduces it and writes a failing test first, by the QA role PM names with the gate's QA criteria. The BA analysis is skipped; the rest of the route follows.
   - **Small change** (a typo, a copy fix): the Programming or DevOps role that owns it, then the QA roles PM names with the gate's QA criteria, or none when they name none.
   - **Design change** (only the design book changes): BA assistant, gate, then the owner's review.
+  - **Rule change** (a ruleset, a department or role, an agent file, a workspace rule or the access hook): the HR policy role, a fresh HR run as owner review, the Architect reviewer's rule review, and Cyber security when the access hook changes.
 - The gate may make a route longer, never shorter. Write the route and the reason for any skipped step in the PR description.
 
 ## Assignments
@@ -39,6 +40,7 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 
 - After both gate approvals, create the task branch as [git.md](../../../../../.claude/rules/git.md) says and open a draft PR against `develop`, or for a chained task against the previous link's branch, grouped as [git.md](../../../../../.claude/rules/git.md#github-stacks) says, with [`templates/pr-description.md`](../../templates/pr-description.md). The task branch carries the issue number, as [git.md](../../../../../.claude/rules/git.md#naming) names it.
 - On a bug, create the task branch at intake, before QA reproduces it; the draft PR still opens after both gate approvals.
+- On a rule change, which has no gate, create the task branch at intake, before HR writes, and open the draft PR after HR's first report.
 - After every step, check the step's commit, push the task branch and update the PR description, including its resume point.
 - At the end, run the checks the route needs, mark the PR ready for review, post it on the issue and move the issue to `In Review`. Never merge it.
 - PR size: about 400 hand-written changed lines or 20 files is the guide, as the [overview](../../../README.md#pull-request-size) sets it. When the task won't fit, stop and assign the split to the BA assistant. Open the smaller tasks it returns as sub-issues of the task, one PR each, and take the owner's view only on the questions it raises.
@@ -62,4 +64,4 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 
 ## Retro
 
-- When a merged PR turns out to have a mistake the departments missed, trace which step should have caught it and ask that department to propose a rule or checklist change. Name the step, never blame the role.
+- When a merged PR turns out to have a mistake the departments missed, trace which step should have caught it and ask that department to propose a rule or checklist change, then run it as a rule change through HR. Name the step, never blame the role.
