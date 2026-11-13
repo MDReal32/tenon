@@ -65,8 +65,8 @@ The reviewer's second attempt found that my record commit also carried `.idea/nx
 
 ## Where it stands
 
-Done. The root files are built and committed on the task branch (PR 66). The DevOps git files and the Docs writer are done, the Programming dev owner review approved (see the owner review above), and the DevOps review's analytics fix is in. Analysis attempt 2 had been returned to PM before. BA and the owner settled the open questions: Nx 24.0.6, Node `^26` in `engines` only, `!.claude/settings.json` in Biome's ignores, no `@napi-rs/cli`, no `enableScripts`. The plugin infers no `build`, `test` or `lint` targets, which the crate tasks must handle.
+Done. The root files are built and committed on the task branch (PR 66). The DevOps git files and the Docs writer are done, the Programming dev owner review approved (see the owner review above), the DevOps review's analytics fix is in, and the Architect reviewer's attempt 2 found only the stray IDE file, untracked in `3631557`. Both halves of the gate re-planned after the reviewer's two rejections, and the plan stands. Analysis attempt 2 had been returned to PM before. BA and the owner settled the open questions: Nx 24.0.6, Node `^26` in `engines` only, `!.claude/settings.json` in Biome's ignores, no `@napi-rs/cli`, no `enableScripts`. The plugin infers no `build`, `test` or `lint` targets, which the crate tasks must handle.
 
 ## Next
 
-The Architect reviewer reviews the change next.
+The Architect reviewer's attempt 3 reviews the change, then the owner reviews PR 66.
