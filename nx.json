@@ -4,7 +4,6 @@
   "plugins": ["@monodon/rust"],
   "targetDefaults": {
     "build": {
-      "cache": true,
       "dependsOn": [
         "^build",
         "typecheck",
@@ -17,9 +16,6 @@
         "codegen",
         "generate"
       ]
-    },
-    "test": {
-      "cache": true
     }
   }
 }
