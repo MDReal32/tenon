@@ -11,7 +11,7 @@ Rules for the Cyber security reviewer, on top of [Cyber security's](../../RULES.
 
 - Approve only when every check of [the trust boundary](../../RULES.md#the-trust-boundary) the change touches passes, and mark the others "not touched".
 - Follow every input an extension or a user controls from where it enters to where it is used, not only the changed lines.
-- A change the trust boundary needs that the approved plan didn't name goes back to the gate, not through review.
+- A change the trust boundary needs that the approved plan didn't name goes back to the gate, not through review. On a rule change, which has no gate, it goes back to the HR run that wrote it.
 
 ## Work
 

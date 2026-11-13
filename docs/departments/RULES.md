@@ -63,4 +63,4 @@ A role's step is done when its output follows the role's template, its own rules
 ## Knowledge and rule changes
 
 - `<dept>/<dept>-knowledge.md` holds facts and lessons, not rules. Add a lesson through your PR when you learn something the next run should know.
-- Rules change only through HR, each change as its own PR, and through the owner until HR is written. A run follows the rules as they are when it starts; a resumed task follows the latest rules, and the owning department rechecks any finished work a changed rule affects.
+- Rules change only through HR, each change as its own PR, which the owner reviews and merges. A run follows the rules as they are when it starts; a resumed task follows the latest rules, and the owning department rechecks any finished work a changed rule affects.
