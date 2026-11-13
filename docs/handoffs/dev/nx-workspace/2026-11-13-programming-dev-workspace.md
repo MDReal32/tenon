@@ -51,9 +51,19 @@ After DevOps committed the `.gitignore` entries, PM found that the explicit `!**
 
 The DevOps review then found that `nx.json` set no `analytics` value, so in Nx 24.0.6 a person's first interactive `yarn nx` outside CI would ask "Share usage data with the Nx team?" and write the answer into the tracked file. I checked the installed `nx/dist/src/utils/analytics-prompt.js`, which skips the prompt when `nxJson.analytics` is a boolean, and added `"analytics": false`, matching `enableTelemetry: false` in `.yarnrc.yml`. On Node 26, `yarn nx show projects` and `yarn nx lint --skipNxCache` pass and `git status --short` shows only `.idea/vcs.xml`.
 
+## Owner review
+
+PM had a fresh Programming dev run review, as the owner role of the root config, what the build produced. Nothing was fixed in that run. It read the handbook, Programming's and the dev role's rules, `nx-config.md`, and the diff of `develop...HEAD`: the root files, DevOps' git files and the repository layout change. The gate's nine criteria are not in the repository, so it took them from the handoffs: Corepack yarn install, the plugin registered and loading, `nx show projects`, Biome through Nx passing and failing on a violation, an empty Cargo workspace with no lockfile, no `xtask/`, and a clean `git status` apart from the owner's file.
+
+Its verdict was Approved on the root config. It accepted the two deviations: Biome's Markdown formatter and linter off, because the Docs writer and markdownlint own the pages and turning the language off keeps every other check running on those folders, which an ignore entry would not; and `@nx/js` added then removed, because no criterion needs it. It found the config fits `nx-config.md`: no `project.json`, no `nx` property, the `build` pipeline once in `targetDefaults`, and the root `lint` inferred from the package script. On Node 26.13.1, from a clean state, `yarn install` exited 0 with only the `@napi-rs/cli` peer warnings, `yarn nx show projects` printed `@tenon/source`, `yarn nx report` listed nx 24.0.6 and `@monodon/rust` 3.0.0, lint passed and failed on a temporary violation, `cargo metadata --no-deps` exited 0 without a `Cargo.lock`, there was no `xtask/`, and `git status --short` showed only `.idea/vcs.xml`. Its one finding was on the work record: this handoff was still `partial` with stale "Where it stands" and "Next", and the job note was out of date. Both are fixed or PM's.
+
+## Architect reviewer findings
+
+The Architect reviewer asked for changes. Finding 1: `nx.json` set `"cache": true` on `build` and added a `test` entry with `"cache": true`, which the plan doesn't name. I removed both. Finding 2: `biome.json` lacked the plan's `files.ignoreUnknown: true`, which defaults to `false` in Biome 2.6.7, so I added it; `yarn nx lint --skipNxCache` exits 0 on Node 26 and Biome checks 193 files. Finding 4: the owner review lived in a second handoff for the same task and pull request, so I folded it into the section above and deleted that file.
+
 ## Where it stands
 
-Done. The root files are built and committed on the task branch (PR 66). The DevOps git files and the Docs writer are done, the Programming dev owner review approved ([the review](2026-11-13-programming-dev-workspace-review.md)), and the DevOps review's analytics fix is in. Analysis attempt 2 had been returned to PM before. BA and the owner settled the open questions: Nx 24.0.6, Node `^26` in `engines` only, `!.claude/settings.json` in Biome's ignores, no `@napi-rs/cli`, no `enableScripts`. The plugin infers no `build`, `test` or `lint` targets, which the crate tasks must handle.
+Done. The root files are built and committed on the task branch (PR 66). The DevOps git files and the Docs writer are done, the Programming dev owner review approved (see the owner review above), and the DevOps review's analytics fix is in. Analysis attempt 2 had been returned to PM before. BA and the owner settled the open questions: Nx 24.0.6, Node `^26` in `engines` only, `!.claude/settings.json` in Biome's ignores, no `@napi-rs/cli`, no `enableScripts`. The plugin infers no `build`, `test` or `lint` targets, which the crate tasks must handle.
 
 ## Next
 

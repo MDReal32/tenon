@@ -13,7 +13,7 @@ pr: 66
 
 # Architect review of the Nx workspace, attempt 1
 
-PM asked the Architect reviewer for the code review of [#17](https://github.com/MDReal32/tenon/issues/17), the root Nx workspace with Yarn, Cargo, `@monodon/rust` and Biome, on PR 66 of the [Nx workspace](nx-workspace.md) job. It comes after [the Programming dev owner review](2026-11-13-programming-dev-workspace-review.md), which approved, and [the DevOps review](2026-11-13-devops-engineer-workspace-git-files.md), whose one finding, Nx's analytics prompt, is fixed in `c50c9a7`. This run did not run the gate, so it could review the change against the gate's plan. The verdict is Changes requested, with five findings.
+PM asked the Architect reviewer for the code review of [#17](https://github.com/MDReal32/tenon/issues/17), the root Nx workspace with Yarn, Cargo, `@monodon/rust` and Biome, on PR 66 of the [Nx workspace](nx-workspace.md) job. It comes after [the Programming dev owner review](2026-11-13-programming-dev-workspace.md#owner-review), which approved, and [the DevOps review](2026-11-13-devops-engineer-workspace-git-files.md), whose one finding, Nx's analytics prompt, is fixed in `c50c9a7`. This run did not run the gate, so it could review the change against the gate's plan. The verdict is Changes requested, with five findings.
 
 ## What I did and how
 
