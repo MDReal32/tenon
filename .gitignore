@@ -33,3 +33,24 @@ docs/.obsidian/workspace-mobile.json
 .env
 .env.*
 !.env.example
+
+### Node
+node_modules/
+
+### Yarn
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+### TypeScript
+*.tsbuildinfo
+
+### Nx
+/.nx/
+
+### Rust
+/target/

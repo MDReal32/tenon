@@ -9,6 +9,11 @@ covers:
   - extensions
   - dist
   - libs/dev
+  - package.json
+  - nx.json
+  - Cargo.toml
+  - rust-toolchain.toml
+  - biome.json
 ---
 
 # Repository layout
@@ -17,6 +22,9 @@ The sixth chapter is about the project itself: how the repository is laid out, t
 
 ```
 tenon/
+├─ package.json  nx.json     # the root Nx workspace: Yarn, Nx and Biome
+├─ Cargo.toml                # the Cargo workspace, its members the crates below
+├─ rust-toolchain.toml  biome.json
 ├─ protocol/                 # THE CONTRACT: schemas, WIT, versioning, changelog
 │  ├─ schema/  wit/  examples/
 ├─ crates/
@@ -41,5 +49,7 @@ tenon/
 ```
 
 Every task runs through Nx, the Rust crates' build, test, release and codegen included, so there is no separate `xtask/` runner.
+
+The root is itself the first Nx project: a private package whose `lint` script runs Biome over the whole repository, with the TypeScript side managed by Yarn and the Rust side by Cargo. Building from a checkout needs Node 26 with Corepack, which provides the Yarn version the root `package.json` pins, and rustup, whose `rust-toolchain.toml` selects the `stable` channel. The `@monodon/rust` plugin reads the Cargo workspace and gives Nx each crate as a project with its dependencies, but it infers no `build`, `test` or `lint` targets for it, and the task that adds the first crate settles where those targets come from. The `build` target of every project depends on its dependencies' builds and on whichever of the finite checks (typecheck, lint, test, format check, validation and code generation) the project provides.
 
 Next, [the roadmap](01-roadmap.md) gives the order it all gets built in.
