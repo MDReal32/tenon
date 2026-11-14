@@ -1,7 +1,7 @@
 ---
 type: job
 area: dev
-status: planned
+status: in progress
 tasks:
   - "https://github.com/MDReal32/tenon/issues/18"
 updated: "2026-11-14"
@@ -21,4 +21,4 @@ The job starts with [#18](https://github.com/MDReal32/tenon/issues/18), the seco
 
 ## Current state
 
-[#18](https://github.com/MDReal32/tenon/issues/18) is in progress on `chore/dev/18-ci`, at its first step: the BA readiness check.
+[#18](https://github.com/MDReal32/tenon/issues/18) is parked on `chore/dev/18-ci`: [the BA readiness check](2026-11-14-ba-assistant-ci-readiness.md) found four open questions about scope, the required check, the `GITHUB_TOKEN` and the runner images, and they wait on the owner's answers on the issue.
