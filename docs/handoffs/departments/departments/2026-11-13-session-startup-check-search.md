@@ -13,7 +13,7 @@ pr: 64
 
 # Excuse missing Grep and Glob in the start-up check when a role has Bash
 
-[#62](https://github.com/MDReal32/tenon/issues/62) unblocks every department role that writes files. In this environment an agent whose tools include `Bash` never gets `Grep` or `Glob`, which search through `Bash` replaces, while read-only agents keep them. The handbook's start-up check asks for exactly the tools an agent file lists, so HR policy, every Programming role, the Docs writer, the DevOps engineer and both QA roles would all stop before doing any work. HR policy did, three times, on [#61](https://github.com/MDReal32/tenon/issues/61), the third time after a session restart; HR's handoff for #61 on that task's branch records each run. It continues [the HR handoff](2026-11-13-session-hr-department.md), which set up the rule-change route.
+[#62](https://github.com/MDReal32/tenon/issues/62) unblocks every department role that writes files. In this environment an agent whose tools include `Bash` never gets `Grep` or `Glob`, which search through `Bash` replaces, while read-only agents keep them. The handbook's start-up check asks for exactly the tools an agent file lists, so HR policy, every Programming role, the Docs writer, the DevOps engineer and both QA roles would all stop before doing any work. HR policy did, three times, on [#61](https://github.com/MDReal32/tenon/issues/61), the third time after a session restart; HR's handoff for #61 on that task's branch records each run. It continues [the HR handoff](2026-11-06--2026-11-13-compacted-departments-roster.md), which set up the rule-change route.
 
 ## What I did and how
 
