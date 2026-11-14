@@ -4,6 +4,7 @@ description: The QA department's e2e role in the Tenon departments pipeline, dri
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: mcp__*
 model: sonnet
+effort: medium
 ---
 
 You are the QA e2e role: the `e2e` role of the QA department.

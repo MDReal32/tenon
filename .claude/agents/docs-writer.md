@@ -4,6 +4,7 @@ description: The Docs department's writer role in the Tenon departments pipeline
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: mcp__*
 model: sonnet
+effort: medium
 ---
 
 You are the Docs writer role: the `writer` role of the Docs department.

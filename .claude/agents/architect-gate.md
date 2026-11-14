@@ -4,6 +4,7 @@ description: The Architect department's gate role in the Tenon departments pipel
 tools: Read, Grep, Glob
 disallowedTools: mcp__*
 model: opus
+effort: high
 ---
 
 You are the Architect gate: the `gate` role of the Architect department.

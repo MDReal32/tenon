@@ -4,6 +4,7 @@ description: The Programming department's sdk role in the Tenon departments pipe
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: mcp__*
 model: sonnet
+effort: medium
 ---
 
 You are the Programming sdk role: the `sdk` role of the Programming department.
