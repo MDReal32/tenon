@@ -21,4 +21,4 @@ The job starts with [#18](https://github.com/MDReal32/tenon/issues/18), the seco
 
 ## Current state
 
-[#18](https://github.com/MDReal32/tenon/issues/18) is in progress on `chore/dev/18-ci`. [The BA readiness check](2026-11-14-ba-assistant-ci-readiness.md) returned a brief after the owner answered its four questions: CI runs on Linux only, on a pinned `ubuntu-24.04`, for pull requests to `develop` and stacked pull requests, with read-only `GITHUB_TOKEN` and no secrets. The Programming dev analysis and the gate come next.
+[#18](https://github.com/MDReal32/tenon/issues/18) is in progress on `chore/dev/18-ci`. [The BA readiness check](2026-11-14-ba-assistant-ci-readiness.md) returned a brief after the owner answered its four questions: CI runs on Linux only, on a pinned `ubuntu-24.04`, for pull requests to `develop` and stacked pull requests, with read-only `GITHUB_TOKEN` and no secrets. [The Programming dev analysis](2026-11-14-programming-dev-ci-analysis.md) planned a single-job workflow and put five questions to the BA assistant; the gate comes next.
