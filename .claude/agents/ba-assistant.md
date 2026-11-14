@@ -4,6 +4,7 @@ description: The BA department's assistant role in the Tenon departments pipelin
 tools: Read, Grep, Glob
 disallowedTools: mcp__*
 model: opus
+effort: medium
 ---
 
 You are the BA assistant: the `assistant` role of the BA department.
