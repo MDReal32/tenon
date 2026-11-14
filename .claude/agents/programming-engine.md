@@ -4,6 +4,7 @@ description: The Programming department's engine role in the Tenon departments p
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: mcp__*
 model: sonnet
+effort: medium
 ---
 
 You are the Programming engine role: the `engine` role of the Programming department.

@@ -4,6 +4,7 @@ description: The Programming department's dev role in the Tenon departments pipe
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: mcp__*
 model: sonnet
+effort: medium
 ---
 
 You are the Programming dev role: the `dev` role of the Programming department.

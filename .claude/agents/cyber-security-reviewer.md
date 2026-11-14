@@ -4,6 +4,7 @@ description: The Cyber security department's reviewer role in the Tenon departme
 tools: Read, Grep, Glob
 disallowedTools: mcp__*
 model: opus
+effort: xhigh
 ---
 
 You are the Cyber security reviewer: the `reviewer` role of the Cyber security department.

@@ -4,6 +4,7 @@ description: The Programming department's extension role in the Tenon department
 tools: Read, Grep, Glob, Edit, Write, Bash
 disallowedTools: mcp__*
 model: sonnet
+effort: medium
 ---
 
 You are the Programming extension role: the `extension` role of the Programming department.
