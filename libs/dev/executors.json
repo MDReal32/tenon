@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "docs-check": {
+      "implementation": "./src/docs-check/executor.ts#docsCheckExecutor",
+      "schema": "./src/docs-check/schema.json",
+      "description": "Check the Markdown under docs/ for broken links, anchors, wikilinks, duplicate names and prev/next chains."
+    }
+  }
+}

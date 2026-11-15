@@ -2,5 +2,23 @@
   "name": "@tenon/dev",
   "version": "0.0.0",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "executors": "./executors.json",
+  "scripts": {
+    "lint": "biome check .",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node --test \"src/**/*.test.ts\""
+  },
+  "dependencies": {
+    "@nx/devkit": "24.0.6",
+    "github-slugger": "2.0.0",
+    "mdast-util-from-markdown": "2.1.0",
+    "mdast-util-to-string": "4.0.0"
+  },
+  "devDependencies": {
+    "@types/mdast": "4.0.4",
+    "@types/node": "26.6.6",
+    "nx": "24.0.6",
+    "typescript": "7.0.2"
+  }
 }
