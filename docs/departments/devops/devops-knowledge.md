@@ -4,7 +4,7 @@ Facts and lessons for shipping Tenon and keeping its secrets. Not rules: the rul
 
 ## Facts
 
-- No code, CI or release exists yet. The release and its channels are in [distribution](../../05-distribution/00-distribution.md), and the launchers' place is `dist/` in [the repository layout](../../06-project/00-repository-layout.md).
+- No code or release exists yet. CI is the workflow `.github/workflows/ci.yml`: it runs on every pull request on a pinned `ubuntu-24.04`, with every action pinned to a full commit SHA. The release and its channels are in [distribution](../../05-distribution/00-distribution.md), and the launchers' place is `dist/` in [the repository layout](../../06-project/00-repository-layout.md).
 - One engine binary per platform is the only thing built for users: aarch64 and x86_64 on macOS, Linux and Windows, with musl on Linux. GitHub Releases is the source of truth, and the npm, PyPI, Homebrew and winget launchers point at its archives.
 - Every task runs through Nx, the Rust release build included, so there is no separate task runner.
 - The CI workflows that run the checks are the Programming dev role's. The release workflow is DevOps'.
