@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-15"
 status: done
 branch: chore/dev/18-ci
-pr:
+pr: 71
 ---
 
 # Architect gate verdict on the CI plan

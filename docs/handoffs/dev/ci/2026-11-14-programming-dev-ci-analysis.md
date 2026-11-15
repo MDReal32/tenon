@@ -8,7 +8,7 @@ model: claude-sonnet-5-5
 date: "2026-11-14"
 status: partial
 branch: chore/dev/18-ci
-pr:
+pr: 71
 ---
 
 # Programming dev analysis of the CI task
