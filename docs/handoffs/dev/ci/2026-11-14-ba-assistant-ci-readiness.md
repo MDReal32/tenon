@@ -21,6 +21,8 @@ In attempt 1 I took the task text from PM's assignment, read the root files on t
 
 In attempt 2 PM passed on the owner's four answers, given in chat on 2026-11-14 and posted on #18. CI runs on pull requests to `develop` and on stacked pull requests whose base is another task's branch, and not on pushes to `develop`. The required check is out of this task: the owner turns it on, and PM gives the exact click path in the PR description. `GITHUB_TOKEN` is allowed read-only, and nothing comes from the secret store. CI runs on Linux only, on a pinned `ubuntu-24.04`, because the owner doesn't want to pay for macOS runs; macOS can come as a later task. I folded these into the brief, marking the first criterion as changed by the owner with the task's wording beside the new one, and rechecked the merged workspace: `nx.json` configures no Nx Cloud, Node `^26` and Yarn `4.18.1` come from the root `package.json`, Rust from `rust-toolchain.toml`, and no `.github/` folder exists yet.
 
+The Programming dev analysis then asked five questions. Four were settled from the brief: pinning actions by commit, cancelling a superseded run and the workflow's names are implementation choices the brief allows, and skipping docs-only PRs would break the first criterion. One, which pull request bases CI checks beyond `develop` and task branches, went to the owner, who answered on 2026-11-15 that CI checks every pull request, `master` included, so the trigger carries no branch filter.
+
 ## Why this way
 
 BA's rules turn every gap into a question and let a criterion's wording change only where the owner changed it, which is why the first criterion carries both versions. `check` exists on no project today, and `nx affected` runs only the targets a project has, so that is no gap. Pull requests to a base other than `develop` or a task's branch, such as `master`, are named by neither the task nor the answers, so they went under out of scope and were flagged, not asked, since no M0 task targets them.
@@ -31,8 +33,8 @@ Every definition-of-ready item was checked against the task text, the owner's fo
 
 ## Where it stands
 
-Done. The brief is returned to PM with no open questions. Passed to PM as notes outside the brief: the unnamed `master` base, a possible `Backlog` issue for macOS CI, and three lines that go stale once CI lands (the overview's Running section, `pm-knowledge.md` and `devops-knowledge.md`).
+Done. The brief stands with one addition from the owner: every pull request is checked, `master` included, on a pinned `ubuntu-24.04`, never on pushes to `develop`. Passed to PM as notes outside the brief: a possible `Backlog` issue for macOS CI, three lines that go stale once CI lands (the overview's Running section, `pm-knowledge.md` and `devops-knowledge.md`), and the Rust toolchain step the workflow needs once a crate exists.
 
 ## Next
 
-PM starts the Programming dev role as specialist, then the two halves of the gate. The gate names DevOps as reviewer, since the change touches CI.
+The two halves of the gate judge the plan. The Architect gate settles action pinning, run cancelling and naming, and names DevOps as reviewer.
