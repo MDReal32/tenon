@@ -39,11 +39,11 @@ Before any code changes — before implementing, not after — make sure the wor
 
 ## After a PR is merged
 
-When the user says a PR is merged (even just "merged"), or the start-of-turn check in [autonomy.md](autonomy.md) finds one merged, clean up straight away and do not ask first. Asking is the annoyance, not the deletion. With the Assistant and a PM session, who cleans up is split by whose work the PR is, as [assistant.md](assistant.md) says, and a roadmap PR's branch counts below as created by the PM session, whichever PM session created it.
+When the user says a PR is merged (even just "merged"), or the start-of-turn check in [autonomy.md](autonomy.md) finds one merged, clean up straight away and do not ask first. Asking is the annoyance, not the deletion. With the Assistant and a PM session, the PM session cleans up, as [assistant.md](assistant.md) says, and the branch of a PR a PM session opened counts below as created by the PM session, whichever PM session created it.
 
 1. Verify it: `gh pr view <number> --json state,mergedAt` must say `MERGED`.
 2. Switch to the base and bring it up to date, fast-forward only: `git checkout develop`, `git fetch origin`, `git merge --ff-only origin/develop`. The base is checked out here, so the `git fetch origin develop:develop` form from [Branching](#branching-before-any-implementation) does not apply.
-3. Delete the merged branch locally with `git branch -d <branch>` (never `-D`), after `git branch --merged develop` lists it.
+3. Delete the merged branch locally with `git branch -d <branch>` (never `-D`), after `git branch --merged develop` lists it. Git won't delete a branch checked out in another worktree, so when it is still checked out in the worktree of a PM session that has ended, remove that worktree first with `git worktree remove <path>` (never `--force`).
 4. Delete it on origin with `git push origin --delete <branch>` only if `git ls-remote --heads origin <branch>` still shows it. GitHub often removes it on merge.
 5. `git fetch --prune origin`, then report it in one line.
 

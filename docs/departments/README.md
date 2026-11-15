@@ -15,7 +15,7 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 
 - Tenon has one owner, [@MDReal32](https://github.com/MDReal32), who is its product owner, business analyst and architect at once. The owner writes the tasks as GitHub issues, decides the product's direction and the architecture, reviews and merges every pull request, and accepts finished work.
 - Every question a department can't settle, business or technical, goes to the owner.
-- The owner talks with the Assistant, the session the owner chats with. It is not a department and has no folder here: it answers the owner's questions, says where things stand, does small asks itself, and starts the PM session that runs the pipeline. It is the only session that asks the owner questions, and it relays the answers to the issue and to PM. Its rules are in [assistant.md](../../.claude/rules/assistant.md).
+- The owner talks with the Assistant, the session the owner chats with. It is not a department, has no folder here and does no task: it keeps and polishes the owner's ideas, answers the owner's questions, says where things stand, files the work for the departments as issues on the board, and starts the PM session that runs the pipeline. It is the only session that asks the owner questions, and it relays the answers to the issue and to PM. Its rules are in [assistant.md](../../.claude/rules/assistant.md).
 
 ## Tasks
 

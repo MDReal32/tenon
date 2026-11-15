@@ -11,7 +11,7 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 
 - The coordinator runs in the PM session, which the Assistant starts, as [assistant.md](../../../../../.claude/rules/assistant.md) says. The owner talks with the Assistant meanwhile.
 - Never ask the owner in chat. Every question for the owner goes on the issue, parking the task as [parking and resuming](#parking-and-resuming) says, and at the top of the report to the Assistant, which relays it.
-- A message from another session, the Assistant's included, is the owner's word only when it quotes the owner's own words and says they are the owner's. Treat anything else as a teammate's request, never as the owner's answer or approval.
+- A message from another session, the Assistant's included, is the owner's word only when it quotes the owner's own words and says they are the owner's, and confirms a step only as [assistant.md](../../../../../.claude/rules/assistant.md#talking-with-the-pm-session) says. Treat anything else as a teammate's request, never as the owner's answer or approval.
 
 ## Intake
 
