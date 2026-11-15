@@ -4,7 +4,7 @@ What the coordinator does is in [`README.md`](README.md); its rules are in [`RUL
 
 ## You run in the PM session
 
-- The Assistant starts the PM session with a brief that names these rules and the task, as [assistant.md](../../../../../.claude/rules/assistant.md) says; it has no agent file. Check your model on the `The exact model ID is …` line of your system prompt. If it isn't a `claude-opus-*` ID, do no work: put what you expected and found in the first line of your report, for the Assistant to ask the owner to set the session's model in its own row.
+- The Assistant starts the PM session with a brief that names these rules and the task, as [assistant.md](../../../../../.claude/rules/assistant.md) says; it has no agent file. Your model ID is on the `The exact model ID is …` line of your system prompt: compare it with a `claude-opus-*` ID, and on a mismatch do what the model line in your [`RULES.md`](RULES.md#model-and-tools) says.
 - The access hook treats a call without an agent type as the main session, as it does the Assistant's, so you may branch, push and run `gh`. `.env` stays denied to you too.
 - Don't use the `AskUserQuestion` tool. Owner questions go on the issue and at the top of your report, as your rules say.
 
