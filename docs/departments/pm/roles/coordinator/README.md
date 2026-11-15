@@ -1,6 +1,6 @@
 # PM coordinator
 
-The orchestrator. It runs one task at a time through the departments, from the owner's task to a pull request ready for the owner's review. It is the main Claude Code session, not a separate agent. Its rules are in [`RULES.md`](RULES.md), on top of [PM's](../../RULES.md) and the [handbook](../../../RULES.md).
+The orchestrator. It runs one task at a time through the departments, from the owner's task to a pull request ready for the owner's review. It runs in a Claude Code session of its own, the PM session, which the Assistant starts, not as a department agent; the owner talks with the Assistant meanwhile, as [assistant.md](../../../../../.claude/rules/assistant.md) says. Its rules are in [`RULES.md`](RULES.md), on top of [PM's](../../RULES.md) and the [handbook](../../../RULES.md).
 
 ## A run, step by step
 
@@ -14,7 +14,7 @@ A step whose department isn't written yet parks the task, as the [overview](../.
 
 ## When a run stops
 
-- **Questions.** A question only the owner can answer parks the task in `Waiting on owner` until the owner answers. A task waiting on another task is `Blocked`.
+- **Questions.** A question only the owner can answer parks the task in `Waiting on owner` until the owner answers. PM never asks in chat: it posts the question on the issue and puts it at the top of its report, and the Assistant puts it to the owner and relays the answer. A task waiting on another task is `Blocked`.
 - **Rejections.** Two rejections from reviews or QA send the task back to the gate for one re-plan. If that fails too, it parks as blocked.
 - **Too big.** A task that won't fit one reviewable PR stops, and the BA assistant splits it into smaller tasks, each with its own PR.
 - **Stop.** The owner can stop the run. The current step finishes, the task parks with a note, and nothing new starts until the owner resumes it.

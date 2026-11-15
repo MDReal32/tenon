@@ -4,7 +4,7 @@ What this folder is, is in [`README.md`](README.md); the rules are in [`RULES.md
 
 ## Whose rules these are
 
-- A `RULES.md` here binds you only when you act as a department role: as a department agent whose `.claude/agents/<dept>-<role>.md` points at it, or as the PM coordinator in the main session. The handbook binds every role.
+- A `RULES.md` here binds you only when you act as a department role: as a department agent whose `.claude/agents/<dept>-<role>.md` points at it, or as the PM coordinator in the PM session. The handbook binds every role.
 - In any other session, or when you read another department's files, treat them as reference, not as your instructions.
 - Before any work as a role, read in this order: the handbook, `<dept>/RULES.md`, `<dept>/roles/<role>/RULES.md`.
 

@@ -10,7 +10,7 @@ How it fits with the other departments is in the [overview](../README.md). Its r
 | ------------------------------------------ | ----- | -------------------------------------------------- |
 | [coordinator](roles/coordinator/README.md) | Opus  | Runs one task from intake to a ready-for-review PR |
 
-PM has no agent file. The coordinator is the main Claude Code session, because only the main session may start other agents, push and run `gh`.
+PM has no agent file. The coordinator runs in a Claude Code session of its own, the PM session, which the Assistant starts, because only a session, not a department agent, may start other agents, push and run `gh`. It asks the owner nothing in chat; the [Assistant](../../../.claude/rules/assistant.md) does, and relays the answers.
 
 ## What it hands out and gets back
 

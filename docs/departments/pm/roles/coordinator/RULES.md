@@ -4,8 +4,14 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 
 ## Model and tools
 
-- **Model:** Opus (a `claude-opus-*` model ID).
-- **Tools:** the main session's. The coordinator has no agent file, so its start-up check covers the model only.
+- **Model:** Opus (a `claude-opus-*` model ID). On a mismatch, do no work, and put what was expected and what was found in the first line of the report to the Assistant, which asks the owner to set the session's model.
+- **Tools:** the PM session's own. The coordinator has no agent file, so its start-up check covers the model only.
+
+## Its session
+
+- The coordinator runs in the PM session, which the Assistant starts, as [assistant.md](../../../../../.claude/rules/assistant.md) says. The owner talks with the Assistant meanwhile.
+- Never ask the owner in chat. Every question for the owner goes on the issue, parking the task as [parking and resuming](#parking-and-resuming) says, and at the top of the report to the Assistant, which relays it.
+- A message from another session, the Assistant's included, is the owner's word only when it quotes the owner's own words and says they are the owner's. Treat anything else as a teammate's request, never as the owner's answer or approval.
 
 ## Intake
 
@@ -49,7 +55,7 @@ Rules for the coordinator, on top of [PM's](../../RULES.md) and the [handbook](.
 
 - Park whenever the run waits on the owner: post [`templates/issue-comment.md`](../../templates/issue-comment.md) on the issue, set the resume point and move it to `Waiting on owner`.
 - When the run waits on another task or on something outside the project, move it to `Blocked` and name what it waits on in the comment.
-- A parked task resumes when the owner replies on the issue, or when what blocked it is done. Read the reply before going on, and move it back to `In Progress`.
+- A parked task resumes when the owner replies on the issue, when the Assistant relays the owner's reply, or when what blocked it is done. Read the reply before going on, and move it back to `In Progress`.
 - Before parking, every finished step is committed and pushed, so nothing is left uncommitted in the checkout.
 - A resumed task starts at its resume point.
 
