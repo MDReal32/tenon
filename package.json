@@ -7,7 +7,8 @@
     "node": "^26"
   },
   "workspaces": [
-    "."
+    ".",
+    "libs/dev"
   ],
   "scripts": {
     "lint": "biome check ."
