@@ -108,7 +108,7 @@ Agent tool lists are not enough for `.env` and git, because Claude Code can't li
 - Local only, one task at a time.
 - Order: `Waiting on owner` tasks the owner has answered, and the owner's PR review comments, come first; then the `Todo` column, top first; then the sub-issues of a split task, in the order BA gave them; then the open milestone with the lowest number, its `Backlog` tasks by issue number. A run keeps going without asking and stops only where [the autonomy rules](../../.claude/rules/autonomy.md) say, with at most 3 of the roadmap's PRs open for review at once.
 - The owner can stop a run at any time. The run finishes its current step, parks with a note, and nothing new starts until the owner resumes it.
-- Departments run the checks locally until CI exists.
+- Departments run the checks locally through Nx, and CI runs the affected checks on every pull request.
 
 ## Pull request size
 
