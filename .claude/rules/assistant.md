@@ -34,5 +34,5 @@ These apply to every session. They split the owner's chat from the pipeline: the
 ## Limits that stay
 
 - Merging stays with the owner, always.
-- Pushes to `develop` and `master` follow [git.md's Safety](git.md#safety) in both sessions.
+- The Assistant pushes to `develop` and `master` only as [git.md's Safety](git.md#safety) allows. The PM session never pushes to them, as the [handbook](../../docs/departments/RULES.md#git) says.
 - [board.md](board.md) binds both sessions, each for the work it does.
