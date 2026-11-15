@@ -46,3 +46,11 @@ Done. The workflow is written and committed together with this note. The three s
 ## Next
 
 The Docs writer updates the three stale lines (`docs/departments/README.md`, `docs/departments/pm/pm-knowledge.md`, `docs/departments/devops/devops-knowledge.md`), then DevOps reviews the workflow, and the first CI run on the pull request confirms the Node 26 and Corepack steps.
+
+## Owner review
+
+PM asked for the owner-side review of `.github/workflows/ci.yml`, run fresh as a read-only check. I compared the workflow with the task's four requirements and the Architect gate's plan: a plain `pull_request` trigger with no branch filter and no `push`, `contents: read`, no secrets, a pinned `ubuntu-24.04` runner, no macOS and no docs-only skip, and `yarn nx affected -t lint test build check` as the only check step, so a failing target fails the run. All of them hold, and the file matches the plan's names, SHA pins, `env:` use for the base SHA, credential-free checkout and concurrency group. `actionlint` reports nothing, and the passing run 43692519782 on PR 71 confirms that Node 26 and Corepack 0.36.0 install on the runner.
+
+The review found nothing to change. Three points are not defects and I left them alone, as DevOps' optional follow-ups already say: the job has no `timeout-minutes`, so a hung target runs to GitHub's six-hour default; `packageManager` carries no hash; and the default `pull_request` types do not rerun on `edited`, so a retargeted PR is not re-tested until its next push. None of them contradicts the task or the plan, so they stay for the owner to decide.
+
+Nothing was changed in the workflow.
