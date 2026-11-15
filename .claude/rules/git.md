@@ -18,7 +18,7 @@ Before any code changes — before implementing, not after — make sure the wor
 
 ### Create and switch
 
-1. Refresh the base without checking it out: `git fetch origin <base>:<base>` (e.g. `git fetch origin develop:develop`). This keeps the current working branch in place. It is fast-forward only — never prefix the refspec with `+`. If git refuses (the base is checked out somewhere, or the update isn't a fast-forward), stop and ask the user instead of forcing it.
+1. Refresh the base without checking it out: `git fetch origin <base>:<base>` (e.g. `git fetch origin develop:develop`). This keeps the current working branch in place. It is fast-forward only — never prefix the refspec with `+`. When the base is checked out in the worktree of a PM session that has ended, remove that worktree first, as [assistant.md](assistant.md) says. If git refuses (the base is checked out somewhere, or the update isn't a fast-forward), stop and ask the user instead of forcing it.
 2. Create and switch to the task branch directly from that ref: `git checkout -b <new-branch> <base>^0 --` (e.g. `git checkout -b feat/protocol/handshake develop^0 --`).
 
 - Do not check out the base branch just to create a task branch.
@@ -39,7 +39,7 @@ Before any code changes — before implementing, not after — make sure the wor
 
 ## After a PR is merged
 
-When the user says a PR is merged (even just "merged"), or the start-of-turn check in [autonomy.md](autonomy.md) finds one merged, clean up straight away and do not ask first. Asking is the annoyance, not the deletion.
+When the user says a PR is merged (even just "merged"), or the start-of-turn check in [autonomy.md](autonomy.md) finds one merged, clean up straight away and do not ask first. Asking is the annoyance, not the deletion. With the Assistant and a PM session, the PM session cleans up, as [assistant.md](assistant.md) says, and the branch of a PR a PM session opened counts below as created by the PM session, whichever PM session created it. Before step 2 it removes an ended PM session's worktree that has `develop` or the merged branch checked out, as assistant.md says.
 
 1. Verify it: `gh pr view <number> --json state,mergedAt` must say `MERGED`.
 2. Switch to the base and bring it up to date, fast-forward only: `git checkout develop`, `git fetch origin`, `git merge --ff-only origin/develop`. The base is checked out here, so the `git fetch origin develop:develop` form from [Branching](#branching-before-any-implementation) does not apply.

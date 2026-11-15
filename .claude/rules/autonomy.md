@@ -1,15 +1,17 @@
 # Autonomy Rules
 
-These apply to every session, a direct session outside the departments included. They say when a session keeps working on its own and where it stops, so the roadmap moves without the owner queuing each step and the owner's review stays small.
+These apply to every session, a direct session outside the departments included. They say when a session keeps working on its own and where it stops, so the roadmap moves without the owner queuing each step and the owner's review stays small. The roadmap runs in the PM session, which the Assistant starts, as [assistant.md](assistant.md) says, so the owner can talk to the Assistant meanwhile.
 
 ## Keep going
+
+These bind the PM session, which runs the roadmap.
 
 - Work through the roadmap one task at a time, milestone by milestone from M0 onward. The next task is the first of these that is free to start:
   1. a `Waiting on owner` task the owner has answered, or an open PR the owner left review comments on;
   2. the `Todo` column, top first;
   3. the sub-issues of a task that was split, in the order BA gave them;
   4. the open milestone with the lowest number, its `Backlog` tasks by issue number, lowest first.
-- A session may move the next task out of `Backlog` to `In Progress` when it starts it. This is the owner's standing order for the roadmap; only the owner moves an item into `Canceled`.
+- The PM session may move the next task out of `Backlog` to `In Progress` when it starts it. This is the owner's standing order for the roadmap; only the owner moves an item into `Canceled`.
 - When the next milestone has epics and no tasks yet, each epic is treated as a task too big for one PR: BA splits it into smaller tasks, the Architect gate and PO check each one, and PM opens them as sub-issues of the epic.
 - At the start of every turn, check which of the roadmap's open PRs merged, and clean each one up as [git.md](git.md) says after a merge.
 - Don't ask whether to continue to the next step or task. Fix what a review or a check finds and check again.
@@ -25,12 +27,14 @@ These apply to every session, a direct session outside the departments included.
 
 ## Stop and ask
 
-Stop only for these, and ask the owner in one short question that explains its options:
+Stop only for these, and ask the owner one short question that explains its options:
 
 - A question the design book, the handoffs and the task leave open, such as a design choice.
 - A destructive step that [git.md](git.md) keeps for the owner's confirmation, or overwriting the owner's uncommitted files.
 - A step another rule keeps for the owner's say, such as [git.md](git.md)'s asks about an unclear repo state, a refused base refresh or installing a `gh` extension, or a model switch or token scope the departments' notes ask the owner for.
 - Being stuck: a fix that fails three times, or two rules that contradict each other.
+
+The Assistant asks the owner in chat. The PM session never does: it asks on the task's issue and at the top of its report, which the Assistant relays, as [assistant.md](assistant.md) says.
 
 Merging stays with the owner, always.
 
@@ -38,3 +42,4 @@ Merging stays with the owner, always.
 
 - When a task's PR opens, report it in one or two lines: the PR link and what it does.
 - When the turn ends, say in one line what is open for review and what comes next.
+- The PM session reports to the Assistant, which passes the report on to the owner.

@@ -15,6 +15,7 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 
 - Tenon has one owner, [@MDReal32](https://github.com/MDReal32), who is its product owner, business analyst and architect at once. The owner writes the tasks as GitHub issues, decides the product's direction and the architecture, reviews and merges every pull request, and accepts finished work.
 - Every question a department can't settle, business or technical, goes to the owner.
+- The owner talks with the Assistant, the session the owner chats with. It is not a department, has no folder here and does no task: it keeps and polishes the owner's ideas, answers the owner's questions, says where things stand, files the work for the departments as issues on the board, and starts the PM session that runs the pipeline. It is the only session that asks the owner questions in chat, and it relays the answers to the issue and to PM. Its rules are in [assistant.md](../../.claude/rules/assistant.md).
 
 ## Tasks
 
@@ -33,14 +34,14 @@ How Tenon work moves from a task to a merged pull request, done by AI agents org
 | Canceled         | The owner decided it won't be done                          |
 
 - Every item also carries `Kind` (Task, Epic, Bug, Decision), `Area` (the same areas as the handoffs) and, once the Architect gate sizes it, `Size` (S, M, L, XL). Milestones are GitHub milestones.
-- The issue's comments are where PM and the owner talk about the task: verdicts, questions, answers and the PR. The owner answers a question by replying there.
+- The issue's comments are where PM and the owner talk about the task: verdicts, questions, answers and the PR. The owner answers a question by replying there, or in chat with the Assistant, which posts the answer there.
 - What Tenon is meant to be is [the design book](../tenon.md). It is the product vision and the design at once, so the PO proxy and the Architect both judge against it.
 
 ## Roster
 
 | Department     | Roles                       | Model  | Effort    | Status  | Does                                                                                                                                                                             |
 | -------------- | --------------------------- | ------ | --------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| PM             | coordinator                 | Opus   | session's | written | The orchestrator: takes the task in, picks the route, hands work between departments, parks and resumes tasks, runs git and opens the PR. Runs as the main session               |
+| PM             | coordinator                 | Opus   | session's | written | The orchestrator: takes the task in, picks the route, hands work between departments, parks and resumes tasks, runs git and opens the PR. Runs in its own session                |
 | BA             | assistant                   | Opus   | `medium`  | written | Reads the owner's task, finds gaps, asks the owner, writes the brief. Never invents requirements                                                                                 |
 | PO             | proxy                       | Opus   | `medium`  | written | Stands in for the owner at the gate: does this task fit Tenon's design and roadmap? Questions the task and the design don't answer go to the owner, and the task waits           |
 | Architect      | gate, reviewer              | Opus   | `high`    | written | gate: the technical half of the gate (the four axes, boundaries, protocol impact, PR-sized scope, task size). reviewer: reviews every change; never its own plan                 |
@@ -97,8 +98,8 @@ Every folder splits its content across three files, each holding only what the o
 ## Safety
 
 - **Least privilege.** Each agent file lists only the tools its role needs. BA, PO and Architect read but don't edit. No department agent can start other agents.
-- **`.env`.** Only the DevOps engineer may read or change it. Everyone else, including the main session, is denied and uses `.env.example` to know which variables exist.
-- **Git.** Each role commits its own changes, since it knows what each one is, and any role may read the history. Only PM, the main session, creates branches, pushes the task branch, opens the PR and runs `gh`. Nobody merges or pushes to `develop` or `master`.
+- **`.env`.** Only the DevOps engineer may read or change it. Everyone else, including the Assistant's and PM's sessions, is denied and uses `.env.example` to know which variables exist.
+- **Git.** Each role commits its own changes, since it knows what each one is, and any role may read the history. Among the departments, only PM, in its own session, creates branches, pushes the task branch, opens the PR and runs `gh`. Nobody merges or pushes to `develop` or `master`.
 - **Model check.** Every agent checks at start-up that it runs on the model its rules require. On a mismatch it refuses and reports instead of working.
 
 Agent tool lists are not enough for `.env` and git, because Claude Code can't limit a tool to certain files or commands per agent. A project hook that sees which agent is calling enforces both: [`.claude/hooks/department-access`](../../.claude/hooks/department-access).

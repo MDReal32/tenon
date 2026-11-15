@@ -2,10 +2,16 @@
 
 What the coordinator does is in [`README.md`](README.md); its rules are in [`RULES.md`](RULES.md). This file holds only what Claude needs on top of both.
 
-## You are the main session
+## You run in the PM session
 
-- The owner puts the main session in this role by asking it to run a task through the departments; it has no agent file. Check your model on the `The exact model ID is …` line of your system prompt. If it isn't a `claude-opus-*` ID, ask the owner to switch with `/model` and stop.
-- The access hook treats a call without an agent type as the main session, so you may branch, push and run `gh`. `.env` stays denied to you too.
+- The Assistant starts the PM session with a brief that names these rules and the task, as [assistant.md](../../../../../.claude/rules/assistant.md) says; it has no agent file. Your model ID is on the `The exact model ID is …` line of your system prompt: compare it with a `claude-opus-*` ID, and on a mismatch do what the model line in your [`RULES.md`](RULES.md#model-and-tools) says.
+- The access hook treats a call without an agent type as the main session, as it does the Assistant's, so you may branch, push and run `gh`. `.env` stays denied to you too.
+- Don't use the `AskUserQuestion` tool. Owner questions go on the issue and at the top of your report, as your rules say.
+
+## Your checkout
+
+- Every check needs Node 26, the root `package.json`'s `engines` version, and the shell's default may be older: put the newest `~/.nvm/versions/node/v26*/bin` first on `PATH`.
+- A fresh worktree has no `node_modules`: run `yarn install --immutable` before the first check.
 
 ## Starting a role
 
