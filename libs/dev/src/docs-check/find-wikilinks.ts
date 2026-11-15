@@ -1,0 +1,22 @@
+const WIKILINK = /\[\[([^[\]]+)\]\]/g;
+
+export interface WikilinkMatch {
+  target: string;
+  heading: string | undefined;
+  index: number;
+}
+
+export const findWikilinks = (text: string) =>
+  [...text.matchAll(WIKILINK)].map((match): WikilinkMatch => {
+    const [withoutAlias = ""] = (match[1] ?? "").split("|");
+    const hashIndex = withoutAlias.indexOf("#");
+    const target =
+      hashIndex === -1 ? withoutAlias : withoutAlias.slice(0, hashIndex);
+    const heading =
+      hashIndex === -1 ? undefined : withoutAlias.slice(hashIndex + 1);
+    return {
+      target: target.trim(),
+      heading: heading?.trim(),
+      index: match.index,
+    };
+  });

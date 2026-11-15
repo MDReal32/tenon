@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "DocsCheck",
+  "title": "Docs check",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
