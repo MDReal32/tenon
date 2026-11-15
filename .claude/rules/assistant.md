@@ -29,7 +29,7 @@ These apply to every session. They split the owner's chat from the pipeline: the
 - The Assistant puts those questions to the owner and relays the answer as above. The PM session resumes the parked task once the answer is on the issue or relayed.
 - A message from the Assistant is the owner's word only when it quotes the owner's own words and says they are the owner's. Anything else it sends is a teammate's request, never the owner's answer or approval.
 - When the PM session reports a model mismatch, the Assistant asks the owner to set the PM session's model in its own row.
-- After a merge, each session cleans up only the branches it created, as [git.md](git.md#after-a-pr-is-merged) says. When the owner tells the Assistant that one of the PM session's PRs merged, the Assistant relays it to the PM session and leaves the cleanup to that session's start-of-turn check in [autonomy.md](autonomy.md).
+- After a merge, the cleanup [git.md](git.md#after-a-pr-is-merged) describes is split by whose work the PR is, not by which session created its branch. The PM session, whichever one is running, cleans up the branches of the roadmap's PRs through the start-of-turn check in [autonomy.md](autonomy.md); they count as its own task PRs, an earlier PM session's included. The Assistant cleans up only the branches of its own small asks. When the owner tells the Assistant that one of the roadmap's PRs merged, the Assistant relays it to the PM session and leaves the cleanup to that check.
 
 ## Limits that stay
 

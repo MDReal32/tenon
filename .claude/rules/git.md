@@ -39,7 +39,7 @@ Before any code changes — before implementing, not after — make sure the wor
 
 ## After a PR is merged
 
-When the user says a PR is merged (even just "merged"), or the start-of-turn check in [autonomy.md](autonomy.md) finds one merged, clean up straight away and do not ask first. Asking is the annoyance, not the deletion. With the Assistant and a PM session, each cleans up only the branches it created, as [assistant.md](assistant.md) says.
+When the user says a PR is merged (even just "merged"), or the start-of-turn check in [autonomy.md](autonomy.md) finds one merged, clean up straight away and do not ask first. Asking is the annoyance, not the deletion. With the Assistant and a PM session, who cleans up is split by whose work the PR is, as [assistant.md](assistant.md) says, and a roadmap PR's branch counts below as created by the PM session, whichever PM session created it.
 
 1. Verify it: `gh pr view <number> --json state,mergedAt` must say `MERGED`.
 2. Switch to the base and bring it up to date, fast-forward only: `git checkout develop`, `git fetch origin`, `git merge --ff-only origin/develop`. The base is checked out here, so the `git fetch origin develop:develop` form from [Branching](#branching-before-any-implementation) does not apply.
