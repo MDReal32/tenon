@@ -6,12 +6,12 @@ tasks:
 role: programming-dev
 model: claude-sonnet-5-5
 date: "2026-11-14"
-status: partial
+status: done
 branch: chore/dev/18-ci
 pr: 71
 ---
 
-# Programming dev analysis of the CI task
+# Programming dev analysis and build of the CI task
 
 PM asked the Programming dev role, as specialist before the gate, to plan how the CI workflow for [#18](https://github.com/MDReal32/tenon/issues/18) would be built and tested, continuing from [the BA readiness check](2026-11-14-ba-assistant-ci-readiness.md). No workflow file is written in this step; the output is the analysis returned to PM.
 
@@ -31,10 +31,18 @@ The planned workflow is one job on `ubuntu-24.04`: checkout with full history, s
 
 Read-only commands only: `yarn nx show projects`, `yarn nx show project @tenon/source`, `yarn nx affected -t lint test build check --base=develop` (green, 1 task), the same with a missing base (fails) and with no change (0 tasks, exit 0), and `yarn install --immutable` (clean). Nothing was written other than this note and the job note.
 
+## The build
+
+After both halves of the gate approved the plan, PM asked for the build, and I wrote `.github/workflows/ci.yml` as the Architect gate's verdict settles it: workflow `CI`, a plain `pull_request` trigger with no branch filter and no `push`, `permissions: contents: read`, a concurrency group per pull request that cancels superseded runs, and one job `nx-affected` named `Nx affected` on `ubuntu-24.04`, outside any matrix. The steps are checkout (`fetch-depth: 0`, `persist-credentials: false`), setup-node with `node-version-file: package.json`, `npm install --global corepack@0.36.0` then `corepack enable` (Node 26 no longer bundles Corepack), `yarn install --immutable`, and `yarn nx affected -t lint test build check --base="$BASE_SHA" --head=HEAD`, with `BASE_SHA` set through the step's `env:` so no `${{ }}` expression sits in a `run:` script. The actions are pinned to full commit SHAs without a version comment: `actions/checkout` v7.0.1 is `3d3c42e5aac5ba805825da76410c181273ba90b1` and `actions/setup-node` v7.1.0 is `949feb2413d6458794dcd2491c4babbbce0c15c1`. There is no secrets reference, no `nx-set-shas` and no Rust step.
+
+## Build checks
+
+`actionlint .github/workflows/ci.yml` passed with no findings. Ruby's YAML loader parses the file (it shows the `on` key as `true`, a YAML 1.1 quirk, not a defect). The grep for `macos`, `secrets.`, `pull_request_target` and `push:` found nothing. `yarn nx affected -t lint test build check --base=develop --head=HEAD` was green with one task. For criterion 3, an untracked temp file with Biome errors made `yarn nx affected -t lint --skip-nx-cache` exit 1; I deleted it and `git status` shows only the owner's `.idea` files and the new workflow. `yarn nx show projects` still lists `@tenon/source`. Biome printed nothing about the YAML, so it does not cover it. I could not run the workflow itself; its first run on the pull request will confirm that Node 26 and Corepack 0.36.0 install on the runner.
+
 ## Where it stands
 
-Partial. The analysis is returned to PM, with five questions for the BA assistant. No workflow file exists.
+Done. The workflow is written and committed together with this note. The three stale "CI doesn't exist yet" lines are untouched.
 
 ## Next
 
-The BA assistant answers the questions, then both halves of the gate. After approval, a dev run writes `.github/workflows/ci.yml`, with DevOps as reviewer, and the three stale lines named in the brief are reported to PM for the Docs writer (they sit outside this role's part).
+The Docs writer updates the three stale lines (`docs/departments/README.md`, `docs/departments/pm/pm-knowledge.md`, `docs/departments/devops/devops-knowledge.md`), then DevOps reviews the workflow, and the first CI run on the pull request confirms the Node 26 and Corepack steps.
