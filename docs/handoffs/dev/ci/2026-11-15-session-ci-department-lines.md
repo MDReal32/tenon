@@ -17,7 +17,7 @@ pr: 71
 
 ## What I did and how
 
-I changed each line to match what the workflow does. The overview now says departments run the checks locally through Nx and that CI runs the affected checks on every pull request. `pm-knowledge.md` says CI runs `yarn nx affected -t lint test build check` on every pull request, on Linux only, and keeps its statement that the engine will be Rust and the workspace tooling will live in `libs/dev`. `devops-knowledge.md` names `.github/workflows/ci.yml` and says it runs on every pull request on a pinned `ubuntu-24.04`, with every action pinned to a full commit SHA. The DevOps engineer's review confirmed all three statements are true.
+I changed each line to match what the workflow does. The overview now says departments run the checks locally through Nx and that CI runs the affected checks on every pull request. `pm-knowledge.md` says CI runs `yarn nx affected -t lint test build check` on every pull request, on Linux only, and keeps its statement that the engine will be Rust and the workspace tooling will live in `libs/dev`. `devops-knowledge.md` names `.github/workflows/ci.yml` and says it runs on every pull request on a pinned `ubuntu-24.04`, with every action pinned to a full commit SHA. [The DevOps engineer's review](2026-11-15-devops-engineer-ci-review.md) confirmed all three statements are true.
 
 ## Why this way
 
@@ -25,7 +25,7 @@ No department role could make the change. The Docs writer's rules leave departme
 
 ## Checks
 
-The link, anchor and table check over the repository found no new problem; its only findings are the example links inside the note templates. The DevOps engineer's review read the three lines against the workflow.
+The link, anchor and table check over the repository found no new problem; its only findings are the example links inside the note templates. [The DevOps engineer's review](2026-11-15-devops-engineer-ci-review.md) read the three lines against the workflow.
 
 ## Where it stands
 
