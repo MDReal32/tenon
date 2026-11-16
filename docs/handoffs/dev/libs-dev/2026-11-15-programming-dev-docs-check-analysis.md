@@ -8,7 +8,7 @@ model: claude-sonnet-5-5
 date: "2026-11-15"
 status: done
 branch: chore/dev/78-docs-check
-pr:
+pr: 84
 ---
 
 # Programming dev analysis of the docs check

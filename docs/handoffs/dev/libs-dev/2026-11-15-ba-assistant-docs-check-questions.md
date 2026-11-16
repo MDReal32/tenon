@@ -8,7 +8,7 @@ model: claude-opus-5-5
 date: "2026-11-15"
 status: done
 branch: chore/dev/78-docs-check
-pr:
+pr: 84
 ---
 
 # BA answers and final brief for the docs check
