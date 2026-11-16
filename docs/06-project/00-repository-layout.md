@@ -10,6 +10,7 @@ covers:
   - dist
   - libs/dev
   - package.json
+  - project.json
   - nx.json
   - Cargo.toml
   - rust-toolchain.toml
