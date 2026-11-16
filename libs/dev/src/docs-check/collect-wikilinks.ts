@@ -1,9 +1,8 @@
 import { findWikilinks } from "./find-wikilinks.ts";
+import { FRONTMATTER_FIRST_LINE } from "./frontmatter-first-line.ts";
 import type { LoadedDocument } from "./loaded-document.ts";
 import { walkNodes } from "./walk-nodes.ts";
 import type { WikilinkOccurrence } from "./wikilink-occurrence.ts";
-
-const FRONTMATTER_FIRST_LINE = 2;
 
 export const collectWikilinks = (document: LoadedDocument) => {
   const occurrences: WikilinkOccurrence[] = [];

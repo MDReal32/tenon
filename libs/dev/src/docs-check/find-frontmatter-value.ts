@@ -1,6 +1,5 @@
+import { FRONTMATTER_FIRST_LINE } from "./frontmatter-first-line.ts";
 import type { FrontmatterValue } from "./frontmatter-value.ts";
-
-const FRONTMATTER_FIRST_LINE = 2;
 
 export const findFrontmatterValue = (frontmatter: string[], key: string) => {
   const prefix = `${key}:`;

@@ -1,0 +1,1 @@
+export const FRONTMATTER_FIRST_LINE = 2;

@@ -1,16 +1,8 @@
-import path from "node:path";
+import { actualLink } from "./actual-link.ts";
+import { expectedLink } from "./expected-link.ts";
 import { findFrontmatterValue } from "./find-frontmatter-value.ts";
 import type { LoadedDocument } from "./loaded-document.ts";
 import type { Problem } from "./problem.ts";
-
-const WIKILINK_VALUE = /^\[\[(.+)\]\]$/;
-
-const stemOf = (file: string) => path.posix.basename(file, ".md");
-
-const expectedLink = (file: string | undefined) =>
-  file === undefined ? "" : stemOf(file);
-
-const actualLink = (value: string) => value.match(WIKILINK_VALUE)?.[1] ?? value;
 
 export const checkChain = (
   pages: string[],

@@ -1,13 +1,9 @@
 import path from "node:path";
 import type { createDirectoryLister } from "./create-directory-lister.ts";
+import { isInside } from "./is-inside.ts";
 import { pathKind } from "./path-kind.ts";
 
 type DirectoryLister = ReturnType<typeof createDirectoryLister>;
-
-const isInside = (relative: string) =>
-  relative !== ".." &&
-  !relative.startsWith(`..${path.sep}`) &&
-  !path.isAbsolute(relative);
 
 export const resolveExistingPath = async (
   root: string,

@@ -41,9 +41,13 @@ Choices the plan left to the build: a markdown anchor is compared exactly with t
 
 All on Node 26.13.1 through Nx. `yarn nx run @tenon/dev:test` found and passed 21 tests, and a planted failing test made the target exit 1. `yarn nx run @tenon/dev:typecheck` passed, and a planted type error failed it with TS2322. TypeScript 7.0.2 accepted every `tsconfig.json` option. `yarn nx run @tenon/dev:lint` and `yarn biome check .` passed. `yarn install --immutable` passed, and the only remaining peer warning is the existing `@monodon/rust` one for `@napi-rs/cli`. `yarn nx show projects` still lists `@tenon/dev` and `@tenon/source`. `yarn nx show project @tenon/source --json` keeps `lint` and shows `docs:check` with the executor, cache and inputs. `yarn nx show projects --affected --files=libs/dev/src/docs-check/executor.ts` lists both projects. `yarn nx run @tenon/source:docs:check` loaded the executor through the `workspace:*` link, ran the ESM mdast graph and passed on 176 Markdown files.
 
+## Attempt 2: owner review findings
+
+The owner review approved the docs check with three code-style findings, and attempt 2 fixes only those, with no behaviour change. The extracted helpers each moved into their own file and are imported where used: `isInside` to `is-inside.ts`, `listEntries` to `list-entries.ts`, and `stemOf`, `expectedLink` and `actualLink` to `stem-of.ts`, `expected-link.ts` and `actual-link.ts`. None was a closure over local state, so none needed new parameters. The duplicated `FRONTMATTER_FIRST_LINE` constant now lives in `frontmatter-first-line.ts` and both `collect-wikilinks.ts` and `find-frontmatter-value.ts` import it. The `WikilinkMatch` interface moved to `wikilink-match.ts` and `find-wikilinks.ts` imports it. The checks `yarn nx run @tenon/dev:test --skip-nx-cache`, `@tenon/dev:typecheck`, `@tenon/dev:lint`, `@tenon/source:lint` and the root `docs:check` target all succeeded.
+
 ## Where it stands
 
-Done. The docs check is built and committed on the task branch, and it finds no problem in today's `docs/`, so no doc fix is needed. Nothing under `docs/` outside this handoff and the job note was changed. `typecheck` and `docs:check` still do not run in CI, which is outside this task.
+Done, with the attempt 2 review fixes in. The docs check is built and committed on the task branch, and it finds no problem in today's `docs/`, so no doc fix is needed. Nothing under `docs/` outside this handoff and the job note was changed. `typecheck` and `docs:check` still do not run in CI, which is outside this task.
 
 ## Next
 
