@@ -1,4 +1,4 @@
-import path from "node:path";
+import { resolve } from "node:path";
 import { buildWikilinkIndex } from "./build-wikilink-index.ts";
 import { checkChain } from "./check-chain.ts";
 import type { CheckContext } from "./check-context.ts";
@@ -19,7 +19,7 @@ const DOCS = "docs";
 export const runDocsCheck = async (root: string) => {
   const files = await collectMarkdownFiles(root, DOCS);
   const context: CheckContext = {
-    root: path.resolve(root),
+    root: resolve(root),
     listDirectory: createDirectoryLister(),
     headingSlugs: createHeadingSlugCache(),
     wikilinks: buildWikilinkIndex(DOCS, files),

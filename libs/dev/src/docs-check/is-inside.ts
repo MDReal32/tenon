@@ -1,6 +1,6 @@
-import path from "node:path";
+import { isAbsolute, sep } from "node:path";
 
 export const isInside = (relative: string) =>
   relative !== ".." &&
-  !relative.startsWith(`..${path.sep}`) &&
-  !path.isAbsolute(relative);
+  !relative.startsWith(`..${sep}`) &&
+  !isAbsolute(relative);

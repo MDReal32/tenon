@@ -1,8 +1,6 @@
-import type { SplitDocument } from "./split-document.ts";
-
 const FENCE = "---";
 
-export const splitFrontmatter = (source: string): SplitDocument => {
+export const splitFrontmatter = (source: string) => {
   const lines = source.split(/\r?\n/);
   if (lines[0]?.trimEnd() !== FENCE) {
     return { frontmatter: [], body: source, lineOffset: 0 };

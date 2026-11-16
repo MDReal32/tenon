@@ -1,8 +1,7 @@
-import path from "node:path";
+import { dirname, join, relative, resolve } from "node:path";
 import type { CheckContext } from "./check-context.ts";
 import { decodePercent } from "./decode-percent.ts";
 import type { LoadedDocument } from "./loaded-document.ts";
-import type { Problem } from "./problem.ts";
 import type { Reference } from "./reference.ts";
 import { resolveExistingPath } from "./resolve-existing-path.ts";
 
@@ -18,7 +17,7 @@ export const checkLink = async (
     return undefined;
   }
 
-  const problem = (message: string): Problem => ({
+  const problem = (message: string) => ({
     path: document.path,
     line,
     message,
@@ -35,12 +34,12 @@ export const checkLink = async (
     return problem(`broken link "${url}": invalid percent-encoding`);
   }
 
-  const documentPath = path.join(context.root, document.path);
+  const documentPath = join(context.root, document.path);
   let target = documentPath;
   if (decodedPath.startsWith("/")) {
-    target = path.join(context.root, decodedPath);
+    target = join(context.root, decodedPath);
   } else if (decodedPath !== "") {
-    target = path.resolve(path.dirname(documentPath), decodedPath);
+    target = resolve(dirname(documentPath), decodedPath);
   }
 
   const kind = await resolveExistingPath(
@@ -48,7 +47,7 @@ export const checkLink = async (
     target,
     context.listDirectory,
   );
-  const shown = path.relative(context.root, target) || document.path;
+  const shown = relative(context.root, target) || document.path;
   if (kind === undefined) {
     return problem(`broken link "${url}": ${shown} does not exist`);
   }

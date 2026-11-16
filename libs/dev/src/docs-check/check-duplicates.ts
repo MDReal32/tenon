@@ -1,4 +1,4 @@
-import path from "node:path";
+import { posix } from "node:path";
 import type { Problem } from "./problem.ts";
 
 const TRIPLET_NAMES = new Set(["readme.md", "rules.md", "claude.md"]);
@@ -7,7 +7,7 @@ const TRIPLET_ROOT = "docs/departments/";
 export const checkDuplicates = (files: string[]) => {
   const byName = new Map<string, string[]>();
   for (const file of files) {
-    const name = path.posix.basename(file).toLowerCase();
+    const name = posix.basename(file).toLowerCase();
     byName.set(name, [...(byName.get(name) ?? []), file]);
   }
 
@@ -25,7 +25,7 @@ export const checkDuplicates = (files: string[]) => {
       problems.push({
         path: file,
         line: 1,
-        message: `duplicate file name "${path.posix.basename(file)}", also at ${others}`,
+        message: `duplicate file name "${posix.basename(file)}", also at ${others}`,
       });
     }
   }

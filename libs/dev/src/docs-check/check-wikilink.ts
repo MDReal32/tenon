@@ -1,8 +1,7 @@
-import path from "node:path";
-import GithubSlugger from "github-slugger";
+import { join } from "node:path";
+import { slug } from "github-slugger";
 import type { CheckContext } from "./check-context.ts";
 import type { LoadedDocument } from "./loaded-document.ts";
-import type { Problem } from "./problem.ts";
 import type { WikilinkOccurrence } from "./wikilink-occurrence.ts";
 
 const MARKDOWN_EXTENSION = /\.md$/;
@@ -13,7 +12,7 @@ export const checkWikilink = async (
   context: CheckContext,
 ) => {
   const { target, heading, line } = occurrence;
-  const problem = (message: string): Problem => ({
+  const problem = (message: string) => ({
     path: document.path,
     line,
     message,
@@ -39,9 +38,9 @@ export const checkWikilink = async (
     return undefined;
   }
 
-  const wanted = new GithubSlugger().slug(heading.split("#").at(-1) ?? "");
+  const wanted = slug(heading.split("#").at(-1) ?? "");
   for (const file of files) {
-    const slugs = await context.headingSlugs(path.join(context.root, file));
+    const slugs = await context.headingSlugs(join(context.root, file));
     if (slugs.has(wanted)) {
       return undefined;
     }

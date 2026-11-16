@@ -1,9 +1,7 @@
-import type { WikilinkMatch } from "./wikilink-match.ts";
-
 const WIKILINK = /\[\[([^[\]]+)\]\]/g;
 
 export const findWikilinks = (text: string) =>
-  [...text.matchAll(WIKILINK)].map((match): WikilinkMatch => {
+  [...text.matchAll(WIKILINK)].map((match) => {
     const [withoutAlias = ""] = (match[1] ?? "").split("|");
     const hashIndex = withoutAlias.indexOf("#");
     const target =

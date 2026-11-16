@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+import { deepEqual, equal } from "node:assert/strict";
 import { test } from "node:test";
 import { checkChain } from "./check-chain.ts";
 import type { LoadedDocument } from "./loaded-document.ts";
@@ -20,7 +20,7 @@ test("passes a consistent chain", () => {
     page(pages[0] ?? "", "", '"[[00-a]]"'),
     page(pages[1] ?? "", '"[[tenon]]"', ""),
   ]);
-  assert.deepEqual(checkChain(pages, documents), []);
+  deepEqual(checkChain(pages, documents), []);
 });
 
 test("names the file and the line of a broken link", () => {
@@ -29,6 +29,6 @@ test("names the file and the line of a broken link", () => {
     page(pages[1] ?? "", '"[[tenon]]"', ""),
   ]);
   const [problem] = checkChain(pages, documents);
-  assert.equal(problem?.path, "docs/tenon.md");
-  assert.equal(problem?.line, 3);
+  equal(problem?.path, "docs/tenon.md");
+  equal(problem?.line, 3);
 });

@@ -1,3 +1,3 @@
-import path from "node:path";
+import { posix } from "node:path";
 
-export const stemOf = (file: string) => path.posix.basename(file, ".md");
+export const stemOf = (file: string) => posix.basename(file, ".md");

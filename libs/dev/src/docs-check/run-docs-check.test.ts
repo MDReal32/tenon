@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+import { deepEqual, equal, match } from "node:assert/strict";
 import { test } from "node:test";
 import { createFixture } from "./create-fixture.ts";
 import { runDocsCheck } from "./run-docs-check.ts";
@@ -19,18 +19,15 @@ const problemsOf = async (files: Record<string, string>) => {
 };
 
 test("passes a clean docs tree", async () => {
-  assert.deepEqual(await problemsOf({}), []);
+  deepEqual(await problemsOf({}), []);
 });
 
 test("reports a broken link at its real line, below the frontmatter", async () => {
   const problems = await problemsOf({
     "docs/note.md": "---\ntitle: n\n---\n\ntext\n\n[x](missing.md)\n",
   });
-  assert.equal(problems.length, 1);
-  assert.match(
-    problems[0] ?? "",
-    /^docs\/note\.md:7 broken link "missing\.md"/,
-  );
+  equal(problems.length, 1);
+  match(problems[0] ?? "", /^docs\/note\.md:7 broken link "missing\.md"/);
 });
 
 test("checks a markdown anchor and a percent-encoded path", async () => {
@@ -39,8 +36,8 @@ test("checks a markdown anchor and a percent-encoded path", async () => {
       "[ok](01-a/00-a.md#sub-part)\n\n[bad](01-a/00-a.md#nope)\n\n[enc](my%20file.md)\n",
     "docs/my file.md": "# f\n",
   });
-  assert.equal(problems.length, 1);
-  assert.match(problems[0] ?? "", /^docs\/note\.md:3 broken anchor "#nope"/);
+  equal(problems.length, 1);
+  match(problems[0] ?? "", /^docs\/note\.md:3 broken anchor "#nope"/);
 });
 
 test("checks a link from docs to a file outside docs, and its anchor", async () => {
@@ -49,7 +46,7 @@ test("checks a link from docs to a file outside docs, and its anchor", async () 
     "docs/note.md":
       "[ok](../outside.md#real-heading)\n\n[bad](../outside.md#gone)\n\n[none](../absent.md)\n",
   });
-  assert.equal(problems.length, 2);
+  equal(problems.length, 2);
 });
 
 test("ignores links to other websites and code", async () => {
@@ -57,7 +54,7 @@ test("ignores links to other websites and code", async () => {
     "docs/note.md":
       "[w](https://example.com/x)\n\n`[c](nope.md)`\n\n```\n[d](nope.md)\n```\n",
   });
-  assert.deepEqual(problems, []);
+  deepEqual(problems, []);
 });
 
 test("checks wikilinks and their headings, in the body and the frontmatter", async () => {
@@ -65,8 +62,8 @@ test("checks wikilinks and their headings, in the body and the frontmatter", asy
     "docs/note.md":
       '---\nrelated: "[[ghost]]"\n---\n\n[[00-a#Sub part]] and [[00-a#Missing]] and [[nowhere]]\n',
   });
-  assert.equal(problems.length, 3);
-  assert.match(problems[0] ?? "", /^docs\/note\.md:2 unknown wikilink/);
+  equal(problems.length, 3);
+  match(problems[0] ?? "", /^docs\/note\.md:2 unknown wikilink/);
 });
 
 test("reports a duplicate name with every path", async () => {
@@ -74,8 +71,8 @@ test("reports a duplicate name with every path", async () => {
     "docs/a/same.md": "# a\n",
     "docs/b/same.md": "# b\n",
   });
-  assert.equal(problems.length, 2);
-  assert.match(problems[0] ?? "", /^docs\/a\/same\.md:1 duplicate/);
+  equal(problems.length, 2);
+  match(problems[0] ?? "", /^docs\/a\/same\.md:1 duplicate/);
 });
 
 test("reports a broken prev and next chain", async () => {
@@ -83,8 +80,8 @@ test("reports a broken prev and next chain", async () => {
     "docs/01-a/00-a.md":
       '---\nprev: "[[tenon]]"\nnext: "[[tenon]]"\n---\n\n# First\n',
   });
-  assert.equal(problems.length, 1);
-  assert.match(problems[0] ?? "", /^docs\/01-a\/00-a\.md:3 broken next chain/);
+  equal(problems.length, 1);
+  match(problems[0] ?? "", /^docs\/01-a\/00-a\.md:3 broken next chain/);
 });
 
 test("does not count a json file under docs as a duplicate", async () => {
@@ -92,5 +89,15 @@ test("does not count a json file under docs as a duplicate", async () => {
     "docs/.obsidian/app.json": "{}",
     "docs/other/app.json": "{}",
   });
-  assert.deepEqual(problems, []);
+  deepEqual(problems, []);
+});
+
+test("resolves link targets case-exactly", async () => {
+  const problems = await problemsOf({
+    "docs/Note.md": "# Note\n",
+    "docs/other.md":
+      "[x](note.md)\n\n[ok](Note.md)\n\n[dir](01-a)\n\n[root](/docs/Note.md)\n",
+  });
+  equal(problems.length, 1);
+  match(problems[0] ?? "", /^docs\/other\.md:1 broken link "note\.md"/);
 });
