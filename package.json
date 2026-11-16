@@ -16,6 +16,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.6.7",
     "@monodon/rust": "3.0.0",
+    "@tenon/dev": "workspace:*",
     "nx": "24.0.6"
   }
 }

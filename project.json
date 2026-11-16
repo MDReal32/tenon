@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/nx/schemas/project-schema.json",
+  "name": "@tenon/source",
+  "targets": {
+    "docs:check": {
+      "executor": "@tenon/dev:docs-check",
+      "cache": true,
+      "inputs": ["{workspaceRoot}/**/*"]
+    }
+  }
+}
